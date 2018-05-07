@@ -3,7 +3,7 @@
 \title{Print free objects}
 \description{Print methods for free objects}
 \usage{
-print.free(x,...)
+\method{print}{free}(x,...)
 as.character_free(x,latex=getOption("latex"))
 }
 \arguments{
