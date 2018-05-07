@@ -9,6 +9,10 @@ as.character_free(x,latex=getOption("latex"))
 \arguments{
   \item{x}{Object of class \code{free} in the print method, a matrix in
     (low-level) \code{as.character_free()}}
+  \item{latex}{Boolean, with code{TRUE} meaning to print latex-friendly
+    output including curly braces, and default \code{NULL} option
+    meaning to give a nicer-looking output that latex would typeset
+    incorrectly}
   \item{...}{Further arguments, currently ignored}
 }
 \author{Robin K. S. Hankin}
