@@ -30,15 +30,6 @@ row is the corresponding power. Thus \eqn{a^2ba^{-1}}{a^2ba^-1} would be
 
 }
 \author{Robin K. S. Hankin}
-\note{
-%%  ~~further notes~~
-}
-
-%% ~Make other sections like Warning with \section{Warning }{....} ~
-
-\seealso{
-%% ~~objects to See Also as \code{\link{help}}, ~~~
-}
 \examples{
 ##---- Should be DIRECTLY executable !! ----
 ##-- ==>  Define data, use random,
