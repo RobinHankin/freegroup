@@ -140,7 +140,7 @@
 
 `abc` <- function(n){free(rbind(seq_len(n),1))}
 
-`is.null.free` <- function(x){x==as.free(0)}
+`is.identity` <- function(x){x==as.free(0)}
 
 `is.cyclically.reduced` <- function(a){unlist(lapply(unclass(a), function(o){o[1,1]!=o[1,ncol(o)]}))}
   
