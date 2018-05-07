@@ -92,19 +92,19 @@
         )
 }
 
-`free_repeat` <- function(e1,e2){ # e1 is free, e2 an integer
-    jj <- cbind(seq_along(e1),seq_along(e2))
+`free_repeat` <- function(e1,n){ # e1 is free, n an integer
+    jj <- cbind(seq_along(e1),seq_along(n))
     out <- list()
     for(i in seq_len(nrow(jj))){
         M <- e1[[jj[i,1]]]
-        n <- e2[jj[i,2]]
+        nn <- n[jj[i,2]]
         out[[i]] <- 
-        if(n>0){
-            M[,rep(seq_len(ncol(M)),n),drop=FALSE]
-        } else if (n==0){
+        if(nn>0){
+            M[,rep(seq_len(ncol(M)),nn),drop=FALSE]
+        } else if (nn==0){
             M[,FALSE,drop=FALSE]
-        } else if (n<0){
-            inverse(M)[,rep(seq_len(ncol(M)),-n),drop=FALSE]
+        } else if (nn<0){
+            inverse(M)[,rep(seq_len(ncol(M)),-nn),drop=FALSE]
         }
     }
     return(free(out))
