@@ -1,0 +1,112 @@
+"Ops.free" <-
+  function (e1, e2 = NULL) 
+{
+    if(nargs() == 1){  #unary operator
+        if (.Generic == "+") {
+            return(e1)
+        } else if (.Generic == "-") {
+            return(inverse(e1))
+    } else {
+        stop("Unary operator '", .Generic, "' is not implemented for free objects")
+    }
+  }
+
+    lclass <- nchar(.Method[1]) > 0
+    rclass <- nchar(.Method[2]) > 0
+    
+    if (lclass && rclass) {
+        if (.Generic == "+") {
+            return(juxtapose(e1, e2))
+        } else if (.Generic == "-"){
+            return(juxtapose(e1,inverse(e2)))
+        } else if (.Generic == "^"){
+            return(free_power(e1,e2))
+        } else if (.Generic == "==") {
+            return(free_equal(e1,e2))
+        } else if (.Generic == "!=") {
+            return(!free_equal(e1,e2))
+        } else {
+            stop(paste("<free>", .Generic, "<free> not defined",collapse=" "))
+        }
+    } else if (lclass && !rclass){
+      if(.Generic == "*"){
+         return(free_repeat(e1,e2))   #e2 should be an integer
+      } else {
+         stop(paste("<perm>", .Generic, "<non-perm> is not defined ",collapse=" "))
+        }
+    } else if (!lclass && rclass){
+        if(.Generic == "*"){
+            return(free_repeat(e2,e1))   #e1 should be an integer
+        } else {
+            stop(paste("<non-perm>", .Generic, "<perm> is not defined ",collapse=" "))
+        }
+    } else if (!lclass && !rclass){
+        stop("should not reach here")
+    } else {
+        stop("this cannot happen")
+    }
+}
+
+`inverse` <- function(a){  # vectorized and nicified version
+    if(is.list(a)){
+        return(free(lapply(a,inverse)))
+    } else {
+        return(
+            rbind(
+                 rev(a[1,]),
+                -rev(a[2,])
+            )
+        )
+    }
+}
+
+`juxtapose`  <- function(e1,e2){  #  vectorized 
+    jj <- cbind(seq_along(e1),seq_along(e2))
+    out <- list()
+    for(i in seq_len(nrow(jj))){
+        out[[i]] <- reduce(cbind(e1[[jj[i,1]]],e2[[jj[i,2]]]))
+    }
+    free(out)
+}
+
+`free_power` <- function(e1,e2){
+    jj <- cbind(seq_along(e1),seq_along(e2))
+    out <- list()
+    for(i in seq_len(nrow(jj))){
+        out[[i]] <- reduce(cbind(
+            inverse(e2[[jj[i,2]]]),
+            e1[[jj[i,1]]],
+            e2[[jj[i,2]]]
+                    ))
+    }
+    free(out)
+}
+
+`free_equal` <- function(e1,e2){
+    jj <- cbind(seq_along(e1),seq_along(e2))
+    apply(jj,1,function(x){
+        return(
+            all(dim(e1[[x[1]]]) == dim(e2[[x[2]]])) &&
+            all(e1[[x[1]]] == e2[[x[2]]])
+            )}
+        )
+}
+
+`free_repeat` <- function(e1,e2){ # e1 is free, e2 an integer
+    jj <- cbind(seq_along(e1),seq_along(e2))
+    out <- list()
+    for(i in seq_len(nrow(jj))){
+        M <- e1[[jj[i,1]]]
+        n <- e2[jj[i,2]]
+        out[[i]] <- 
+        if(n>0){
+            M[,rep(seq_len(ncol(M)),n),drop=FALSE]
+        } else if (n==0){
+            M[,FALSE,drop=FALSE]
+        } else if (n<0){
+            inverse(M)[,rep(seq_len(ncol(M)),-n),drop=FALSE]
+        }
+    }
+    return(free(out))
+}   
+

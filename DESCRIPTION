@@ -1,0 +1,10 @@
+Package: freegroup
+Type: Package
+Title: The free group
+Version: 1.0
+Date: 2018-05-07
+Author: Robin K. S. Hankin
+Maintainer:  <hankin.robin@gmail.com>
+Depends: magrittr
+Description: Various functionality to manipulate elements of the free group on a finite set of elements.
+License: GPL-2
