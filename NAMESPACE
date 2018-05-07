@@ -1,4 +1,14 @@
 exportPattern("^[[:alpha:]]+")
-
-
 import("magrittr")
+
+S3method("[", free)
+S3method("[<-", free)
+S3method("c", free)
+S3method("print", free)
+
+S3method("Ops",free)
+S3method("rep",free)
+
+S3method("inverse",free)
+
+
