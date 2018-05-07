@@ -14,4 +14,7 @@ abelianize(x)
 
 x <- rfree(10,20,20)
 abelianize(x)
+
+p <- free(rbind(rep(1:5,4),rep(1:4,5)))
+abelianize(p)
 }
