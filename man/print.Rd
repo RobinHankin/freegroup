@@ -19,7 +19,7 @@ inconsistent with the juxtaposition method \dQuote{\code{+}}.
 
 ## default symbols:
 
-alphabet(26)
+abc(26)
 rfree(1,10)
 
 
