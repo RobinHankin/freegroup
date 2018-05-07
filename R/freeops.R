@@ -47,8 +47,8 @@
     }
 }
 
-`inverse` <- function(x){ UseMethod("inverse",x) }
-`inverse.matrix` <- function(m){ rbind(rev(m[1,]), -rev(m[2,])) }
+`inverse` <- function(e1){ UseMethod("inverse",e1) }
+`inverse.matrix` <- function(e1){ rbind(rev(e1[1,]), -rev(e1[2,])) }
 `inverse.free` <- function(e1){ free(lapply(e1,inverse)) }
 
 `juxtapose`  <- function(e1,e2){  #  vectorized 
