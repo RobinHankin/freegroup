@@ -126,12 +126,6 @@
     return(free(out))
 }
 
-`big` <- function(n){   # makes a big thing that reduces to the identity
-    jjf <- seq_len(n)
-    jjr <- rev(jjf)
-    rbind(c(jjf,jjr),c(jjf,-jjr))
-}
-
 `rfree` <- function(n,size,howmanyletters=size,powers=seq(from=-size,to=size)){
   out <- list()
   for(i in seq_len(n)){
