@@ -8,3 +8,5 @@ Maintainer:  <hankin.robin@gmail.com>
 Depends: magrittr
 Description: Various functionality to manipulate elements of the free group on a finite set of elements.
 License: GPL-2
+URL: https://github.com/RobinHankin/freegroup.git
+BugReports: https://github.com/RobinHankin/freegroup/issues
