@@ -2,9 +2,10 @@
 \alias{reduce}
 \alias{remove_zero_powers}
 \alias{is_reduced}
-\title{
-Reduction of a word to reduced form
-}
+\alias{is.cyclically.reduced}
+\alias{is.cyclically.reduced2}
+\alias{consolidate}
+\title{Reduction of a word to reduced form}
 \description{Given a word, remove redundant zero-power terms, and
   consolidate adjacent like terms into a single power}
 \usage{
