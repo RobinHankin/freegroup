@@ -2,13 +2,14 @@
 \alias{print.free}
 \title{Print free objects}
 \description{Print methods for free objects}
-\usage{print.free(x,...)}
-\arguments{
-  \item{x}{Object of class free}
-  \item{...}{Further arguments, currently ignored}
+\usage{
+print.free(x,...)
+as.character_free(x,latex=getOption("latex"))
 }
-\details{
-
+\arguments{
+  \item{x}{Object of class \code{free} in the print method, a matrix in
+    (low-level) \code{as.character_free()}}
+  \item{...}{Further arguments, currently ignored}
 }
 \author{Robin K. S. Hankin}
 \note{
