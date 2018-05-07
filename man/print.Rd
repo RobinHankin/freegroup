@@ -5,11 +5,11 @@
 \description{Print methods for free objects}
 \usage{
 \method{print}{free}(x,...)
-as.character_free(x,latex=getOption("latex"))
+as.character_free(m,latex=getOption("latex"))
 }
 \arguments{
-  \item{x}{Object of class \code{free} in the print method, a matrix in
-    (low-level) \code{as.character_free()}}
+  \item{x}{Object of class \code{free} in the print method}
+  \item{m}{A two-row matrix in function \code{as.character_free()}}
   \item{latex}{Boolean, with code{TRUE} meaning to print latex-friendly
     output including curly braces, and default \code{NULL} option
     meaning to give a nicer-looking output that latex would typeset
