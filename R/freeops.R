@@ -47,14 +47,14 @@
     }
 }
 
-`inverse` <- function(a){  # vectorized and nicified version
-    if(is.list(a)){
-        return(free(lapply(a,inverse)))
+`inverse` <- function(e1){  # vectorized and nicified version
+    if(is.list(e1)){
+        return(free(lapply(e1,inverse)))
     } else {
         return(
             rbind(
-                 rev(a[1,]),
-                -rev(a[2,])
+                 rev(e1[1,]),
+                -rev(e1[2,])
             )
         )
     }

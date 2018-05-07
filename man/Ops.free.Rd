@@ -17,7 +17,7 @@ free_equal(e1,e2)
 free_power(e1,e2)
 free_repeat(e1,n)
 juxtapose(e1,e2)
-inverse(a)
+inverse(e1)
 }
 \arguments{
   \item{e1,e2}{Objects of class \code{free}}
@@ -47,7 +47,6 @@ inverse(a)
 }
 \author{Robin K. S. Hankin}
 \note{
-
   The package uses additive notation but multiplicative notation might
   have been better.
 }
