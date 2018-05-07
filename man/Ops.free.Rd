@@ -12,10 +12,10 @@
   such as addition, multiplication, powers, etc
 }
 \usage{
-\method{Ops}{permutation}(e1, e2)
+\method{Ops}{free}(e1, e2)
 free_equal(e1,e2)
 free_power(e1,e2)
-free_repeat(e1,e2)
+free_repeat(e1,n)
 juxtapose(e1,e2)
 inverse(a)
 }
