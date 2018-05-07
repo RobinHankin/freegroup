@@ -5,6 +5,7 @@
 \alias{is.cyclically.reduced}
 \alias{is.cyclically.reduced2}
 \alias{consolidate}
+\alias{is_proper}
 \title{Reduction of a word to reduced form}
 \description{Given a word, remove redundant zero-power terms, and
   consolidate adjacent like terms into a single power}
@@ -15,6 +16,7 @@ remove_zero_powers(a)
 is.cyclically.reduced(a)
 is.cyclically.reduced2(a)
 consolidate(a)
+is_proper(a)
 }
 \arguments{
   \item{a}{An object of class \code{free}}
@@ -33,8 +35,12 @@ consolidate(a)
   power terms (function \code{remove_zero_power()}) until the word is in
   reduced form (function \code{is_reduced()}).
 
-  The functions all take a \code{free} object, but the meat of the
-  function operates on a single two-row matrix.
+  Function \code{is_proper()} checks to see whether a matrix is suitably
+  formed for passing to \code{reduce()}.
+
+  Apart from \code{is_proper()}, the functions all take a \code{free}
+  object, but the meat of the function operates on a single two-row
+  matrix.
 
   
 }
