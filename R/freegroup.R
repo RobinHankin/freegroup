@@ -29,8 +29,8 @@
   )
 }
 
-`print.free` <- function(x){
-    print(noquote(unlist(lapply(x,as.character_free))))
+`print.free` <- function(x, ...){
+    print(noquote(unlist(lapply(x,as.character_free,...))))
     return(invisible(x))
 }
 
