@@ -148,10 +148,10 @@
 
 `is.null.free` <- function(x){x==as.free(0)}
 
-`is.cyclically.reduced` <- function(x){unlist(lapply(unclass(x), function(o){o[1,1]!=o[1,ncol(o)]}))}
+`is.cyclically.reduced` <- function(a){unlist(lapply(unclass(a), function(o){o[1,1]!=o[1,ncol(o)]}))}
   
-`is.cyclically.reduced2` <- function(x){
-  x %>% unclass %>% lapply(function(o){o[1,1]!=o[1,ncol(o)]}) %>% unlist
+`is.cyclically.reduced2` <- function(a){
+  a %>% unclass %>% lapply(function(o){o[1,1]!=o[1,ncol(o)]}) %>% unlist
 }  
 
 `abelianize` <- function(x){
