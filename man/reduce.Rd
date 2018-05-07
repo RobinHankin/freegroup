@@ -5,6 +5,8 @@
 \title{
 Reduction of a word to reduced form
 }
+\description{Given a word, remove redundant zero-power terms, and
+  consolidate adjacent like terms into a single power}
 \usage{
 reduce(a)
 is_reduced(a)
@@ -13,7 +15,6 @@ is.cyclically.reduced(a)
 is.cyclically.reduced2(a)
 consolidate(a)
 }
-%- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{a}{An object of class \code{free}}
 }
