@@ -2,7 +2,6 @@
 title: "The free group in R"
 author: "Robin K. S. Hankin"
 date: "`r Sys.Date()`"
-output: rmarkdown::pdf_vignette
 vignette: >
   %\VignetteIndexEntry{Free group}
   %\VignetteEngine{knitr::rmarkdown}
