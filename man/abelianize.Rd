@@ -1,17 +1,15 @@
 \name{abelianize}
 \alias{abelianize}
 \title{Abelianization of free group elements}
-\description{Return the result of modifyig a free group element under the assumption of Abelianness}
-\usage{
-abelianize(x)
-}
+\description{Return the result of modifying a free group element under the assumption of Abelianness}
+\usage{abelianize(x)}
 \arguments{
   \item{x}{An object of class \code{free}}
 }
 \details{
 Abelianizing a free group element means that the symbols can commute
 past one another.  Abelianization is vectorized.
-  
+}
 \author{Robin K. S. Hankin}
 \examples{
 
