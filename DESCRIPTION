@@ -4,7 +4,7 @@ Title: The free group
 Version: 1.0
 Date: 2018-05-07
 Author: Robin K. S. Hankin
-Maintainer:  <hankin.robin@gmail.com>
+Maintainer:  Robin K. S. Hankin <hankin.robin@gmail.com>
 Depends: magrittr
 Suggests: knitr, rmarkdown
 VignetteBuilder: knitr
