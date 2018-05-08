@@ -10,8 +10,10 @@ as.free(x)
 is.free(x)
 }
 \arguments{
-  \item{x}{A list of two-row matrices; function \code{as.free()}
-    attempts to coerce different objects to \code{free}}
+  \item{x}{Function \code{free()} needs either a two-row matrix, or a
+    list of two-row matrices; function \code{as.free()}
+    attempts to coerce different types of argument before passing to 
+    \code{free()}.}
 }
 \details{
 The basic structure of an element of the free group is a two-row
@@ -26,28 +28,17 @@ row is the corresponding power. Thus \eqn{a^2ba^{-1}}{a^2ba^-1} would be
 >
 }
 
-
+Function \code{free()} needs either a two-row matrix or a list of
+two-row matrices; function \code{as.free()} is a bit more user-friendly
+and tries a bit harder to do the Right Thing.
 
 }
 \author{Robin K. S. Hankin}
 \examples{
-##---- Should be DIRECTLY executable !! ----
-##-- ==>  Define data, use random,
-##--	or do  help(data=index)  for the standard data sets.
-
-## The function is currently defined as
-function (x) 
-{
-    if (is.matrix(x)) {
-        x <- list(x)
-    }
-    stopifnot(all(unlist(lapply(x, is_proper))))
-    x <- reduce(x)
-    class(x) <- "free"
-    return(x)
-  }
+free(rbind(1:5,5:1))
+x <- rfree(10,4)
+x
+x+x
+x-x
+x * (0:3)
 }
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
-\keyword{ ~kwd1 }% use one of  RShowDoc("KEYWORDS")
-\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line

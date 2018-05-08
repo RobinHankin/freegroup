@@ -1,10 +1,12 @@
 `as.free` <- function(x){  # x is a list
     if(is.matrix(x)){
-      return(free(x))
+        return(free(x))
+    } else if (is.vector(x)){
+        return(free(rbind(x,1)))
     } else if(identical(x,0)|identical(x,0L)){
-      return(free(matrix(0,2,0)))
+        return(free(matrix(0,2,0)))
     } else if(is.character(x)){
-      return(char_to_free(x))
+        return(char_to_free(x))
     } else {
         return(lapply(x,free))
     }
