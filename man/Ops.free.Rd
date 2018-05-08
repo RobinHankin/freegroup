@@ -6,6 +6,8 @@
 \alias{free_repeat}
 \alias{juxtapose}
 \alias{inverse}
+\alias{inverse.free}
+\alias{inverse.matrix}
 \title{Arithmetic Ops methods for the free group}
 \description{
   Allows arithmetic operators to be used for manipulation of free group elements
@@ -17,7 +19,8 @@ free_equal(e1,e2)
 free_power(e1,e2)
 free_repeat(e1,n)
 juxtapose(e1,e2)
-inverse(e1)
+\method{inverse}{free}(e1)
+\method{inverse}{matrix}(e1)
 }
 \arguments{
   \item{e1,e2}{Objects of class \code{free}}
