@@ -32,7 +32,7 @@
 }
 
 `vec_to_free` <- function(x){
-  free(sapply(x,function(o){cbind(o,sign(o))}))
+  free(sapply(x,function(o){rbind(abs(o),sign(o))}))
 }
 
 `print.free` <- function(x, ...){
