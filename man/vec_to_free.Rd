@@ -12,6 +12,8 @@ vec_to_free(x)
 \author{Robin K. S. Hankin}
 \examples{
 vec_to_free(1:9)
-vec_to_free(c(1,2,3,-2))
-as.free(1:6)    
+vec_to_free(c(1,2,-2,3))   # reduced automatically
+vec_to_free(c(1,2,3,0,-2)) # zeros are ignored
+as.free(1:6)   
+
 }
