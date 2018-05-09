@@ -31,9 +31,7 @@
   )
 }
 
-`vec_to_free` <- function(x){
-  free(sapply(x,function(o){rbind(abs(o),sign(o))}))
-}
+`vec_to_free` <- function(x){ free(rbind(abs(x),sign(x))) }
 
 `print.free` <- function(x, ...){
     print(noquote(unlist(lapply(x,as.character_free,...))))
