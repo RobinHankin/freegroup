@@ -1,7 +1,6 @@
 \name{vec_to_free}
 \alias{vec_to_free}
 \title{Coerce an integer vector to a free object}
-}
 \description{Coerce an integer vector to free.  Negative integers
   correspond to negative powers of their absolute value.}
 \usage{
