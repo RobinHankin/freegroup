@@ -177,3 +177,12 @@
     u <- seq(length.out = length(x))
     return(x[rep(u, ...)])
 }
+
+`cumsum.free` <- function(x){
+    u <- as.free(0)
+    out <- rep(u,length(x))
+    for(i in seq_along(x)){
+        out[i] <- u <- u + x[i]
+    }
+    return(out)
+}
