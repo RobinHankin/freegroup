@@ -4,7 +4,7 @@
     } else if(identical(x,0)|identical(x,0L)){
         return(free(matrix(0,2,0)))
     } else if (is.vector(x)){
-        return(free(rbind(x,1)))
+        return(vec_to_free(x))
     } else if(is.character(x)){
         return(char_to_free(x))
     } else {
@@ -29,6 +29,10 @@
                rbind(as.numeric(charToRaw(x))-96,1)
              }, simplify=FALSE)
   )
+}
+
+`vec_to_free` <- function(x){
+  free(sapply(x,function(o){cbind(o,sign(o))}))
 }
 
 `print.free` <- function(x, ...){
