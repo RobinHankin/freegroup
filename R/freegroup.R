@@ -40,6 +40,17 @@
     }
 }
 
+setGeneric("tietze",function(x){standardGeneric("tietze")})
+`tietze` <- function(x){UseMethod("tietze")}
+
+`tietze.matrix` <- function(x){
+    c(apply(x,2,function(r){rep(sign(r[2])*r[1],abs(r[2]))}),recursive=TRUE)
+}
+
+`tietze.free` <- function(x){
+  lapply(x,tietze.matrix)
+}
+
 `print.free` <- function(x, ...){
     print(noquote(unlist(lapply(x,as.character_free,...))))
     return(invisible(x))

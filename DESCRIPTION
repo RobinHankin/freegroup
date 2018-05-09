@@ -5,7 +5,7 @@ Version: 1.0
 Date: 2018-05-07
 Author: Robin K. S. Hankin
 Maintainer:  Robin K. S. Hankin <hankin.robin@gmail.com>
-Depends: magrittr
+Depends: magrittr,methods
 Suggests: knitr, rmarkdown
 VignetteBuilder: knitr
 Description: Various functionality to manipulate elements of the free group on a finite set of elements.
