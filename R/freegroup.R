@@ -140,7 +140,9 @@
   return(free(out))
 }
 
-`abc` <- function(n){free(rbind(seq_len(n),1))}
+`abc` <- function(n){
+  free(sapply(n,function(o){rbind(seq_len(o),1)},simplify=FALSE))
+}
 
 `is.identity` <- function(x){x==as.free(0)}
 
