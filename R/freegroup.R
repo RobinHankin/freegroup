@@ -1,5 +1,7 @@
 `as.free` <- function(x){  # x is a list
-    if(is.matrix(x)){
+    if(is.free(x)){
+      return(x)
+    } else if(is.matrix(x)){
         return(free(x))
     } else if(identical(x,0)|identical(x,0L)){
         return(free(matrix(0,2,0)))
