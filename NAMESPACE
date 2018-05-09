@@ -10,5 +10,8 @@ S3method("Ops",free)
 S3method("rep",free)
 
 S3method("inverse",free)
+S3method("inverse",matrix)
+S3method("sum" , free)
+
 
 
