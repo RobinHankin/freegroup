@@ -13,9 +13,11 @@ alpha(v)
 \examples{
 alpha(1)  # just the letter 'a'
 
+z <- alpha(26)  # variable 'z' is symbol 26, aka 'z'.
+
 alpha(1:26)  # the whole alphabet; compare abc(1:16)
 
-abc(1:10) ^ alpha(26)
+alpha(1:26)*6
 
-
+abc(1:10) ^ z
 }
