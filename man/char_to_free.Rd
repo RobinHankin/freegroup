@@ -1,11 +1,12 @@
 \name{char_to_free}
 \alias{char_to_free}
+\alias{char_to_matrix}
 \title{Convert character vectors to free objects}
 \description{
 Convert character vectors to free objects
 }
 \usage{
-char_to_free(x)
+char_to_matrix(x)
 }
 \arguments{
   \item{x}{A character vector}
