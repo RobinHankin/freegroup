@@ -2,18 +2,20 @@
 \alias{free}
 \alias{as.free}
 \alias{is.free}
+\alias{list_to_free}
 \title{Objects of class \code{free}}
 \description{Generate, and test for, objects of class \code{free}}
 \usage{
 free(x)
 as.free(x)
 is.free(x)
+list_to_free(x)
 }
 \arguments{
   \item{x}{Function \code{free()} needs either a two-row matrix, or a
     list of two-row matrices; function \code{as.free()}
-    attempts to coerce different types of argument before passing to 
-    \code{free()}.}
+    attempts to coerce different types of argument before passing to
+    \code{free()} (possibly via \code{list_to_free()})}
 }
 \details{
 The basic structure of an element of the free group is a two-row
