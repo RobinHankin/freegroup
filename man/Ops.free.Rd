@@ -54,20 +54,29 @@ juxtapose(e1,e2)
   have been better.
 }
 \examples{
-a <- rfree(10,2)
-b <- rfree(10,2)
+x <- rfree(10,2)
+y <- rfree(10,2)
+z <- rfree(10,9)    # more complicated than x or y
 
-a+b
-a-b
 
-a+b == b+a
 
-a + alpha(26)
-a^alpha(26)
 
-a*12
-a*(0:9)
+x+y
+x-y
 
+x+y == y+x    # not equal in  general
+
+x+as.free(0) == x     # always true
+as.free(0)+x == x     # always true
+x+(y+z)  == (x+y)+z   # always true
+x*5 == x+x+x+x+x      # always true
+
+x + alpha(26)
+
+x^alpha(26)
+
+x*12
+x*(0:9)
 
 
 }
