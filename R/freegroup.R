@@ -5,8 +5,10 @@
         return(free(x))
     } else if(identical(x,0)|identical(x,0L)){
         return(free(matrix(0,2,0)))
-    } else if (is.vector(x)){
-        return(vec_to_free(x))
+    } else if (is.list(x)){
+        return(free(list_to_free(x)))
+    } else if(is.vector(x)){    
+        return(free(vec_to_matrix(x)))
     } else if(is.character(x)){
         return(char_to_free(x))
     } else {
@@ -33,12 +35,23 @@
   )
 }
 
-`vec_to_free` <- function(x){
+`list_to_free` <- function(x){
+  stopifnot(is.list(x))
+  if(all(unlist(lapply(x,is.matrix)))){
+    return(free(x))
+  } else if (all(unlist(lapply(x,is.vector)))){
+    return(free(lapply(x,vec_to_matrix)))
+  } else {
+    stop("list_to_free() is confused; it requires a list of matrices or a list of vectors")
+  }
+}
+
+`vec_to_matrix` <- function(x){  # takes a *vector* like c(1,2,-1,-1,2); returns a matrix
     if(all(x==0)){
         return(as.free(0))
     } else {
         x <- x[x!=0]
-        return(free(rbind(abs(x),sign(x))))
+       return(rbind(abs(x),sign(x)))
     }
 }
 
