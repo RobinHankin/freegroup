@@ -13,6 +13,8 @@ abc(n)
 \examples{
 abc(8)
 
-rfree(10,3) + abc(1:10) + rfree(10,2)
+abc(1:26)   # compare alpha(1:26)
+
+abc(26) ^ alpha(1:9)
 
 }
