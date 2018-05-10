@@ -54,15 +54,20 @@ juxtapose(e1,e2)
   have been better.
 }
 \examples{
-a <- rfree(10,2,2)
-b <- rfree(10,2,2)
+a <- rfree(10,2)
+b <- rfree(10,2)
 
 a+b
 a-b
 
 a+b == b+a
 
-a*(0:4)
+a + alpha(26)
+a^alpha(26)
 
-a^b
+a*12
+a*(0:9)
+
+
+
 }

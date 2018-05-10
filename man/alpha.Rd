@@ -15,5 +15,7 @@ alpha(1)  # just the letter 'a'
 
 alpha(1:26)  # the whole alphabet; compare abc(1:16)
 
+abc(1:10) ^ alpha(26)
+
 
 }
