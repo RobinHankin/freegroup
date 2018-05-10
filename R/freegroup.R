@@ -176,6 +176,10 @@ setGeneric("tietze",function(x){standardGeneric("tietze")})
   free(sapply(n,function(o){rbind(seq_len(o),1)},simplify=FALSE))
 }
 
+`alpha` <- function(v){
+    free(sapply(v,function(x){rbind(x,1)},simplify=FALSE))
+}
+
 `is.identity` <- function(x){x==as.free(0)}
 
 `is.cyclically.reduced` <- function(a){unlist(lapply(unclass(a), function(o){o[1,1]!=o[1,ncol(o)]}))}
