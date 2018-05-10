@@ -19,6 +19,7 @@ x <- rfree(10,3)
 sum(x)
 abelianize(sum(x))
 
+z <- alpha(26)
 stopifnot(sum(x^z) == sum(x)^z)
 
 }
