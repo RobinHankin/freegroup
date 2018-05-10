@@ -29,6 +29,10 @@ char_to_free(x)
 \author{Robin K. S. Hankin}
 \examples{
 
-char_to_free("aaabacdcd")
+char_to_matrix("aaabacdcd")
+
+rfree(10,3) + as.free('xxxxxxxxxxxx')
+
+
 
 }
