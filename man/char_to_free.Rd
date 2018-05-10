@@ -34,6 +34,6 @@ char_to_matrix("aaabacdcd")
 
 rfree(10,3) + as.free('xxxxxxxxxxxx')
 
-
+as.free(as.list(letters))*8 + rfree(26,3)
 
 }
