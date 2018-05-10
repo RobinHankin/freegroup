@@ -3,14 +3,14 @@
       return(x)
     } else if(is.matrix(x)){
         return(free(x))
+    } else if(is.character(x)){
+        return(free(char_to_matrix(x)))
     } else if(identical(x,0)|identical(x,0L)){
         return(free(matrix(0,2,0)))
     } else if (is.list(x)){
         return(free(list_to_free(x)))
     } else if(is.vector(x)){    
         return(free(vec_to_matrix(x)))
-    } else if(is.character(x)){
-        return(char_to_free(x))
     } else {
         return(lapply(x,free))
     }
@@ -26,19 +26,16 @@
     return(x)
 }
 
-`char_to_free` <- function(x){
-  free(
-      sapply(x,
-             function(x){
-               rbind(as.numeric(charToRaw(x))-96,1)
-             }, simplify=FALSE)
-  )
+`char_to_matrix` <- function(x){
+  reduce(rbind(as.numeric(charToRaw(x))-96,1))
 }
 
 `list_to_free` <- function(x){
   stopifnot(is.list(x))
   if(all(unlist(lapply(x,is.matrix)))){
     return(free(x))
+  } else if (all(unlist(lapply(x,is.character)))){
+    return(free(lapply(x,char_to_matrix)))
   } else if (all(unlist(lapply(x,is.vector)))){
     return(free(lapply(x,vec_to_matrix)))
   } else {

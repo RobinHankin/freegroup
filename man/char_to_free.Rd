@@ -21,6 +21,11 @@ char_to_free(x)
   like \dQuote{\code{a^3b^(-3)}} but this is not yet implemented.
 
 }
+\note{
+  The function is not robust; for example, passing  anything other than
+  lower-case letters a-z will give possibly undesirable behaviour.
+  }
+
 \author{Robin K. S. Hankin}
 \examples{
 
