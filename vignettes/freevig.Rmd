@@ -42,23 +42,30 @@ and write
 (M <- rbind(c(1,2,3,3,1),c(2,-3,2,3,-2)))
 ```
 
-Then to convert to a more useful form we would have
+(see how negative entries in the second row correspond to negative
+powers).  Then to convert to a more useful form we would have
 
 ```{r}
 library(freegroup)
 (x <- free(M))
 ```
 
-The representation for R object `x` is still the two-row matrix form,
-but the print method is active and uses a more visually appealing
-scheme.
+The representation for R object `x` is still a two-row matrix, but the
+print method is active and uses a more visually appealing scheme.
 
-We can concatenate `x` with itself by using "`+`":
+We can coerce strings to free objects:
+
 
 ```{r}
-x
-x+x
-x+x+x
+(y <- as.free("aabbbcccc"))
+```
+
+The free group operation is simply justaposition, represented here by
+the plus symbol, "`+`":
+
+
+```{r}
+x+y
 ```
 
 See how the $a$ "cancels out" in the juxtaposition.  Note that
@@ -78,10 +85,9 @@ x*(0:3)
 There are a few methods for creating free objects:
 
 ```{r}
-abc(19)
+abc(1:9)
 rfree(10,4)
 ```
-
 
 Inverses are calculated using unary or binary minus:
 
@@ -90,6 +96,32 @@ Inverses are calculated using unary or binary minus:
 -u
 u-u
 ```
+
+
+We can take the "sum" of a vector of free objects simply by
+juxtaposing the elements:
+
+```{r}
+sum(u)
+```
+
+Powers are defined as per group conjugation: `x^y == y^{-1}xy` (or,
+written in additive notation, `-y+x+y`):
+
+```{r}
+u
+z <- alpha(26)
+u^z
+```
+
+
+Thus:
+
+```{r}
+sum(u^z) == sum(u^z)
+```
+
+
 
 
 If we have more than 26 symbols the print method runs out of letters:
@@ -105,6 +137,3 @@ important) it is possible to override the default symbol set:
 options(symbols = state.abb)
 free(rbind(1:50,1))
 ```
-
-
-
