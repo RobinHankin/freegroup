@@ -8,7 +8,7 @@ Maintainer:  Robin K. S. Hankin <hankin.robin@gmail.com>
 Depends: magrittr,methods
 Suggests: knitr, rmarkdown
 VignetteBuilder: knitr
-Description:  The free group on a set S of generators is the set of words formed by the elements of S and their inverses, together with a group operation of juxtaposition.  One usually considers only words in reduced form, that is, words with successive powers combined.  The freegroup package provides functionality for manipulating elements of the free group (juxtaposition is represented by a plus) including inversion, multiplication by a scalar, group-theoretic power operation, and Tietze forms.  The package is fully vectorized.
+Description:  Provides functionality for manipulating elements of the free group (juxtaposition is represented by a plus) including inversion, multiplication by a scalar, group-theoretic power operation, and Tietze forms.  The package is fully vectorized.
 License: GPL-2
 URL: https://github.com/RobinHankin/freegroup.git
 BugReports: https://github.com/RobinHankin/freegroup/issues
