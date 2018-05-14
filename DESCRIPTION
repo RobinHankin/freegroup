@@ -4,11 +4,11 @@ Title: The Free Group
 Version: 1.0
 Date: 2018-05-07
 Author: Robin K. S. Hankin
-Maintainer:  Robin K. S. Hankin <hankin.robin@gmail.com>
+Maintainer: Robin K. S. Hankin <hankin.robin@gmail.com>
 Depends: magrittr,methods
 Suggests: knitr, rmarkdown
 VignetteBuilder: knitr
-Description:  Provides functionality for manipulating elements of the free group (juxtaposition is represented by a plus) including inversion, multiplication by a scalar, group-theoretic power operation, and Tietze forms.  The package is fully vectorized.
+Description: Provides functionality for manipulating elements of the free group (juxtaposition is represented by a plus) including inversion, multiplication by a scalar, group-theoretic power operation, and Tietze forms.  The package is fully vectorized.
 License: GPL-2
 URL: https://github.com/RobinHankin/freegroup.git
 BugReports: https://github.com/RobinHankin/freegroup/issues
