@@ -46,7 +46,7 @@ checker_xy <- function(x,y){
 
   stopifnot(abelianize(x) == abelianize(x^y)
 
-  
+  stopifnot(sum(x,y) == sum(sum(x),sum(y)))
 
   return(TRUE)
 }
@@ -57,7 +57,7 @@ checker_xyz <- function(x,y,z){
   stopifnot(x^z + y^z == (x+y)^z)
 
   abelianize(x^z - x^y) %>% abelianize %>% is.identity %>% stopifnot
-
+  stopifnot(sum(x,y,z) == sum(sum(x),sum(y),sum(z)))
 }
 
 check_abelianize <- function(n){
