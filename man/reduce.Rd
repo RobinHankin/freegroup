@@ -47,13 +47,9 @@ is_proper(a)
   A \code{free} object is \dfn{cyclically reduced} iff every cyclic
   permutation of the word is reduced.  A reduced word is cyclically
   reduced iff the first symbol does not match the last one.  Function
-  \code{is.cyclically.reduced()} tests for this; function
+  \code{is.cyclically.reduced()} tests for this.  Function
   \code{is.cyclically.reduced2()} gives identical output; it uses
   slicker but marginally slower R idiom.
-
-
-
-
 
   
 }
