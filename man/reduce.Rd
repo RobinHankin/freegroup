@@ -23,12 +23,18 @@ is_proper(a)
 }
 \details{
 
-  The essence of the package is to reduce a word into a reduced
-  form. Thus \eqn{a^2b^{-1}ba}{a^2b^-1ba} will transformed into
-  \eqn{a^3}.
 
+  A word is \dfn{reduced} if no symbol appears next to its own inverse
+  and no symbol has zero power.  The essence of the package is to reduce
+  a word into a reduced form.  Thus \eqn{a^2b^{-1}ba}{a^2b^-1ba} will
+  transformed into \eqn{a^3}.
+  
   In the package, reduction happens automatically at creation, in
   function \code{free()}.
+
+  Apart from \code{is_proper()}, the functions all take a \code{free}
+  object, but the meat of the function operates on a single two-row
+  matrix.
 
   Reduction is carried out by repeatedly consolidating adjacent terms of
   identical symbol (function \code{consolidate()}), and removing zero
@@ -38,9 +44,15 @@ is_proper(a)
   Function \code{is_proper()} checks to see whether a matrix is suitably
   formed for passing to \code{reduce()}.
 
-  Apart from \code{is_proper()}, the functions all take a \code{free}
-  object, but the meat of the function operates on a single two-row
-  matrix.
+  A \code{free} object is \dfn{cyclically reduced} iff every cyclic
+  permutation of the word is reduced.  A reduced word is cyclically
+  reduced iff the first symbol does not match the last one.  Function
+  \code{is.cyclically.reduced()} tests for this; function
+  \code{is.cyclically.reduced2()} uses slicker R idiom.
+
+
+
+
 
   
 }
