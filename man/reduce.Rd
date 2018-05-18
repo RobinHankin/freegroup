@@ -56,6 +56,6 @@ as.character_free(M)
 ## show the effect of reduce():
 as.character_free(reduce(M))
 
-## free() calls reduce automatically:
+## free() calls reduce() automatically:
 free(M)
 }
