@@ -213,3 +213,21 @@ setGeneric("tietze",function(x){standardGeneric("tietze")})
     }
     return(out)
 }
+
+`getlet` <- function(x){
+  out <- lapply(x,function(m){sort(unique(m[1,]))})
+  if(length(out)==1){out <- out[[1]]}
+  return(out)
+}
+
+`keep` <- function(a,yes){
+  if(is.free(yes)){yes <- getlet(yes)}
+  a %<>% unclass %>% lapply(function(m){m[,(m[1,] %in% yes),drop=FALSE]}) %>% free
+  return(a)
+}
+
+`drop` <- function(a,no){
+  if(is.free(no)){no <- getlet(no)}
+  jj <- getlet(a)
+  keep(x, jj[!jj %in% no])
+}
