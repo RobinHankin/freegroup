@@ -74,6 +74,7 @@
 }
 
 `free_equal` <- function(e1,e2){
+    stopifnot(is.free(e1),is.free(e2))
     jj <- cbind(seq_along(e1),seq_along(e2))
     apply(jj,1,function(x){
         return(
