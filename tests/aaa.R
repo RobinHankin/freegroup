@@ -2,6 +2,7 @@
  ## all return TRUE; these functions also check that the vectorization
  ## is OK; so for example f(1:10,1:10), f(1:10,1), f(1,1:10) should
  ## all return TRUE.
+library(freegroup)
 
 checker_x <- function(x){
   stopifnot(x==x)
@@ -25,7 +26,7 @@ checker_x <- function(x){
 
 
   stopifnot(abelianize(abelianize(x)) == abelianize(x))
-  stopifnot(abelianize(abelianize(sum(x)) == abelianize(sum(abelianize(x)))))
+  stopifnot(abelianize(abelianize(sum(x))) == abelianize(sum(abelianize(x))))
 
   stopifnot(is.identity(sum(x,rev(-x))))
   stopifnot(is.identity(cumsum(c(x,-rev(x)))[2*length(x)]))
