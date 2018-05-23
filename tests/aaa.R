@@ -71,4 +71,4 @@ check_abelianize <- function(n){
   return(TRUE)
   }
 
-sapply(1:10,check_abel)
+sapply(1:10,check_abelianize)
