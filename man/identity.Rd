@@ -6,13 +6,20 @@
 \description{Create and test for the identity element}
 \usage{
 is.identity(x)
+identity(n)
 }
-%- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{x}{Object of class \code{free}}
+  \item{n}{Strictly positive integer}
 }
 \details{
-Returns a Boolean indicating whether an element is the identity or not
+
+Function \code{is.identity()} returns a Boolean indicating whether an
+element is the identity or not.
+
+Function \code{identity()} returns a vector of free objects, all of
+which are the identity element.  Do not ask what happens if \eqn{n=0}.
+
 }
 \author{Robin K. S. Hankin}
 \examples{

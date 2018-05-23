@@ -182,6 +182,8 @@ setGeneric("tietze",function(x){standardGeneric("tietze")})
 
 `is.identity` <- function(x){x==as.free(0)}
 
+`identity` <- function(n){free(rep(list(matrix(1,2,0)),n))}
+
 `is.cyclically.reduced` <- function(a){unlist(lapply(unclass(a), function(o){o[1,1]!=o[1,ncol(o)]}))}
   
 `is.cyclically.reduced2` <- function(a){
