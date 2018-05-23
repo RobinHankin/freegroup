@@ -44,7 +44,7 @@ checker_xy <- function(x,y){
   stopifnot((x^y)^(-y) == x)
   stopifnot(sum(x^y) == sum(x)^y)
 
-  stopifnot(abelianize(x) == abelianize(x^y)
+  stopifnot(abelianize(x) == abelianize(x^y))
 
   stopifnot(sum(x,y) == sum(sum(x),sum(y)))
 
