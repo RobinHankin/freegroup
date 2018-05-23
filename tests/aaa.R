@@ -16,6 +16,7 @@ checker_x <- function(x){
   stopifnot(is.identity(x-x))
 
   stopifnot(0*x == as.free(0))
+  stopifnot(1*x == x)
   stopifnot(2*x == x+x)
   stopifnot(3*x == x+x+x)
   stopifnot(4*x == x+x+x+x)
@@ -35,7 +36,11 @@ checker_x <- function(x){
   return(TRUE)
 }
 
-for(i in 1:100){checker_x(rfree(10,3,2))}
+
+for(i in 1:100){
+  xxu <- rfree(10,3,2)
+  checker_x(xxu)
+}
   
   
 checker_xy <- function(x,y){
