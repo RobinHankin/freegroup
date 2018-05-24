@@ -13,7 +13,7 @@ checker_x <- function(x){
 
   stopifnot(x+x-x == x)
 
-  stopifnot(is.identity(x-x))
+  stopifnot(is.id(x-x))
 
   stopifnot(0*x == as.free(0))
   stopifnot(1*x == x)
@@ -29,8 +29,8 @@ checker_x <- function(x){
   stopifnot(abelianize(abelianize(x)) == abelianize(x))
   stopifnot(abelianize(abelianize(sum(x))) == abelianize(sum(abelianize(x))))
 
-  stopifnot(is.identity(sum(x,rev(-x))))
-  stopifnot(is.identity(cumsum(c(x,-rev(x)))[2*length(x)]))
+  stopifnot(is.id(sum(x,rev(-x))))
+  stopifnot(is.id(cumsum(c(x,-rev(x)))[2*length(x)]))
   stopifnot(cumsum(x)[length(x)] == sum(x))
 
   return(TRUE)
@@ -62,7 +62,7 @@ checker_xyz <- function(x,y,z){
   stopifnot(x^(y+z) == (x^y)^z)
   stopifnot(x^z + y^z == (x+y)^z)
 
-  abelianize(x^z - x^y) %>% abelianize %>% is.identity %>% stopifnot
+  abelianize(x^z - x^y) %>% abelianize %>% is.id %>% stopifnot
   stopifnot(sum(x,y,z) == sum(sum(x),sum(y),sum(z)))
 }
 

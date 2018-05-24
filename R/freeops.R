@@ -85,7 +85,7 @@
 }
 
 `free_repeat` <- function(e1,n){ # e1 is free, n an integer
-    if(n==0){return(identity(length(e1)))}
+    if(n==0){return(id(length(e1)))}
     jj <- cbind(seq_along(e1),seq_along(n))
     out <- list()
     for(i in seq_len(nrow(jj))){
