@@ -64,7 +64,11 @@ setGeneric("tietze",function(x){standardGeneric("tietze")})
 }
 
 `print.free` <- function(x, ...){
-    print(noquote(unlist(lapply(x,as.character_free,...))))
+    if(length(x)==0){
+      print(NULL)
+    } else {      
+      print(noquote(unlist(lapply(x,as.character_free,...))))
+    }
     return(invisible(x))
 }
 

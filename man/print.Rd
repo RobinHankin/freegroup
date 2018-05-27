@@ -20,6 +20,10 @@ as.character_free(m,latex=getOption("latex"))
 \note{
 The default print method uses multiplicative notation (powers) which is
 inconsistent with the juxtaposition method \dQuote{\code{+}}.
+
+The print method has special dispensation for length-zero free objects
+but these are not handled entirely consistently.
+
 }
 \examples{
 
