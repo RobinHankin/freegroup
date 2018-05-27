@@ -30,11 +30,12 @@ checker_x <- function(x){
   x2 <- rfree(1,1,10,1)
   x3 <- rfree(1,1,10,1)
 
-  stopifnot((x+x1)-x1 == x+x2)
+  stopifnot((x+x1)-x1 == x)
   stopifnot(x^(x1+x2) == (x^x1)^x2)
   stopifnot((x+x1)^x2 == x^x2 + x1^x2)
   stopifnot((x^x1)^(-x1) == x)
 
+  stopifnot(abelianize(x+x1) == abelianize(abelianize(x)+x1))
   stopifnot(abelianize(abelianize(x)) == abelianize(x))
   stopifnot(abelianize(abelianize(sum(x))) == abelianize(sum(abelianize(x))))
 
@@ -54,6 +55,8 @@ checker_xy <- function(x,y){
   stopifnot(sum(x^y) == sum(x)^y)
 
   stopifnot(abelianize(x) == abelianize(x^y))
+  stopifnot(abelianize(x+y) == abeliznize(x+abelianize(y)))
+
 
   stopifnot(sum(x,y) == sum(sum(x),sum(y)))
 
