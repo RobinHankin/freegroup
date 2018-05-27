@@ -95,7 +95,7 @@ check_abelianize <- function(n){
 
 
 
-for(i in 1:100){
+for(i in 1:10){
   print(i)
   x <- rfree(10,3,2)
   checker_x(x)
