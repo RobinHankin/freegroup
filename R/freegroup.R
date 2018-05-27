@@ -237,3 +237,7 @@ setGeneric("tietze",function(x){standardGeneric("tietze")})
   jj <- getlet(a)
   keep(a, jj[!jj %in% no])
 }
+
+`backwards` <- function(x){
+    free(lapply(x,function(o){o[,rev(seq_len(ncol(o))),drop=FALSE]}))
+  }

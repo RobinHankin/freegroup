@@ -39,6 +39,21 @@ checker_x <- function(x){
   stopifnot(abelianize(abelianize(x)) == abelianize(x))
   stopifnot(abelianize(abelianize(sum(x))) == abelianize(sum(abelianize(x))))
 
+  stopifnot(abelianize(x) == abelianize(backwards(x)))
+  stopifnot(abelianize(x+x) == abelianize(backwards(x)+backwards(x)))
+  stopifnot(abelianize(x+backwards(x)) == abelianize(backwards(x)+x))
+
+  stopifnot(abelianize(x*2) == abelianize(backwards(x)*2))
+  stopifnot(abelianize(x*3) == abelianize(backwards(x)*3))
+  stopifnot(abelianize(x*4) == abelianize(backwards(x)*4))
+  stopifnot(abelianize(x*5) == abelianize(backwards(x)*5))
+
+  stopifnot(abelianize(x*3) == abelianize(backwards(x) + x + x))
+  stopifnot(abelianize(x*3) == abelianize(x + backwards(x) + x))
+  stopifnot(abelianize(x*3) == abelianize(x + x + backwards(x)))
+  stopifnot(abelianize(x*3) == abelianize(backwards(x) + backwards(x) + x))
+
+  
   stopifnot(is.id(sum(x,rev(-x))))
   stopifnot(is.id(cumsum(c(x,-rev(x)))[2*length(x)]))
   stopifnot(cumsum(x)[length(x)] == sum(x))
@@ -55,7 +70,8 @@ checker_xy <- function(x,y){
   stopifnot(sum(x^y) == sum(x)^y)
 
   stopifnot(abelianize(x) == abelianize(x^y))
-  stopifnot(abelianize(x+y) == abeliznize(x+abelianize(y)))
+  stopifnot(abelianize(x+y) == abelianize(y+x))
+  stopifnot(abelianize(x+y) == abelianize(x+abelianize(y)))
 
 
   stopifnot(sum(x,y) == sum(sum(x),sum(y)))
