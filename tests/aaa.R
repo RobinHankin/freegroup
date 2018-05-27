@@ -24,7 +24,16 @@ checker_x <- function(x){
   stopifnot(6*x == x+x+x+x+x+x)
 
   stopifnot(x^x==x)
+  stopifnot(x^id() == x)
 
+  x1 <- rfree(1,1,10,1)
+  x2 <- rfree(1,1,10,1)
+  x3 <- rfree(1,1,10,1)
+
+  stopifnot((x+x1)-x1 == x+x2)
+  stopifnot(x^(x1+x2) == (x^x1)^x2)
+  stopifnot((x+x1)^x2 == x^x2 + x1^x2)
+  stopifnot((x^x1)^(-x1) == x)
 
   stopifnot(abelianize(abelianize(x)) == abelianize(x))
   stopifnot(abelianize(abelianize(sum(x))) == abelianize(sum(abelianize(x))))
@@ -37,12 +46,6 @@ checker_x <- function(x){
 }
 
 
-for(i in 1:100){
-  xxu <- rfree(10,3,2)
-  checker_x(xxu)
-}
-  
-  
 checker_xy <- function(x,y){
   stopifnot(x^y == -y+x+y)
   stopifnot(x+y == x-(-y))
@@ -70,5 +73,16 @@ check_abelianize <- function(n){
   stopifnot(abelianize(sum(abelianize(alpha(sample(n))))) == abc(n))
   return(TRUE)
   }
+
+
+
+for(i in 1:100){
+  print(i)
+  x <- rfree(10,3,2)
+  checker_x(x)
+  
+}
+  
+  
 
 sapply(1:10,check_abelianize)
