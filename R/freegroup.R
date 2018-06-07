@@ -233,9 +233,9 @@ setGeneric("tietze",function(x){standardGeneric("tietze")})
 }
 
 `drop` <- function(a,no){
-  if(is.free(no)){no <- getlet(no)}
-  jj <- getlet(a)
-  keep(a, jj[!jj %in% no])
+    if(is.free(no)){no <- getlet(no)}
+    jj <- unique(c(getlet(a),recursive=TRUE))
+    keep(a, jj[!jj %in% no])
 }
 
 `backwards` <- function(x){
