@@ -105,3 +105,9 @@ for(i in 1:10){
   
 
 sapply(1:10,check_abelianize)
+
+
+
+as.free('a') * 0
+as.free('a') * (-10:10)
+
