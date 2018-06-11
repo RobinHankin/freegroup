@@ -46,10 +46,19 @@ is_proper(a)
 
   A \code{free} object is \dfn{cyclically reduced} iff every cyclic
   permutation of the word is reduced.  A reduced word is cyclically
-  reduced iff the first symbol does not match the last one.  Function
-  \code{is.cyclically.reduced()} tests for this.  Function
-  \code{is.cyclically.reduced2()} gives identical output; it uses
-  slicker but marginally slower R idiom.
+  reduced iff the first symbol does not match the last one.  Thus
+  \code{abac} is cyclically reduced but \code{abca} is not, and
+  \code{abca^{-1}} is not.  Function \code{is.cyclically.reduced()}
+  tests for this.  Function \code{is.cyclically.reduced2()} gives
+  identical output; it uses slicker but marginally slower R idiom.
+
+  Whether the identity should be regarded as cyclically reduced is
+  problematic.  On the one hand the identity cannot be shortened by a
+  combination of cyclic permutation followed by reduction; but on the
+  other, I cannot exhibit a symbol at the start of the identity which
+  can be reduced by juxtaposition with a symbol at the end (because
+  there are no symbols).  Currently it returns \code{NA} but I am open
+  to suggestions.
 
   
 }
