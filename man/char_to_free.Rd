@@ -26,9 +26,17 @@ char_to_matrix(x)
 \note{
   The function is not robust; for example, passing  anything other than
   lower-case letters a-z will give possibly undesirable behaviour.
-  }
 
+  Function \code{char_to_free()} is consistent with the default print
+  options (which are that the symbols are the lowercase letters a-z).
+  If you change the the symbols' names, for example
+  \code{options(symbols=sample(letters))}, then things can get
+  confusing.  The print method does not change the internal
+  representation of a \code{free} object, which is a list of integer
+  matrices.
+}
 \author{Robin K. S. Hankin}
+\seealso{\code{\link{print.free}}}  
 \examples{
 
 char_to_matrix("aaabacdcd")
