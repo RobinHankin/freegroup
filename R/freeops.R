@@ -32,13 +32,13 @@
       if(.Generic == "*"){
          return(free_repeat(e1,e2))   #e2 should be an integer
       } else {
-         stop(paste("<perm>", .Generic, "<non-perm> is not defined ",collapse=" "))
+         stop(paste("<free>", .Generic, "<non-free> is not defined ",collapse=" "))
         }
     } else if (!lclass && rclass){
         if(.Generic == "*"){
             return(free_repeat(e2,e1))   #e1 should be an integer
         } else {
-            stop(paste("<non-perm>", .Generic, "<perm> is not defined ",collapse=" "))
+            stop(paste("<non-free>", .Generic, "<free> is not defined ",collapse=" "))
         }
     } else if (!lclass && !rclass){
         stop("should not reach here")
