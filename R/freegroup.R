@@ -4,7 +4,7 @@
     } else if(is.matrix(x)){
         return(free(x))
     } else if(is.character(x)){
-        return(free(char_to_matrix(x)))
+        return(char_to_free(x))
     } else if(identical(x,0)|identical(x,0L)){
         return(free(matrix(0,2,0)))
     } else if (is.list(x)){
@@ -27,7 +27,15 @@
 }
 
 `char_to_matrix` <- function(x){
-  reduce(rbind(as.numeric(charToRaw(x))-96,1))
+  if(nchar(x)>0){
+    return(rbind(as.numeric(charToRaw(x))-96,1))
+  } else {   # x=''
+    return(matrix(0,2,0))
+  }
+}
+
+`char_to_free` <- function(x){
+  free(sapply(x,char_to_matrix,simplify=FALSE))
 }
 
 `list_to_free` <- function(x){

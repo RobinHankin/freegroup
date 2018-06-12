@@ -13,13 +13,14 @@ char_to_matrix(x)
 }
 \details{
 
-  Function \code{char_to_free()} gives very basic conversion between
-  character vectors and free objects.
-
-  Current functionality is limited to strings like
-  \dQuote{\code{aaabaacd}}, which would give
+  Function \code{char_to_matrix()} gives very basic conversion between
+  character vectors and free objects.  Current functionality is limited
+  to strings like \dQuote{\code{aaabaacd}}, which would give
   \eqn{a^3ba^2cd}{a^3.b.a^2.c.d}.  It would be nice to take a string
   like \dQuote{\code{a^3b^(-3)}} but this is not yet implemented.
+
+  Function \code{char_to_free()} is a vectorized version that coerces
+  output to \code{free}.
 
 }
 \note{
@@ -34,6 +35,10 @@ char_to_matrix("aaabacdcd")
 
 rfree(10,3) + as.free('xxxxxxxxxxxx')
 
-as.free(as.list(letters))*8 + rfree(26,3)
+as.free(letters)*7
+
+as.free('')  # identity element
+
+
 
 }
