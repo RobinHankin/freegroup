@@ -37,6 +37,7 @@ more user-friendly and tries a bit harder to do the Right Thing.
 
 }
 \author{Robin K. S. Hankin}
+\seealso{\code{\link{char_to_free}}}
 \examples{
 free(rbind(1:5,5:1))
 
