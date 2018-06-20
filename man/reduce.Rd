@@ -46,9 +46,11 @@ is_proper(a)
 
   A \code{free} object is \dfn{cyclically reduced} iff every cyclic
   permutation of the word is reduced.  A reduced word is cyclically
-  reduced iff the first symbol does not match the last one.  Thus
-  \code{abac} is cyclically reduced but \code{abca} is not, and
-  \code{abca^{-1}} is not.  Function \code{is.cyclically.reduced()}
+  reduced iff the first letter is not the inverse of the last one.  A
+  reduced word is cyclically reduced if the first and last symbol differ
+  (irrespective of power) or, if identical, have powers of opposite
+  sign.  For example, \code{abac} and \code{abca} are cyclically reduced
+  but \code{abca^{-1}} is not.  Function \code{is.cyclically.reduced()}
   tests for this.  Function \code{is.cyclically.reduced2()} gives
   identical output; it uses slicker but marginally slower R idiom.
 

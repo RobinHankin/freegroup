@@ -198,14 +198,14 @@ setGeneric("tietze",function(x){standardGeneric("tietze")})
 
 `.cycred` <- function(a){
   n <- ncol(a)
-  if(n>1){
-    return(a[1,1] != a[1,n])
-  } else if(n==1){
-    return(TRUE)
-  } else if(n==0){
-    return(NA)
-  } else {
-    stop("this cannot happen")
+  if(n>0){
+      if(a[1,1] != a[1,n]){
+          return(TRUE)
+      } else {
+          return(prod(a[2,c(1,n)])>0)
+      }
+  } else { 
+      return(NA)
   }
 }
 
