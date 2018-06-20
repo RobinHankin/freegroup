@@ -94,7 +94,7 @@ library(freegroup)
     list(expression=expression,equivalent=equivalent)
 }
 
-## we will define 'original' and try and reduce it with 'pres'
+## we will define 'original' and try and reduce it with 'relator'
 
 
 
@@ -113,19 +113,26 @@ comb <- function(x){
 
 }
 
-`use_presentation_element_n` <- function(orig,pres,n){  
+`use_relator_n` <- function(orig,relator,n){  
 
-  ## cycles through all substrings of the presentation element,
-  ## searching for an opportunity to replace part of 'orig' with its
-  ## equivalent.  If nothing is found, return 'orig' unchanged.
+  ## cycles through all substrings of the presentation element
+  ## 'relator', searching for an opportunity to replace part of 'orig'
+  ## with its equivalent.  If nothing is found, return 'orig'
+  ## unchanged.
+
+  ## If you want to shorten 'orig', then make sure that 'n' is
+  ## sufficiently large because otherwise this function will blindly
+  ## replace a short substring of 'orig' with a *longer* equivalent.
+  ## To guarantee only shortening substitutions are made, 'n' needs to
+  ## be longer than half relator: 2*n>length(relator)
 
   ## R> orig <- c(1,2,2,2,4,5,1)
-  ## R> pres <- c(-4,-2,-2,4,7)
-  ## R> simplify(orig,pres,3)
+  ## R> relator <- c(-4,-2,-2,4,7)
+  ## R> simplify(orig,relator,3)
 
 
     s <- seq_len(n)
-    o <- dehn(pres,n)
+    o <- dehn(relator,n)
     p <- substrings(orig,n)
 
   found <- FALSE
@@ -136,13 +143,13 @@ comb <- function(x){
 
         ## what we *want* to do is this.  If, say, i=8,j=3,
         ## and n=3 then we want to say
-        ## "orig[3:5] <- dehn(pres, 3)[8, 4:5]" ...but this
+        ## "orig[3:5] <- dehn(relator, 3)[8, 4:5]" ...but this
         ## doesnt work (for good reasons)
         ## so we are  going to have to build up the thing from bits:
 
         
             bit1 <- orig[seq_len(j-1)]
-            bit2 <- o[i,seq.int(from=n+1,to=length(pres))] 
+            bit2 <- o[i,seq.int(from=n+1,to=length(relator))] 
             bit3 <- orig[seq.int(from=j+n,to=length(orig))]
         if(j+n <= length(orig)){
           bit3 <-     orig[seq.int(from=j+n,to=length(orig))]
@@ -159,30 +166,29 @@ comb <- function(x){
 
 orig <- c(1,2,2,2,4,5,1)
 orig1 <- c(66,66,66,66,1,2,2,2,4,5,1)
-pres <- c(-4,-2,-2,4,7)
+relator <- c(-4,-2,-2,4,7)
 
-## In the above, 'orig' is the original string and 'pres' is an
+## In the above, 'orig' is the original string and 'relator' is an
 ## element of the presentation.  The original string 'orig' =
 ## c(1,2,2,2,4,5,1) = 1222451 = ab^3dea in algebraic notation; and
-## 'pres' = c(-4,-2,-2,4,7) = d^{-1}b^{-2} dg=Id.  Thus pres=Id gives
-## 244=47.  We can therefore re-write orig as 1222451 = 12.224.51 =
-## 12.47.51=124751=abdgea, which is shorter.
+## 'relator' = c(-4,-2,-2,4,7) = d^{-1}b^{-2} dg=Id.  Thus relator=Id
+## gives 244=47.  We can therefore re-write orig as 1222451 =
+## 12.224.51 = 12.47.51=124751 = abdgea, which is shorter.
 
-jj <- use_presentation_element_n(orig,pres,3)
+jj <- use_relator_n(orig,relator,3)
 
 ## R> 
 
-use_presentation_element <- function(orig,pres){
+use_relator <- function(orig,relator){
   ## all sensible values of 'n', tried one at a time.  Returns the
   ## first string found that is shorter than orig, if it exists: that
-  ## is, it "uses" the presentation element pres only once (or not at
+  ## is, it "uses" the presentation element relator only once (or not at
   ## all if it doesn't find a shortening).
 
 
-  lp <- length(pres)
+  lp <- length(relator)
   for(n in seq(from=ceiling(lp/2 + 0.01), to=lp)){
-    print(n)
-    orig.possibly.shorter <- use_presentation_element_n(orig,pres,n)
+    orig.possibly.shorter <- use_relator_n(orig,relator,n)
     if(length(orig.possibly.shorter) < length(orig)){  # found a shortening!
       return(orig.possibly.shorter)  # actually orig.possibly.shorter is *definitely* shorter
     }
@@ -190,14 +196,15 @@ use_presentation_element <- function(orig,pres){
   return(orig)     # possibly the same length as orig (but hopefully shorter)
 }
 
-comb_single_pres <- function(orig,pres){   ## repeatedly shortens orig
-                                           ## using pres until it
+comb_single_relator <- function(orig,relator){   ## repeatedly
+                                           ## shortens 'orig' using
+                                           ## 'relator' until it
                                            ## cannot be shortened any
                                            ## further.
 
   perhaps_further_shortening_possible <- TRUE
   while(perhaps_further_shortening_possible){
-    orig.possibly.shorter <- remove_adjacent_inverses(use_presentation_element(orig,pres))
+    orig.possibly.shorter <- remove_adjacent_inverses(use_relator(orig,relator))
     if(length(orig.possibly.shorter) == length(orig)){  # found no shortening!
       perhaps_further_shortening_possible <- FALSE # no shortening possible, close while() loop
     }
@@ -206,18 +213,17 @@ comb_single_pres <- function(orig,pres){   ## repeatedly shortens orig
   return(orig)  # hopefully shorter, but possibly same length as, function argument orig
 }
 
-
-`comb_preslist` <- function(orig, preslist){
-  ## Function comb_preslist() goes through a whole list of
+`comb_relatorlist` <- function(orig, relatorlist){
+  ## Function comb_relatorlist() goes through a whole list of
   ## presentation elements; skeleton similar to that of
-  ## comb_single_pres()
+  ## comb_single_relator()
 
   while(TRUE){
     orig.possibly.shorter <- orig
-    for(i in seq_along(preslist)){
-      orig.possibly.shorter %<>% comb_single_pres(pres[[i]])  # maybe shorten more than once
+    for(i in seq_along(relatorlist)){
+      orig.possibly.shorter %<>% comb_single_relator(relator[[i]])  # maybe shorten more than once
     }
-    if(length(orig.possibly.shorter) == length(orig)){  # no shortening found after going through all preslist
+    if(length(orig.possibly.shorter) == length(orig)){  # no shortening found after going through all relatorlist
       return(orig)  # function exits
     } else {  # found a shortening;
       orig <- orig.possibly.shorter  # Here, 'orig.possibly.shorter' is *definitely* shorter than orig
