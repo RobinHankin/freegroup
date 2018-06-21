@@ -113,7 +113,8 @@ comb <- function(x){
 
 }
 
-`use_relator_n` <- function(orig,relator,n){  
+`use_relator_n` <- function(orig,relator,n){
+  
 
   ## cycles through all substrings of the presentation element
   ## 'relator', searching for an opportunity to replace part of 'orig'
@@ -134,7 +135,7 @@ comb <- function(x){
     s <- seq_len(n)
     o <- dehn(relator,n)
     p <- substrings(orig,n)
-
+  print(o)
   found <- FALSE
   for(i in seq_len(nrow(o))){
     for(j in seq_len(nrow(p))){
@@ -147,9 +148,15 @@ comb <- function(x){
         ## doesnt work (for good reasons)
         ## so we are  going to have to build up the thing from bits:
 
-        
+
+
+
             bit1 <- orig[seq_len(j-1)]
-            bit2 <- o[i,seq.int(from=n+1,to=length(relator))] 
+            if(n<length(relator)){
+              bit2 <- o[i,seq.int(from=n+1,to=length(relator))]
+            } else {
+              bit2 <- NULL
+            }
             bit3 <- orig[seq.int(from=j+n,to=length(orig))]
         if(j+n <= length(orig)){
           bit3 <-     orig[seq.int(from=j+n,to=length(orig))]
@@ -181,27 +188,33 @@ jj <- use_relator_n(orig,relator,3)
 
 use_relator <- function(orig,relator){
   ## all sensible values of 'n', tried one at a time.  Returns the
-  ## first string found that is shorter than orig, if it exists: that
-  ## is, it "uses" the presentation element relator only once (or not at
-  ## all if it doesn't find a shortening).
+  ## first word found that is shorter than 'orig', if it exists: that
+  ## is, it "uses" the presentation element 'relator' at most once (ie
+  ## not at all if it doesn't find a shortening).
 
 
   lp <- length(relator)
   for(n in seq(from=ceiling(lp/2 + 0.01), to=lp)){
     orig.possibly.shorter <- use_relator_n(orig,relator,n)
     if(length(orig.possibly.shorter) < length(orig)){  # found a shortening!
-      return(orig.possibly.shorter)  # actually orig.possibly.shorter is *definitely* shorter
+      return(orig.possibly.shorter)  # actually, if we are here then
+                                     # orig.possibly.shorter is
+                                     # *definitely* shorter-not just
+                                     # possibly shorter; use_relator()
+                                     # exits here
     }
   } # for(n) loop closes
   return(orig)     # possibly the same length as orig (but hopefully shorter)
 }
 
-comb_single_relator <- function(orig,relator){   ## repeatedly
+use_single_relator <- function(orig,relator){   ## repeatedly
                                            ## shortens 'orig' using
                                            ## 'relator' until it
                                            ## cannot be shortened any
                                            ## further.
 
+  print(orig)
+  print(relator)
   perhaps_further_shortening_possible <- TRUE
   while(perhaps_further_shortening_possible){
     orig.possibly.shorter <- remove_adjacent_inverses(use_relator(orig,relator))
@@ -221,7 +234,7 @@ comb_single_relator <- function(orig,relator){   ## repeatedly
   while(TRUE){
     orig.possibly.shorter <- orig
     for(i in seq_along(relatorlist)){
-      orig.possibly.shorter %<>% comb_single_relator(relator[[i]])  # maybe shorten more than once
+      orig.possibly.shorter %<>% use_single_relator(relatorlist[[i]])  # maybe shorten more than once
     }
     if(length(orig.possibly.shorter) == length(orig)){  # no shortening found after going through all relatorlist
       return(orig)  # function exits
@@ -232,3 +245,11 @@ comb_single_relator <- function(orig,relator){   ## repeatedly
   stop("this cannot happen")
 } 
 
+is_simply_reduced <- function(...){}
+
+## presentation for quaternion group:
+rl <- list(c(-1,-1), c(2,2,-1), c(3,3,-1),c(4,4,-1),c(2,3,4,-1))
+
+
+thing <- c(1,3,3,3,3,3,3,4,3,2,4,4,4,4)
+jj <- comb_relatorlist(thing,rl)
