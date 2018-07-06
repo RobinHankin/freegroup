@@ -185,7 +185,17 @@ setGeneric("tietze",function(x){standardGeneric("tietze")})
 }
 
 `abc` <- function(n){
-  free(sapply(n,function(o){rbind(seq_len(o),1)},simplify=FALSE))
+    free(sapply(n,
+                function(o){
+                    if(o>0){
+                        return(rbind(seq_len(o),1))
+                    } else if (o==0){
+                        return(rbind(1,0))
+                    } else {
+                        return(rbind(rev(seq_len(-o)),-1))
+                    }
+                },
+                simplify=FALSE))
 }
 
 `alpha` <- function(v){
