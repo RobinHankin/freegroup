@@ -199,7 +199,15 @@ setGeneric("tietze",function(x){standardGeneric("tietze")})
 }
 
 `alpha` <- function(v){
-    free(sapply(v,function(x){rbind(x,1)},simplify=FALSE))
+    free(sapply(v,
+                function(x){
+                    if(x!=0){
+                        return(rbind(abs(x),sign(x)))
+                    } else {
+                        return(rbind(1,0))
+                    }
+                },
+                simplify=FALSE))
 }
 
 `is.id` <- function(x){x==as.free(0)}
