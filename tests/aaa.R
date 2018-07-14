@@ -1,15 +1,15 @@
 ## define some checker functions, call them at the end.  They should
-## all return TRUE if the package works.  Function checker_x() has one
-## argument, checker_xy() two, and checker_xyz() has three.  These
+## all return TRUE if the package works.  Function checker1() has one
+## argument, checker2() two, and checker3() has three.  These
 ## functions also check that the vectorization is OK; so for example
-## if 'x' is of length 10 and 'y' is of length 1 [e.g. x <-
-## rfree(10,2,2) ; y <- rfree(1,2,2)], then all three of
-## checker_xy(1:10,1:10), checker_xy(1:10,1), checker_xy(1,1:10)
-## should return TRUE.
+## in checker2(), if is of length 10 and 'y' is of length 1 [e.g. x <-
+## rfree(10,2,2) and y <- rfree(10,2,2)], then all three of
+## checker2(x,y), checker2(x,y[1]), checker2(x[1],y) should return
+## TRUE.
 
 library(freegroup)
 
-checker_x <- function(x){
+checker1 <- function(x){
   stopifnot(x==x)
 
   stopifnot(x == x + as.free(0))  
@@ -67,7 +67,7 @@ checker_x <- function(x){
 }
 
 
-checker_xy <- function(x,y){
+checker2 <- function(x,y){
   stopifnot(x^y == -y+x+y)
   stopifnot(x+y == x-(-y))
 
@@ -86,7 +86,7 @@ checker_xy <- function(x,y){
   return(TRUE)
 }
 
-checker_xyz <- function(x,y,z){
+checker3 <- function(x,y,z){
   stopifnot(x+(y+z) == (x+y)+z) # associativity
   stopifnot(x^(y+z) == (x^y)^z) 
   stopifnot(x^z + y^z == (x+y)^z)
@@ -109,9 +109,9 @@ for(i in 1:10){
     y <- rfree(10,3,2)
     z <- rfree(10,3,2)
     
-    checker_x(x)
-    checker_xy(x,y)
-    checker_xyz(x,y,z)
+    checker1(x)
+    checker2(x,y)
+    checker3(x,y,z)
 }
 
 
