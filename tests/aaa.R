@@ -1,7 +1,12 @@
- ## define some checker functions, call them at the end.  They should
- ## all return TRUE; these functions also check that the vectorization
- ## is OK; so for example f(1:10,1:10), f(1:10,1), f(1,1:10) should
- ## all return TRUE.
+## define some checker functions, call them at the end.  They should
+## all return TRUE if the package works.  Function checker_x() has one
+## argument, checker_xy() two, and checker_xyz() has three.  These
+## functions also check that the vectorization is OK; so for example
+## if 'x' is of length 10 and 'y' is of length 1 [e.g. x <-
+## rfree(10,2,2) ; y <- rfree(1,2,2)], then all three of
+## checker_xy(1:10,1:10), checker_xy(1:10,1), checker_xy(1,1:10)
+## should return TRUE.
+
 library(freegroup)
 
 checker_x <- function(x){
