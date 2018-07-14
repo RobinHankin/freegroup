@@ -72,7 +72,6 @@ checker_xy <- function(x,y){
   stopifnot(x+y == x-(-y))
 
   stopifnot((x^y)^(-y) == x)
-  stopifnot(sum(x^y) == sum(x)^y)
 
   stopifnot(abelianize(x) == abelianize(x^y))
   stopifnot(abelianize(x+y) == abelianize(y+x))
@@ -80,6 +79,9 @@ checker_xy <- function(x,y){
 
 
   stopifnot(sum(x,y) == sum(sum(x),sum(y)))
+
+  stopifnot(sum(x^y[1]) == sum(x)^y[1])
+
 
   return(TRUE)
 }
