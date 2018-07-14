@@ -87,34 +87,38 @@ checker_xy <- function(x,y){
 }
 
 checker_xyz <- function(x,y,z){
-  stopifnot(x+(y+z) == (x+y)+z)
-  stopifnot(x^(y+z) == (x^y)^z)
+  stopifnot(x+(y+z) == (x+y)+z) # associativity
+  stopifnot(x^(y+z) == (x^y)^z) 
   stopifnot(x^z + y^z == (x+y)^z)
 
   abelianize(x^z - x^y) %>% abelianize %>% is.id %>% stopifnot
   stopifnot(sum(x,y,z) == sum(sum(x),sum(y),sum(z)))
+
+  return(TRUE)
 }
 
 check_abelianize <- function(n){
   stopifnot(abelianize(sum(abelianize(alpha(sample(n))))) == abc(n))
   return(TRUE)
-  }
+}
 
 
 
 for(i in 1:10){
-  print(i)
-  x <- rfree(10,3,2)
-  checker_x(x)
-  
+    x <- rfree(10,3,2)
+    y <- rfree(10,3,2)
+    z <- rfree(10,3,2)
+    
+    checker_x(x)
+    checker_xy(x,y)
+    checker_xyz(x,y,z)
 }
-  
-  
+
 
 sapply(1:10,check_abelianize)
 
 
-
+## final checks verify that various bugs are truly fixed:
 as.free('a') * 0
 as.free('a') * (-10:10)
 
