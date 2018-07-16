@@ -9,6 +9,7 @@
 
 library(freegroup)
 
+
 checker1 <- function(x){
   stopifnot(x==x)
 
@@ -113,7 +114,7 @@ for(i in 1:10){
 sapply(1:10,check_abelianize)
 
 
-## final checks verify that various bugs are truly fixed:
+## The following checks verify that various bugs are truly fixed:
 as.free('a') * 0
 as.free('a') * (-10:10)
 
