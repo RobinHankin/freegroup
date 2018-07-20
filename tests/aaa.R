@@ -117,6 +117,6 @@ sapply(1:10,check_abelianize)
 ## The following checks verify that various bugs are truly fixed:
 as.free('a') * 0
 as.free('a') * (-10:10)
-stopifnot(0:10,function(n){is.id(alpha(n)+alpha(-n))})
-stopifnot(0:10,function(n){is.id(abc(n)+abc(-n))})
+stopifnot(sapply(0:10,function(n){is.id(alpha(n)+alpha(-n))}))
+stopifnot(sapply(0:10,function(n){is.id(abc(n)+abc(-n))}))
 
