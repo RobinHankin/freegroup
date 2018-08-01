@@ -31,7 +31,7 @@ checker1 <- function(x){
   stopifnot(x^x==x)
   stopifnot(x^id() == x)
 
-
+  ## verify idempotence of abelianize():
   stopifnot(abelianize(abelianize(x)) == abelianize(x))
   stopifnot(abelianize(abelianize(sum(x))) == abelianize(sum(abelianize(x))))
 
