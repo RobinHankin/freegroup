@@ -210,7 +210,8 @@ setGeneric("tietze",function(x){standardGeneric("tietze")})
                 simplify=FALSE))
 }
 
-`is.id` <- function(x){x==as.free(0)}
+`is.id` <- function(x){ UseMethod("is.id",x) }
+`is.id.free` <- function(x){x==as.free(0)}
 
 `id` <- function(n){free(rep(list(matrix(1,2,0)),n))}
 

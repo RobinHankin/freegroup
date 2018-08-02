@@ -3,12 +3,14 @@
 \alias{id}
 \alias{is.id}
 \alias{is.identity}
+\alias{is.id.free}
 \alias{neutral}
 \title{The identity element}
 \description{Create and test for the identity element}
 \usage{
 is.id(x)
 id(n)
+\method{is.id}{free}(x)
 }
 \arguments{
   \item{x}{Object of class \code{free}}
