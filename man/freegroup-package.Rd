@@ -22,8 +22,17 @@ Maintainer: \packageMaintainer{freegroup}
 }
 \keyword{ package }
 \examples{
-u <- rfree(10,6,2)
-u^as.free('x')
-abelianize(u)
+a <- rfree(10,6,3)
+x <- as.free('x')
+
+a+x
+
+a^x
+
+sum(a)
+
+abelianize(a)
+
+drop(a+x,'a')
 
 }
