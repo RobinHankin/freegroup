@@ -20,8 +20,7 @@ x <- rfree(30,4,11)
 
 getlet(x)
 
-alpha(getlet(x))
-alpha(getlet(sum(x)))
+as.free(getlet(x))
 
 identical(as.free(getlet(abc(1:26))), abc(1:26))
 
