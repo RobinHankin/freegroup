@@ -281,3 +281,42 @@ setGeneric("tietze",function(x){standardGeneric("tietze")})
 `backwards` <- function(x){
     free(lapply(x,function(o){o[,rev(seq_len(ncol(o))),drop=FALSE]}))
   }
+
+`subs` <- function(a,from,to){
+  from <- getlet(as.free(from))
+  to <- getlet(as.free(to))
+  stopifnot(length(to) == 1)
+  
+  s <- function(M,from,to){
+    M[1,M[1,] %in% from] <- to
+    return(M)
+  }
+    
+  a %<>% unclass %>% lapply(s,from=from,to=to) %>% free
+  return(a)
+}
+
+`flip` <- function(a,turn){
+  turn <- getlet(as.free(turn))
+  
+  s <- function(M,turn){
+    M[2,M[1,] %in% turn] %<>% "*"(-1)
+    return(M)
+  }
+
+  a %<>% unclass %>% lapply(s,turn=turn) %>% free
+  return(a)  
+}
+
+`abs.free` <- function(x){
+  s <- function(M){
+    M[2,] %<>% abs
+    return(M)
+  }
+  x %<>% unclass %>% lapply(s) %>% free
+  return(x)
+}
+
+`size` <- function(a){unlist(lapply(a,ncol))}
+`total` <- function(a){unlist(lapply(a,function(M){sum(abs(M[2,]))}))}
+`number` <- function(a){unlist(lapply(a,function(M){length(table(abs(M[1,])))}))}

@@ -55,6 +55,18 @@ checker1 <- function(x){
   stopifnot(is.id(cumsum(c(x,-rev(x)))[2*length(x)]))
   stopifnot(cumsum(x)[length(x)] == sum(x))
 
+  jj <- getlet(sum(x))
+  a <- jj[1]
+  b <- jj[2]
+
+  stopifnot(size(flip(x,a))   == size(x))
+  stopifnot(total(flip(x,a))  == total(x))
+  stopifnot(number(flip(x,a)) == number(x))
+
+  stopifnot(size(subs(x,a,b))   <= size(x))
+  stopifnot(total(subs(x,a,b))  <= total(x))
+  stopifnot(number(subs(x,a,b)) <= number(x))
+
   return(TRUE)
 }
 
@@ -79,6 +91,14 @@ checker2 <- function(x,y){
   stopifnot(sum(x^y[1]) == sum(x)^y[1])
 
 
+  stopifnot(  size(x+y) <= size(x)   +   size(y))
+  stopifnot( total(x+y) <= total(x)  +  total(y))
+  stopifnot(number(x+y) <= number(x) + number(y))
+
+  stopifnot(  size(x+y) <= size  (abs(x) + abs(y)))
+  stopifnot( total(x+y) <= total (abs(x) + abs(y)))
+  stopifnot(number(x+y) <= number(abs(x) + abs(y)))
+
   return(TRUE)
 }
 
@@ -101,9 +121,9 @@ check_abelianize <- function(n){
 
 
 for(i in 1:10){
-    x <- rfree(10,3,2)
-    y <- rfree(10,3,2)
-    z <- rfree(10,3,2)
+    x <- rfree(10,6,3)
+    y <- rfree(10,6,3)
+    z <- rfree(10,6,3)
     
     checker1(x)
     checker2(x,y)
@@ -111,7 +131,10 @@ for(i in 1:10){
 }
 
 
+
+
 sapply(1:10,check_abelianize)
+
 
 
 ## The following checks verify that various bugs are truly fixed:
