@@ -24,6 +24,8 @@ section.
 \seealso{\code{\link{subs}}}
 \examples{
 
+abs(abc(-5:5))
+
 a <- rfree(10,4,7)
 b <- rfree(10,4,7)
 
