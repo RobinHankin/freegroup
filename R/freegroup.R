@@ -215,7 +215,7 @@ setGeneric("tietze",function(x){standardGeneric("tietze")})
 
 `id` <- function(n){free(rep(list(matrix(1,2,0)),n))}
 
-`.cycred` <- function(a){
+`.is_cyc_reduced` <- function(a){  # low-level, works with matrices
   n <- ncol(a)
   if(n>0){
       if(a[1,1] != a[1,n]){
@@ -228,10 +228,10 @@ setGeneric("tietze",function(x){standardGeneric("tietze")})
   }
 }
 
-`is.cyclically.reduced` <- function(a){unlist(lapply(unclass(a), .cycred))}
+`is.cyclically.reduced` <- function(a){unlist(lapply(unclass(a), .is_cyc_reduced))}
   
 `is.cyclically.reduced2` <- function(a){
-  a %>% unclass %>% lapply(.cycred) %>% unlist
+  a %>% unclass %>% lapply(.is_cyc_reduced) %>% unlist
 }  
 
 `abelianize` <- function(x){
@@ -320,3 +320,4 @@ setGeneric("tietze",function(x){standardGeneric("tietze")})
 `size` <- function(a){unlist(lapply(a,ncol))}
 `total` <- function(a){unlist(lapply(a,function(M){sum(abs(M[2,]))}))}
 `number` <- function(a){unlist(lapply(a,function(M){length(table(abs(M[1,])))}))}
+
