@@ -22,3 +22,5 @@ S3method("tietze",free)
 S3method("tietze",matrix)
 
 S3method("is.id",free)
+
+S3method("abs", free)
