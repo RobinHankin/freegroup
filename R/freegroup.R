@@ -261,6 +261,9 @@ setGeneric("tietze",function(x){standardGeneric("tietze")})
   return(free(lapply(tietze(a), f)))
 }
 
+`cyclically_reduce` <- as.cyclically_reduced
+
+
 `is_conjugate_single` <- function(x,y){
   stopifnot(length(x)==1)
   stopifnot(length(y)==1)

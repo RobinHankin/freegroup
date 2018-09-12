@@ -3,6 +3,7 @@
 \alias{cyclic}
 \alias{cyclically}
 \alias{cyclically_reduced}
+\alias{cyclically_reduce}
 \alias{cyclic_reduction}
 \alias{is.cyclically.reduced}
 \alias{is.cyclically.reduced2}
@@ -16,6 +17,7 @@
 is.cyclically.reduced(a)
 is.cyclically.reduced2(a)
 as.cyclically_reduced(a)
+cyclically_reduce(a)
 cyclically_reduce_tietze(p)
 is.conjugate(x,y)
 is_conjugate_single(x,y)
@@ -37,7 +39,8 @@ is_conjugate_single(x,y)
   identical output; it uses slicker but marginally slower R idiom.
 
   Function \code{as.cyclically_reduced()} takes a vector of free objects
-  and returns the elementwise cyclically reduced equivalents.
+  and returns the elementwise cyclically reduced equivalents.  Function
+  \code{cyclically_reduce()} is a synonym with better (English) grammar.
   
   Whether the identity should be regarded as cyclically reduced is
   problematic.  On the one hand the identity cannot be shortened by a
