@@ -53,7 +53,7 @@
 
 `vec_to_matrix` <- function(x){  # takes a *vector* like c(1,2,-1,-1,2); returns a matrix
     if(all(x==0)){
-        return(as.free(0))
+        return(matrix(NA,2,0))
     } else {
         x <- x[x!=0]
        return(rbind(abs(x),sign(x)))
@@ -232,7 +232,9 @@ setGeneric("tietze",function(x){standardGeneric("tietze")})
   
 `is.cyclically.reduced2` <- function(a){
   a %>% unclass %>% lapply(.is_cyc_reduced) %>% unlist
-}  
+}
+
+
 
 `abelianize` <- function(x){
   lapply(x,
