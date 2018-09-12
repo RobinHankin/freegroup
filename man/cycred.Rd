@@ -22,13 +22,13 @@ is.cyclically.reduced2(a)
 as.cyclically_reduced(a)
 cyclically_reduce(a)
 cyclically_reduce_tietze(p)
-is_conjugate_single(x,y)
+is_conjugate_single(u,v)
 x \%~\% y
 \method{is.conjugate}{free}(x,y)
 }
 \arguments{
   \item{a,x,y}{An object of class \code{free}}
-  \item{p}{Integer vector corresponding to Tietze form of a word}
+  \item{p,u,v}{Integer vector corresponding to Tietze form of a word}
 }
 \details{
 

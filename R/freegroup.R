@@ -264,29 +264,33 @@ setGeneric("tietze",function(x){standardGeneric("tietze")})
 `cyclically_reduce` <- as.cyclically_reduced
 
 
-`is_conjugate_single` <- function(x,y){
-  stopifnot(length(x)==1)
-  stopifnot(length(y)==1)
+`is_conjugate_single` <- function(u,v){
 
-  if(is.id(x) && is.id(y)){return(TRUE)}
+  ## this is a low-level helper function, takes two integer vectors
+  ## (words in Tietze form)
 
-  x <- tietze(as.cyclically_reduced(x))[[1]]
-  y <- tietze(as.cyclically_reduced(y))[[1]]
-
-  if(length(x) != length(y)){ return(FALSE) }
-  
+  if( (length(u)==0) & (length(v)==0)){return(TRUE)}
+  if(length(u) != length(v)){ return(FALSE) }
+  ##  at this point, both have identical nonzero length
   out <-
     apply(
-        kronecker(t(x),1L+x*0L) ==
-        sapply(1L-seq_along(y),function(i){magic::shift(y,i)},simplify=TRUE),
+        kronecker(t(u),1L+v*0L) ==
+        sapply(1L-seq_along(v),function(i){magic::shift(v,i)},simplify=TRUE),
         1,all)
   
   return(any(out))
 }
 
 "is.conjugate" <- function(x,y){UseMethod("is.conjugate")}
-is.conjugate.free <- function(x,y){
-  apply(cbind(seq_along(x),seq_along(y)),1,function(v){is_conjugate_single(x[v[1]],y[v[2]])})
+
+`is.conjugate.free` <- function(x,y){  # this is the user-friendly function
+  jj <-  cbind(seq_along(x),seq_along(y))
+  f <- function(v){
+    is_conjugate_single(
+        unlist(tietze(as.cyclically_reduced(x[v[1]]))),
+        unlist(tietze(as.cyclically_reduced(y[v[2]])))
+    )}
+  apply(jj,1,f)
 }
 
 "%~%" <- function(x,y){UseMethod("%~%")}
