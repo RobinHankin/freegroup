@@ -103,6 +103,9 @@ checker2 <- function(x,y){
   stopifnot( total(x+y) <= total (abs(x) + abs(y)))
   stopifnot(number(x+y) <= number(abs(x) + abs(y)))
 
+
+  stopifnot(is.conjugate(x,x^y))
+
   return(TRUE)
 }
 
