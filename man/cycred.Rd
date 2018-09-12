@@ -67,6 +67,6 @@ as.cyclically_reduced(abc(1:9) - abc(9:1))
 
  x <- rfree(1000,2)
  y <- as.free('ab')
- table(is.conjugate(x,y),x==y)
+ table(conjugate=is.conjugate(x,y),equal=(x==y))  # note zero at top right
 
 }
