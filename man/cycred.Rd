@@ -9,8 +9,11 @@
 \alias{is.cyclically.reduced2}
 \alias{as.cyclically_reduced}
 \alias{cyclically_reduce_tietze}
-\alias{is.conjugate}
 \alias{is_conjugate_single}
+\alias{is.conjugate}
+\alias{is.conjugate.free}
+\alias{\%~\%}
+\alias{\%~\%.onion}
 \title{Cyclic reductions of a word}
 \description{Functionality to cyclically reduce words and detect conjugacy}
 \usage{
@@ -19,8 +22,9 @@ is.cyclically.reduced2(a)
 as.cyclically_reduced(a)
 cyclically_reduce(a)
 cyclically_reduce_tietze(p)
-is.conjugate(x,y)
 is_conjugate_single(x,y)
+x \%~\% y
+\method{is.conjugate}{free}(x,y)
 }
 \arguments{
   \item{a,x,y}{An object of class \code{free}}
@@ -68,8 +72,12 @@ as.cyclically_reduced(abc(1:9) - abc(9:1))
  all(total(as.cyclically_reduced(a)) <= total(a))
  all(number(as.cyclically_reduced(a)) <= number(a))
 
+
+
  x <- rfree(1000,2)
  y <- as.free('ab')
- table(conjugate=is.conjugate(x,y),equal=(x==y))  # note zero at top right
+ table(conjugate = (x\%~\%y), equal = (x==y))  # note zero at top right
+
+
 
 }

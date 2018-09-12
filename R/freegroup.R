@@ -284,9 +284,13 @@ setGeneric("tietze",function(x){standardGeneric("tietze")})
   return(any(out))
 }
 
-is.conjugate <- function(x,y){
+"is.conjugate" <- function(x,y){UseMethod("is.conjugate")}
+is.conjugate.free <- function(x,y){
   apply(cbind(seq_along(x),seq_along(y)),1,function(v){is_conjugate_single(x[v[1]],y[v[2]])})
 }
+
+"%~%" <- function(x,y){UseMethod("%~%")}
+"%~%.free" <- function(x,y){is.conjugate(x,y)}
 
 `abelianize` <- function(x){
   lapply(x,
