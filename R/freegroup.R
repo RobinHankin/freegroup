@@ -274,9 +274,8 @@ setGeneric("tietze",function(x){standardGeneric("tietze")})
   ##  at this point, both have identical nonzero length
   out <-
     apply(
-        kronecker(t(u),1L+v*0L) ==
-        sapply(1L-seq_along(v),function(i){magic::shift(v,i)},simplify=TRUE),
-        1,all)
+        kronecker(t(u),1L+u*0L) ==
+        magic::circulant(v), 1,all)
   
   return(any(out))
 }

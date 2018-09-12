@@ -4,6 +4,7 @@ import("magrittr")
 import("methods")
 
 importFrom("magic","shift")
+importFrom("magic","circulant")
 
 export("%~%")
 
