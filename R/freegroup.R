@@ -234,7 +234,56 @@ setGeneric("tietze",function(x){standardGeneric("tietze")})
   a %>% unclass %>% lapply(.is_cyc_reduced) %>% unlist
 }
 
+`cyclically_reduce_tietze` <- function(p){  # p is in reduced tietze form
+  if(length(unique(p))<2){  # either empty, or only one distinct symbol
+    return(p)  
+  }
+  n <- floor(length(p)/2)
+  jj <- (p[seq_len(n)] + p[seq(from=length(p),by= -1, len=n)]) != 0 # zero means cancellable
+  if(all(jj)){ # nothing to cancel
+    out <- p
+  } else if(any(jj)){  # potential cancellations
+    i <- min(which(jj))  # there will be i-1 cancellations
+    out <- p[seq(from=i,to=length(p)-i+1)]  ## select the middle bit 
+  } else {
+    ## At this point, all(jj==0); everything from 1-n cancels
+    if(length(p)%%2){ # argument p has odd length
+     out <- p[n+1]   # return the central element
+    } else {  # p has even length
+      out <- NULL # return the identity
+    }
+  }
+  return(out)
+}
 
+`as.cyclically_reduced` <- function(a){
+  f <- function(p){ vec_to_matrix(cyclically_reduce_tietze(p))}
+  return(free(lapply(tietze(a), f)))
+}
+
+`is_conjugate_single` <- function(x,y){
+  stopifnot(length(x)==1)
+  stopifnot(length(y)==1)
+
+  if(is.id(x) && is.id(y)){return(TRUE)}
+
+  x <- tietze(as.cyclically_reduced(x))[[1]]
+  y <- tietze(as.cyclically_reduced(y))[[1]]
+
+  if(length(x) != length(y)){ return(FALSE) }
+  
+  out <-
+    apply(
+        kronecker(t(x),1L+x*0L) ==
+        sapply(1L-seq_along(y),function(i){magic::shift(y,i)},simplify=TRUE),
+        1,all)
+  
+  return(any(out))
+}
+
+is.conjugate <- function(x,y){
+  apply(cbind(seq_along(x),seq_along(y)),1,function(v){is_conjugate_single(x[v[1]],y[v[2]])})
+}
 
 `abelianize` <- function(x){
   lapply(x,

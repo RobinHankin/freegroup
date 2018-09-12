@@ -1,6 +1,9 @@
+
 exportPattern("^[[:alpha:]]+")
 import("magrittr")
 import("methods")
+
+importFrom("magic","shift")
 
 S3method("[", free)
 S3method("[<-", free)

@@ -67,6 +67,10 @@ checker1 <- function(x){
   stopifnot(total(subs(x,a,b))  <= total(x))
   stopifnot(number(subs(x,a,b)) <= number(x))
 
+  stopifnot(size(as.cyclically_reduced(x)) <= size(x))
+  stopifnot(total(as.cyclically_reduced(x)) <= total(x))
+  stopifnot(number(as.cyclically_reduced(x)) <= number(x))
+  
   return(TRUE)
 }
 
