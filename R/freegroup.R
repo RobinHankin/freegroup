@@ -341,7 +341,7 @@ setGeneric("tietze",function(x){standardGeneric("tietze")})
   return(a)
 }
 
-`drop` <- function(a,no){
+`discard` <- function(a,no){
     no <- getlet(as.free(no))
     jj <- unique(c(getlet(a),recursive=TRUE))
     keep(a, jj[!jj %in% no])
