@@ -390,3 +390,10 @@ setGeneric("tietze",function(x){standardGeneric("tietze")})
 `total` <- function(a){unlist(lapply(a,function(M){sum(abs(M[2,]))}))}
 `number` <- function(a){unlist(lapply(a,function(M){length(table(abs(M[1,])))}))}
 
+`bigness` <- function(a){
+  out <- cbind(size=size(a),total=total(a),number=number(a))
+  rownames(out) <- as.character(lapply(a,function(x){as.character_free(x)}))
+  return(drop(out))
+  }
+
+

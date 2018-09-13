@@ -2,6 +2,7 @@
 \alias{size}
 \alias{total}
 \alias{number}
+\alias{bigness}
 \title{
 Bignesses of a free object}
 \description{Various metrics to say how \dQuote{big} a free object is}
@@ -9,6 +10,7 @@ Bignesses of a free object}
 size(a)
 total(a)
 number(a)
+bigness(a)
 }
 \arguments{
   \item{a}{Vector of free group objects}
@@ -17,7 +19,9 @@ number(a)
 
   \itemize{
 
-    \item The \dQuote{size} of an object is the number of symbols in it;
+    \item The \dQuote{size} of an object is the number of pure powers in
+    it (this is the number of columns of the matrix representation of
+    the word).
     
     \item The \dQuote{total} of an object is the sum of the absolute
     values of its powers
@@ -28,6 +32,10 @@ number(a)
   
   Thus \code{size(a^2ba)=3}, \code{total(a^2ba)=4}, and
   \code{number(a^2ba)=2}.
+
+  Function \code{bigness()} is a convenience wrapper that returns all
+  three bigness measures.
+  
   
 }
 \value{These functions return an integer vector.}
@@ -55,7 +63,7 @@ size(a+b)   <= size(a)  + size(b)
 total(a+b)  <= total(a) + total(b)
 number(a+b) <= number(a)+ number(b)
 
-
-
+bigness(rfree(10,3,3))
+bigness(allconj(rfree(1,6,1)))
 
 }
