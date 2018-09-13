@@ -295,6 +295,12 @@ setGeneric("tietze",function(x){standardGeneric("tietze")})
 "%~%" <- function(x,y){UseMethod("%~%")}
 "%~%.free" <- function(x,y){is.conjugate(x,y)}
 
+`allconj` <- function(x){
+  stopifnot(length(x)==1)
+  if(is.id(x)){return(id())}
+  free(plyr::alply(magic::circulant(tietze(x)[[1]],doseq=FALSE),1,vec_to_matrix))
+}
+
 `abelianize` <- function(x){
   lapply(x,
          function(o){  # takes a 2-row matrix

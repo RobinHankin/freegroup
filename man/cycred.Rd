@@ -14,6 +14,7 @@
 \alias{is.conjugate.free}
 \alias{\%~\%}
 \alias{\%~\%.onion}
+\alias{allconj}
 \title{Cyclic reductions of a word}
 \description{Functionality to cyclically reduce words and detect conjugacy}
 \usage{
@@ -24,6 +25,7 @@ cyclically_reduce(a)
 cyclically_reduce_tietze(p)
 is_conjugate_single(u,v)
 x \%~\% y
+allconj(x)
 \method{is.conjugate}{free}(x,y)
 }
 \arguments{
@@ -60,13 +62,16 @@ x \%~\% y
   is detected by function \code{is.conjugate()}.  Functions
   \code{is_conjugate_single()} and \code{cyclically_reduce_tietze()} are
   lower-level helper functions.
+
+  Function \code{allconj()} returns all reduced words conjugate to its
+  argument.
     
 }
 \author{Robin K. S. Hankin}
 \seealso{\code{\link{reduce}}}
 \examples{
 
-as.cyclically_reduced(abc(1:9) - abc(9:1))
+ as.cyclically_reduced(abc(1:9) - abc(9:1))
 
  a <- rfree(1000,3)
  all(size(as.cyclically_reduced(a)) <= size(a))
@@ -78,6 +83,14 @@ as.cyclically_reduced(abc(1:9) - abc(9:1))
  x <- rfree(1000,2)
  y <- as.free('ab')
  table(conjugate = (x\%~\%y), equal = (x==y))  # note zero at top right
+
+ allconj(as.free('aaaaab'))
+ allconj(sum(abc(seq_len(3))))
+
+
+
+ x <- rfree(1,10,8,8)
+ all(is.id(allconj(x) + allconj(-x)[shift(rev(seq_len(total(x))))]))
 
 
 

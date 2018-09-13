@@ -5,6 +5,7 @@ import("methods")
 
 importFrom("magic","shift")
 importFrom("magic","circulant")
+importFrom("plyr","alply")
 
 export("%~%")
 
