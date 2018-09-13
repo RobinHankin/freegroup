@@ -172,12 +172,12 @@ setGeneric("tietze",function(x){standardGeneric("tietze")})
     return(free(out))
 }
 
-`rfree` <- function(n,size,howmanyletters=size,powers=seq(from=-size,to=size)){
+`rfree` <- function(n,size,number=size,powers=seq(from=-size,to=size)){
   out <- list()
   for(i in seq_len(n)){
     out[[i]] <- 
       rbind(
-          sample(howmanyletters,size,replace=TRUE),
+          sample(number,size,replace=TRUE),
           sample(powers,size,replace=TRUE)
       )
   }
@@ -298,7 +298,9 @@ setGeneric("tietze",function(x){standardGeneric("tietze")})
 `allconj` <- function(x){
   stopifnot(length(x)==1)
   if(is.id(x)){return(id())}
-  free(plyr::alply(magic::circulant(tietze(x)[[1]],doseq=FALSE),1,vec_to_matrix))
+  out <- free(plyr::alply(magic::circulant(tietze(x)[[1]],doseq=FALSE),1,vec_to_matrix))
+  names(out) <- NULL
+  return(out)
 }
 
 `abelianize` <- function(x){
