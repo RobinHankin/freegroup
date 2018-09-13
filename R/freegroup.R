@@ -275,7 +275,7 @@ setGeneric("tietze",function(x){standardGeneric("tietze")})
   out <-
     apply(
         kronecker(t(u),1L+u*0L) ==
-        magic::circulant(v), 1,all)
+        magic::circulant(v,doseq=FALSE), 1,all)
   
   return(any(out))
 }
