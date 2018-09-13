@@ -15,15 +15,19 @@ number(a)
 }
 \details{
 
-  \itemize{ \item The \dQuote{size} of an object is the number of
-    symbols in it; \item The \dQuote{total} of an object is the sum of
-    the absolute values of its powers
-    \item The \dQuote{number} of an object is the number of distinct symbols in
-    it
-  }
+  \itemize{
 
+    \item The \dQuote{size} of an object is the number of symbols in it;
+    
+    \item The \dQuote{total} of an object is the sum of the absolute
+    values of its powers
+    
+    \item The \dQuote{number} of an object is the number of distinct symbols
+    in it
+  }
+  
   Thus \code{size(a^2ba)=3}, \code{total(a^2ba)=4}, and
-  \number{size(a^2ba)=2}.
+  \code{number(a^2ba)=2}.
   
 }
 \value{These functions return an integer vector.}
