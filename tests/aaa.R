@@ -9,7 +9,6 @@
 
 library(freegroup)
 
-
 checker1 <- function(x){
   stopifnot(x==x)
 
@@ -70,6 +69,11 @@ checker1 <- function(x){
   stopifnot(size(as.cyclically_reduced(x)) <= size(x))
   stopifnot(total(as.cyclically_reduced(x)) <= total(x))
   stopifnot(number(as.cyclically_reduced(x)) <= number(x))
+
+  for(i in seq_along(x)){
+    o <- x[i]
+    stopifnot(all(is.id(allconj(o) + allconj(-o)[shift(rev(seq_len(total(o))))])))
+  }
   
   return(TRUE)
 }
@@ -102,7 +106,6 @@ checker2 <- function(x,y){
   stopifnot(  size(x+y) <= size  (abs(x) + abs(y)))
   stopifnot( total(x+y) <= total (abs(x) + abs(y)))
   stopifnot(number(x+y) <= number(abs(x) + abs(y)))
-
 
   stopifnot(is.conjugate(x,x^y))
 
