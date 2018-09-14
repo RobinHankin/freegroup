@@ -53,9 +53,10 @@ allconj(x)
   combination of cyclic permutation followed by reduction; but on the
   other, I cannot exhibit a symbol at the start of the identity which
   can be reduced by juxtaposition with a symbol at the end (because
-  there are no symbols).  Currently it returns \code{NA} but I am open
-  to suggestions.  Nevertheless, it is clear that the identity should be
-  conjugate to itself.
+  there are no symbols).  Currently it returns \code{TRUE} on the
+  grounds that \code{is.cyclically_reduced(as.cyclically.reduced(x))}
+  should be TRUE; but I am open to suggestions.  Nevertheless, it is
+  clear that the identity should be conjugate to itself.
 
   Two words \eqn{a,b} are \dfn{conjugate} if there exists a \eqn{x} such
   that \eqn{ax=xb} (or equivalently \eqn{a=x^{-1}bx}{a=x^-1 b x}).  This

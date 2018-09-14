@@ -70,10 +70,15 @@ checker1 <- function(x){
   stopifnot(total(as.cyclically_reduced(x)) <= total(x))
   stopifnot(number(as.cyclically_reduced(x)) <= number(x))
 
+  stopifnot(is.cyclically.reduced(as.cyclically_reduced(x)))
+
   for(i in seq_along(x)){
     o <- x[i]
+    stopifnot(o %~% allconj(o))
     stopifnot(all(is.id(allconj(o) + allconj(-o)[shift(rev(seq_len(total(o))))])))
   }
+
+
   
   return(TRUE)
 }

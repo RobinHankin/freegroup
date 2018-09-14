@@ -224,7 +224,7 @@ setGeneric("tietze",function(x){standardGeneric("tietze")})
           return(prod(a[2,c(1,n)])>0)
       }
   } else { 
-      return(NA)
+      return(TRUE)
   }
 }
 
