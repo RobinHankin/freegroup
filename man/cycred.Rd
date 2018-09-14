@@ -49,16 +49,12 @@ allconj(x)
   Function \code{as.cyclically_reduced()} takes a vector of free objects
   and returns the elementwise cyclically reduced equivalents.  Function
   \code{cyclically_reduce()} is a synonym with better (English) grammar.
-  
-  Whether the identity should be regarded as cyclically reduced is
-  problematic.  On the one hand the identity cannot be shortened by a
-  combination of cyclic permutation followed by reduction; but on the
-  other, I cannot exhibit a symbol at the start of the identity which
-  can be reduced by juxtaposition with a symbol at the end (because
-  there are no symbols).  Currently it returns \code{TRUE} on the
-  grounds that \code{is.cyclically_reduced(as.cyclically_reduced(x))}
-  should be TRUE; but I am open to suggestions.  Nevertheless, it is
-  clear that the identity should be conjugate to itself.
+
+  The identity is cyclically reduced: it cannot be shortened by a
+  combination of cyclic permutation followed by reduction.  This ensures
+  that \code{is.cyclically_reduced(as.cyclically_reduced(x))} is always
+  TRUE.  Also, it is clear that the identity should be conjugate to
+  itself.
 
   Two words \eqn{a,b} are \dfn{conjugate} if there exists a \eqn{x} such
   that \eqn{ax=xb} (or equivalently \eqn{a=x^{-1}bx}{a=x^-1 b x}).  This
