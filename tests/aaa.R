@@ -70,7 +70,7 @@ checker1 <- function(x){
   stopifnot(total(as.cyclically_reduced(x)) <= total(x))
   stopifnot(number(as.cyclically_reduced(x)) <= number(x))
 
-  stopifnot(is.cyclically.reduced(as.cyclically_reduced(x)))
+  stopifnot(is.cyclically_reduced(as.cyclically_reduced(x)))
 
   for(i in seq_along(x)){
     o <- x[i]

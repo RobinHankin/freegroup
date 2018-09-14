@@ -228,9 +228,9 @@ setGeneric("tietze",function(x){standardGeneric("tietze")})
   }
 }
 
-`is.cyclically.reduced` <- function(a){unlist(lapply(unclass(a), .is_cyc_reduced))}
+`is.cyclically_reduced` <- function(a){unlist(lapply(unclass(a), .is_cyc_reduced))}
   
-`is.cyclically.reduced2` <- function(a){
+`is.cyclically_reduced2` <- function(a){
   a %>% unclass %>% lapply(.is_cyc_reduced) %>% unlist
 }
 
@@ -264,7 +264,7 @@ setGeneric("tietze",function(x){standardGeneric("tietze")})
 `cyclically_reduce` <- as.cyclically_reduced
 
 
-`is_conjugate_single` <- function(u,v){
+`is.conjugate_single` <- function(u,v){
 
   ## this is a low-level helper function, takes two integer vectors
   ## (words in Tietze form)
@@ -285,7 +285,7 @@ setGeneric("tietze",function(x){standardGeneric("tietze")})
 `is.conjugate.free` <- function(x,y){  # this is the user-friendly function
   jj <-  cbind(seq_along(x),seq_along(y))
   f <- function(v){
-    is_conjugate_single(
+    is.conjugate_single(
         unlist(tietze(as.cyclically_reduced(x[v[1]]))),
         unlist(tietze(as.cyclically_reduced(y[v[2]])))
     )}

@@ -45,8 +45,7 @@ is_proper(a)
   (irrespective of power) or, if identical, have powers of opposite
   sign.  For example, \code{abac} and \code{abca} are cyclically reduced
   but \code{abca^{-1}} is not.  Function \code{is.cyclically.reduced()}
-  tests for this.  Function \code{is.cyclically.reduced2()} gives
-  identical output; it uses slicker but marginally slower R idiom.
+  tests for this, documented at \code{cycred.Rd}.
 
   Whether the identity should be regarded as cyclically reduced is
   problematic.  On the one hand the identity cannot be shortened by a

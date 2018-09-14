@@ -8,8 +8,10 @@
 \alias{is.cyclically.reduced}
 \alias{is.cyclically.reduced2}
 \alias{as.cyclically_reduced}
+\alias{is.cyclically_reduced}
+\alias{is.cyclically_reduced2}
 \alias{cyclically_reduce_tietze}
-\alias{is_conjugate_single}
+\alias{is.conjugate_single}
 \alias{is.conjugate}
 \alias{is.conjugate.free}
 \alias{\%~\%}
@@ -18,15 +20,15 @@
 \title{Cyclic reductions of a word}
 \description{Functionality to cyclically reduce words and detect conjugacy}
 \usage{
-is.cyclically.reduced(a)
-is.cyclically.reduced2(a)
+is.cyclically_reduced(a)
+is.cyclically_reduced2(a)
 as.cyclically_reduced(a)
 cyclically_reduce(a)
 cyclically_reduce_tietze(p)
-is_conjugate_single(u,v)
+is.conjugate_single(u,v)
 x \%~\% y
-allconj(x)
 \method{is.conjugate}{free}(x,y)
+allconj(x)
 }
 \arguments{
   \item{a,x,y}{An object of class \code{free}}
@@ -40,8 +42,8 @@ allconj(x)
   reduced word is cyclically reduced if the first and last symbol differ
   (irrespective of power) or, if identical, have powers of opposite
   sign.  For example, \code{abac} and \code{abca} are cyclically reduced
-  but \code{abca^{-1}} is not.  Function \code{is.cyclically.reduced()}
-  tests for this.  Function \code{is.cyclically.reduced2()} gives
+  but \code{abca^{-1}} is not.  Function \code{is.cyclically_reduced()}
+  tests for this.  Function \code{is.cyclically_reduced2()} gives
   identical output; it uses slicker but marginally slower R idiom.
 
   Function \code{as.cyclically_reduced()} takes a vector of free objects
@@ -54,7 +56,7 @@ allconj(x)
   other, I cannot exhibit a symbol at the start of the identity which
   can be reduced by juxtaposition with a symbol at the end (because
   there are no symbols).  Currently it returns \code{TRUE} on the
-  grounds that \code{is.cyclically_reduced(as.cyclically.reduced(x))}
+  grounds that \code{is.cyclically_reduced(as.cyclically_reduced(x))}
   should be TRUE; but I am open to suggestions.  Nevertheless, it is
   clear that the identity should be conjugate to itself.
 
