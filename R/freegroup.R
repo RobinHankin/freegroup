@@ -297,6 +297,7 @@ setGeneric("tietze",function(x){standardGeneric("tietze")})
 
 `allconj` <- function(x){
   stopifnot(length(x)==1)
+  x <- as.cyclically_reduced(x)
   if(is.id(x)){return(id())}
   out <- free(plyr::alply(magic::circulant(tietze(x)[[1]],doseq=FALSE),1,vec_to_matrix))
   names(out) <- NULL

@@ -66,8 +66,8 @@ allconj(x)
   \code{is_conjugate_single()} and \code{cyclically_reduce_tietze()} are
   lower-level helper functions.
 
-  Function \code{allconj()} returns all reduced words conjugate to its
-  argument.
+  Function \code{allconj()} returns all cyclically reduced words
+  conjugate to its argument.
     
 }
 \author{Robin K. S. Hankin}

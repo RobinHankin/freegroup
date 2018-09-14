@@ -73,7 +73,7 @@ checker1 <- function(x){
   stopifnot(is.cyclically_reduced(as.cyclically_reduced(x)))
 
   for(i in seq_along(x)){
-    o <- x[i]
+    o <- as.cyclically_reduced(x[i])
     stopifnot(o %~% allconj(o))
     stopifnot(all(is.id(allconj(o) + allconj(-o)[shift(rev(seq_len(total(o))))])))
   }
