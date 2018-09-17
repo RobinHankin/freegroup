@@ -60,7 +60,7 @@ We can coerce strings to free objects:
 (y <- as.free("aabbbcccc"))
 ```
 
-The free group operation is simply justaposition, represented here by
+The free group operation is simply juxtaposition, represented here by
 the plus symbol, "`+`":
 
 
