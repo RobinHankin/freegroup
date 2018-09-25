@@ -54,17 +54,19 @@ checker1 <- function(x){
   stopifnot(is.id(cumsum(c(x,-rev(x)))[2*length(x)]))
   stopifnot(cumsum(x)[length(x)] == sum(x))
 
-  jj <- getlet(sum(x))
-  a <- jj[1]
-  b <- jj[2]
-
-  stopifnot(size(flip(x,a))   == size(x))
-  stopifnot(total(flip(x,a))  == total(x))
-  stopifnot(number(flip(x,a)) == number(x))
-
-  stopifnot(size(subs(x,a,b))   <= size(x))
-  stopifnot(total(subs(x,a,b))  <= total(x))
-  stopifnot(number(subs(x,a,b)) <= number(x))
+  allsymbols <- getlet(sum(x))
+  if(length(allsymbols)>0){ # guard against identity, always problematic
+      a <- allsymbols[1]
+      stopifnot(size(flip(x,a))   == size(x))
+      stopifnot(total(flip(x,a))  == total(x))
+      stopifnot(number(flip(x,a)) == number(x))
+  }
+  if(length(allsymbols)>=2){ # two or more symbols needed
+      b <- allsymbols[2]
+      stopifnot(size(subs(x,a,b))   <= size(x))
+      stopifnot(total(subs(x,a,b))  <= total(x))
+      stopifnot(number(subs(x,a,b)) <= number(x))
+  }
 
   stopifnot(size(as.cyclically_reduced(x)) <= size(x))
   stopifnot(total(as.cyclically_reduced(x)) <= total(x))
@@ -157,4 +159,6 @@ as.free('a') * 0
 as.free('a') * (-10:10)
 stopifnot(sapply(0:10,function(n){is.id(alpha(n)+alpha(-n))}))
 stopifnot(sapply(0:10,function(n){is.id(abc(n)+abc(-n))}))
-
+stopifnot(checker1(id()))
+stopifnot(checker1(as.free('a')))
+stopifnot(checker1(as.free('ab')))
