@@ -1,11 +1,11 @@
 ## Define some checker functions, and call them at the end.  They
-## should all return TRUE if the package works.  Function checker1()
-## has one argument, checker2() two, and checker3() has three.  These
-## functions also check that the vectorization is OK; so for example
-## in checker2(), if 'x' is of length 10 and 'y' is of length 1
-## [e.g. x <- rfree(10,2,2) and y <- rfree(10,2,2)], then all three of
-## checker2(x,y), checker2(x,y[1]), checker2(x[1],y) should return
-## TRUE.
+## should all return TRUE if the package works, and stop with error if
+## a test is failed.  Function checker1() has one argument, checker2()
+## two, and checker3() has three.  These functions also check that the
+## vectorization is OK; so for example in checker2(), if 'x' is of
+## length 10 and 'y' is of length 1 [e.g. x <- rfree(10,2,2) and y <-
+## rfree(10,2,2)], then all three of checker2(x,y), checker2(x,y[1]),
+## checker2(x[1],y) should return TRUE.
 
 library(freegroup)
 
