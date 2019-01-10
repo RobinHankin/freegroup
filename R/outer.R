@@ -19,7 +19,7 @@
     stopifnot(nrow(M) == length(X))
 
     for(i in seq_along(X)){
-        X[[i]][1,] %<>% `[`(M,i,.)
+      X[[i]][1,] <- M[i,X[[i]][1,]]
     }
     return(X)
 }
