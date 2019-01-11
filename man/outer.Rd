@@ -65,7 +65,6 @@ https://en.wikipedia.org/w/index.php?title=Automorphism_group_of_a_free_group&ol
 \examples{
 library("permutations")
 
-
 X <- rfree(10,9)
 permsymb(X, as.function(cyc_len(9)))
 
@@ -73,10 +72,16 @@ f <- as.function(rperm(10,9))
 permsymb(as.free('abbccc'),f)
 permsymb(abc(1)+abc(8),f)
 
-
 autosub(abc(1:6),'c',as.free('xxxyz'))
 
 S <- free(rbind(23+sample(1:3,10,TRUE),sample(c(-1,1,3),10,TRUE)))
+
 all(X==X \%>\% autosub('a',S) \%>\% autosub('a',inverse(S)))
+## should be TRUE
+
+
+## Possible to use slightly slicker idiom:
+g <- function(x){permsymb(x,f)}
+g(X)
 
 }
