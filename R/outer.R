@@ -74,7 +74,7 @@
     if(is.free(e)){e <- getlet(e)}
     stopifnot(length(e)==1)
     if(automorphism_warning){
-      if(e == S[1,1]){
+      if(any(S[1,] == e)){
         warning("substitution not an automorphism")
       }
     }
