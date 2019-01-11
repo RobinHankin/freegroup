@@ -69,6 +69,7 @@
 `autosub` <- function(X,e,S,automorphism_warning=TRUE){
     stopifnot(length(S)==1)
     S <- S[[1]]
+    if(ncol(S)==0){return(X)}
     if(is.character(e) & length(e)==1){e <- as.free(e)}
     if(is.free(e)){e <- getlet(e)}
     stopifnot(length(e)==1)
