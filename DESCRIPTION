@@ -6,7 +6,7 @@ Date: 2018-11-07
 Author: Robin K. S. Hankin
 Maintainer: Robin K. S. Hankin <hankin.robin@gmail.com>
 Depends: magrittr,methods,magic (>= 1.5-9), plyr
-Suggests: knitr, rmarkdown
+Suggests: knitr, rmarkdown, permutations
 VignetteBuilder: knitr
 Description: Provides functionality for manipulating elements of the free group (juxtaposition is represented by a plus) including inversion, multiplication by a scalar, group-theoretic power operation, and Tietze forms.  The package is fully vectorized.
 License: GPL-2

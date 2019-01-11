@@ -1,11 +1,11 @@
-`nielsen_single_X` <- function(X,f){
+`permsymb_single_X` <- function(X,f){
     stopifnot(length(X) == 1)
     M <- rbind(f(X[[1]][1,]))
     p <-  X[[1]][2,]
     free(sapply(seq_len(nrow(M)),function(i){rbind(M[i,],p)},simplify=FALSE))
 }
 
-`nielsen_single_f` <- function(X,f){
+`permsymb_single_f` <- function(X,f){
     stopifnot(nrow(with(environment(f),x))==1)
     X <- unclass(X)
     for(i in seq_along(X)){
@@ -14,7 +14,7 @@
     return(free(X))
 }
 
-`nielsen_vec` <- function(X,f){
+`permsymb_vec` <- function(X,f){
     M <- with(environment(f),x)
     stopifnot(nrow(M) == length(X))
 
@@ -24,40 +24,40 @@
     return(X)
 }
 
-`nielsen` <- function(X,f){
+`permsymb` <- function(X,f){
     if(length(X)==1){
-        return(nielsen_single_X(X,f))
+        return(permsymb_single_X(X,f))
     } else if(nrow(with(environment(f),x))==1){
-        return(nielsen_single_f(X,f))
+        return(permsymb_single_f(X,f))
     } else {
-        return(nielsen_vec(X,f))
+        return(permsymb_vec(X,f))
     }
 }
 
-`nielseninv` <- function(X,s){
-   for(i in seq_along(X)){
-       X[[i]][2, X[[i]][1,] %in% s] %<>% `*`(-1)
-    }
-   return(X)
-}
-
-`nielsensubs_lowlevel` <- function(M,e,S){  # M is a matrix, e the
+`autosub_lowlevel` <- function(M,e,S){  # M is a matrix, e the
                                         # symbol to substitute, S the
                                         # substitutee
 
     stopifnot(length(e)==1)
     n <- ncol(S)
-    out <- matrix(0L,2,n*sum(abs(M[2,M[1,]==e])) + sum(M[1,] != e))
+    out <- matrix(0L,2,(n+1)*sum(abs(M[2,M[1,]==e])) + sum(M[1,] != e))
 
     Splus <- S
-    Sminus <- rbind(S[1,],-S[2,])[,n:1]
+    Sminus <- rbind(S[1,],-S[2,])[,n:1]  # negative power
     j <- 1
     for(i in seq_len(ncol(M))){
         if(M[1,i]==e){
-            if(M[2,i]>0){S <- Splus} else {S <- Sminus}
+          if(M[2,i]>0){
+            S <- Splus
+            E <- rbind(e,1L)
+          } else {
+            S <- Sminus
+            E <- rbind(e,-1L)
+          }
             r <- abs(M[2,i])
-            out[,j:(j+n*r-1)] <- kronecker(t(rep(1,r)),S)
-            j <- j + n*r
+
+            out[,j:(j+(n+1)*r-1)] <- kronecker(t(rep(1,r)),cbind(E,S))
+            j <- j + (n+1)*r
         } else {
             out[,j] <- M[,i]
             j <- j+1
@@ -66,13 +66,19 @@
     return(out)
 }
 
-`nielsensubs` <- function(X,e,S){
+`autosub` <- function(X,e,S,automorphism_warning=TRUE){
     stopifnot(length(S)==1)
     S <- S[[1]]
-    out <- list()
-
-    for(i in seq_along(X)){
-        out[[i]] <- nielsensubs_lowlevel(X[[i]],e,S)
+    if(is.character(e) & length(e)==1){e <- as.free(e)}
+    if(is.free(e)){e <- getlet(e)}
+    stopifnot(length(e)==1)
+    if(automorphism_warning){
+      if(e == S[1,1]){
+        warning("substitution not an automorphism")
+      }
     }
-    return(free(out))
+    for(i in seq_along(X)){
+        X[[i]] %<>% autosub_lowlevel(e,S)
+    }
+    return(free(X))
 }
