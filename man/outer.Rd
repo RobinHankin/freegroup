@@ -23,8 +23,6 @@ autosub(X,e,S,automorphism_warning=TRUE)
   \item{X,S}{Object of class \code{free}}
   \item{f}{Permutation function}
   \item{M}{Single free group element, in two-row matrix form}
-  \item{a}{Elements to invert; the function tries to interpret character
-    input appropriately using \eqn{a=1,b=2} etc}
   \item{e}{Single element to substitute}
   \item{automorphism_warning}{Boolean, with default \code{TRUE} meaning
     to give a warning if the requested substitution is not an
