@@ -1,56 +1,9 @@
-library(magrittr)
-'
-> dput(x)
-c(1, 5, 9, 13, 17)
-> f <- function(n){c(x[process(seq(from=n,by=1,len=3),5)],-x[process(seq(from=n-1,by=-1,len=2),5)])}
-> t(sapply(1:5,f))
-     [,1] [,2] [,3] [,4] [,5]
-[1,]    1    5    9  -17  -13
-[2,]    5    9   13   -1  -17
-[3,]    9   13   17   -5   -1
-[4,]   13   17    1   -9   -5
-[5,]   17    1    5  -13   -9
->
+## Some investigatory work on implementing Dehn's method for group
+## presentations.
 
-
-
-> vec_to_matrix(c(1,1,1,-2,-2,1,1,4,5))
-     [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9]
-[1,]    1    1    1    2    2    1    1    4    5
-[2,]    1    1    1   -1   -1    1    1    1    1
->
-
-> x <- 100 + 1:19
-> A <- matrix(0,13,7)
-> t(matrix(x[row(A)+col(A)-1],nrow=13))
-     [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10] [,11] [,12] [,13]
-[1,]  101  102  103  104  105  106  107  108  109   110   111   112   113
-[2,]  102  103  104  105  106  107  108  109  110   111   112   113   114
-[3,]  103  104  105  106  107  108  109  110  111   112   113   114   115
-[4,]  104  105  106  107  108  109  110  111  112   113   114   115   116
-[5,]  105  106  107  108  109  110  111  112  113   114   115   116   117
-[6,]  106  107  108  109  110  111  112  113  114   115   116   117   118
-[7,]  107  108  109  110  111  112  113  114  115   116   117   118   119
-> 
-'
-
-library(magic)
-library(freegroup)
-
-
-`.dehn` <- function(x,r){ #  x is a 2r>n; in each row, first 'r' columns equal
-                                        #  to last 'n-r' columns.
-    l <- length(x)
-    f <- function(n){
-        c(
-            +x[process(seq(from=n  ,by=+1,len=r  ),l)],
-            -x[process(seq(from=n-1,by=-1,len=l-r),l)]
-        )
-    }
-    
-    t(sapply(seq_along(x),f))
-}
-
+library("magrittr")
+library("magic")
+library("freegroup")
 
                                         # dehn2(c(1,-3,-3,-3,2,2,1,1,1,1,7),8)
 
@@ -74,23 +27,6 @@ library(freegroup)
     jj <- length(v)-r+1
     A <- matrix(0,jj,r)
     matrix(v[row(A)+col(A)-1],nrow=jj)
-}
-
-                                        # somehow we must match rows of substrings(...) with rows of
-                                        # dehn2(...)$expression (and replace the expression with equivalent)
-
-
-`.dehn2` <- function(x,r){ #  x is a 2r>n; in each row, first 'r' columns equal
-                                        #  to last 'n-r' columns.
-    l <- length(x)
-    f_expression <- function(n){ +x[process(seq(from=n  ,by=+1,len=r  ),l)]  }
-    f_equivalent <- function(n){ -x[process(seq(from=n-1,by=-1,len=l-r),l)] }
-    
-    expression <- t(sapply(seq_along(x),f_expression,simplify=TRUE))
-    equivalent <- t(sapply(seq_along(x),f_equivalent,simplify=TRUE))
-    if(nrow(equivalent)==1){ equivalent <- t(equivalent) }
-
-    list(expression=expression,equivalent=equivalent)
 }
 
 ## we will define 'original' and try and reduce it with 'relator'
