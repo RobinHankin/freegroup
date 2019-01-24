@@ -2,8 +2,11 @@ Package: freegroup
 Type: Package
 Title: The Free Group
 Version: 1.1-1
-Date: 2018-11-07
-Author: Robin K. S. Hankin
+Date: 2019-01-25
+Authors@R: c(person(c("Robin", "K. S. "), "Hankin", 
+    role=c("aut","cre"),
+    email="hankin.robin@gmail.com",
+		comment = c(ORCID = "0000-0001-5982-0415")))
 Maintainer: Robin K. S. Hankin <hankin.robin@gmail.com>
 Depends: magrittr,methods,magic (>= 1.5-9), plyr
 Suggests: knitr, rmarkdown, permutations
