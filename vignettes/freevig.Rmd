@@ -31,7 +31,7 @@ power and the $a$ term in the middle has vanished.
 
 The group operation of juxtaposition is formally indicated by $\circ$,
 but this is often omitted in algebraic notation; thus, for example
-$a^2b^{-3}c^2\circ c^{-2}ba =a^2b^{-3}c^2c^-2ba =a^2b^{-2}ba$.
+$a^2b^{-3}c^2\circ c^{-2}ba =a^2b^{-3}c^2c{^-2}ba =a^2b^{-2}ba$.
 
 In R package ```freegroup```, a word is represented by a two-row
 integer matrix: The top row is the integer representation of the
@@ -81,9 +81,10 @@ for appending strings:
 ```
 
 However, note that the ```+``` symbol is usually reserved for
-commutative operations.  Addition is associative.  Multiplication by
-integers---denoted by ```*```---is also defined.  Suppose we want to
-concatenate 5 copies of `x`:
+commutative operations; note that string juxtaposition is associative.
+Multiplication by integers---denoted in ```freegroup``` idiom by
+```*```---is also defined.  Suppose we want to concatenate 5 copies of
+`x`:
 
 ```{r}
 x*5
