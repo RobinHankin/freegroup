@@ -1,12 +1,6 @@
 % -*- mode: noweb; noweb-default-code-mode: R-mode; -*-
 \documentclass[nojss]{jss}
-\usepackage{dsfont}
-\usepackage{bbm}
-\usepackage{amsfonts}
-\usepackage{amsmath}
-\usepackage{wasysym}
-\usepackage{amssymb}
-\usepackage{yfonts}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% declarations for jss.cls %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
