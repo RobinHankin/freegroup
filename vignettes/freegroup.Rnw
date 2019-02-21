@@ -222,7 +222,9 @@ of a package.  Further work might include the finitely presented
 groups but it is not clear whether this would be consistent with the
 precepts of \proglang{R}.
 
-
+<<echo=FALSE,print=FALSE>>=
+options(symbols=letters)
+@ 
 
 \bibliography{freegroup}
 \end{document}
