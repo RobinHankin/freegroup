@@ -1,8 +1,7 @@
 Package: freegroup
 Type: Package
 Title: The Free Group
-Version: 1.1-1
-Date: 2019-01-25
+Version: 1.1-2
 Authors@R: c(person(c("Robin", "K. S. "), "Hankin", 
     role=c("aut","cre"),
     email="hankin.robin@gmail.com",
