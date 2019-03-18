@@ -217,11 +217,11 @@ alpha(1:30)
 
 \section{Conclusions and further work}
 
-The \pkg{freegroup} furnishes a consistent and documented suite of
-reasonably efficient \proglang{R}-centric funcationality in the form
-of a package.  Further work might include the finitely presented
-groups but it is not clear whether this would be consistent with the
-precepts of \proglang{R}.
+The \pkg{freegroup} package furnishes a consistent and documented
+suite of reasonably efficient \proglang{R}-centric functionality.
+Further work might include the finitely presented groups but it is not
+clear whether this would be consistent with the precepts of
+\proglang{R}.
 
 <<echo=FALSE,print=FALSE>>=
 options(symbols=letters)
