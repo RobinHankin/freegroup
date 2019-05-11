@@ -229,10 +229,7 @@ setGeneric("tietze",function(x){standardGeneric("tietze")})
 }
 
 `is.cyclically_reduced` <- function(a){unlist(lapply(unclass(a), .is_cyc_reduced))}
-  
-`is.cyclically_reduced2` <- function(a){
-  a %>% unclass %>% lapply(.is_cyc_reduced) %>% unlist
-}
+#  a %>% unclass %>% lapply(.is_cyc_reduced) %>% unlist
 
 `cyclically_reduce_tietze` <- function(p){  # p is in reduced tietze form
   if(length(unique(p))<2){  # either empty, or only one distinct symbol
