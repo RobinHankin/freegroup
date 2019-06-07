@@ -66,17 +66,16 @@ options(symbols=letters) # should not be necessary
 \section{Introduction}
 
 The free group is an interesting and instructive mathematical object
-It has a rich structure and illustrates many concepts of elementary
+with a rich structure that illustrates many concepts of elementary
 group theory.  The \pkg{freegroup} package provides some functionality
-for manipulating the free group on a finite list of
-symbols~\citep{wikipedia2019}.  Informally, the {\em free group}
-$\left(X,\circ\right)$ on a set $S=\{a,b,c,\ldots,z\}$ is the set $X$
-of {\em words} that are objects like $W=c^{-4}bb^2aa^{-1}ca$, with a
-group operation of string juxtaposition.  Usually one works only with
-words that are in ``reduced form'', which has successive powers of the
-same symbol combined, so $W$ would be equal to $c^{-4}b^3ca$; see how
-$b$ appears to the third power and the $a$ term in the middle has
-vanished.
+for manipulating the free group on a finite list of symbols.
+Informally, the {\em free group} $\left(X,\circ\right)$ on a set
+$S=\{a,b,c,\ldots,z\}$ is the set $X$ of {\em words} that are objects
+like $W=c^{-4}bb^2aa^{-1}ca$, with a group operation of string
+juxtaposition.  Usually one works only with words that are in
+``reduced form'', which has successive powers of the same symbol
+combined, so $W$ would be equal to $c^{-4}b^3ca$; see how $b$ appears
+to the third power and the $a$ term in the middle has vanished.
 
 The group operation of juxtaposition is formally indicated by $\circ$,
 but this is often omitted in algebraic notation; thus, for example
