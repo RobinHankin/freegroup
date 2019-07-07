@@ -37,7 +37,7 @@ this is often omitted in algebraic notation; thus, for example
 
 # Installation
 
-You can install the released version of wedge from
+You can install the released version of freegroup from
 [CRAN](https://CRAN.R-project.org) with:
 
 ``` r

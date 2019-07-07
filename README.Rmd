@@ -44,7 +44,7 @@ $a^2b^{-3}c^2\circ c^{-2}ba =a^2b^{-3}c^2c{^-2}ba =a^2b^{-2}ba$.
 
 # Installation
 
-You can install the released version of wedge from [CRAN](https://CRAN.R-project.org) with:
+You can install the released version of freegroup from [CRAN](https://CRAN.R-project.org) with:
 
 ```{r, message=FALSE}
 # install.packages("freegroup")  # uncomment this to install the package
