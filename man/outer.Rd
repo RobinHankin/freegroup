@@ -10,7 +10,8 @@
 \alias{autosub_lowlevel}
 \alias{autosub}
 \title{Outer automorphisms of the free group}
-\description{Vectorized functionality to implement outer automorphisms of the free group}
+\description{Vectorized functionality to implement outer automorphisms
+  of the free group}
 \usage{
 permsymb_single_X(X,f)
 permsymb_single_f(X,f)
@@ -55,10 +56,10 @@ functions that are not really suited for the end user; use
 
 }
 \references{
-Wikipedia contributors. (2018, October 29). Automorphism group of a free
-group. In Wikipedia, The Free Encyclopedia. Retrieved 19:58, January 10,
+Wikipedia contributors. (2018, October 29).  \dQuote{Automorphism group of a free
+group}. In \emph{Wikipedia, The Free Encyclopedia}. Retrieved 19:58, January 10,
 2019, from
-https://en.wikipedia.org/w/index.php?title=Automorphism_group_of_a_free_group&oldid=866270661
+\url{https://en.wikipedia.org/w/index.php?title=Automorphism_group_of_a_free_group&oldid=866270661}
   }
 \author{Robin K. S. Hankin}
 \seealso{\code{\link{flip}}}
