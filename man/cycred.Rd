@@ -13,7 +13,6 @@
 \alias{is.conjugate}
 \alias{is.conjugate.free}
 \alias{\%~\%}
-\alias{\%~\%.onion}
 \alias{allconj}
 \title{Cyclic reductions of a word}
 \description{Functionality to cyclically reduce words and detect conjugacy}
