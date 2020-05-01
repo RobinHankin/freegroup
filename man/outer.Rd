@@ -77,7 +77,7 @@ autosub(abc(1:6),'c',as.free('xxxyz'))
 
 S <- free(rbind(23+sample(1:3,10,TRUE),sample(c(-1,1,3),10,TRUE)))
 
-all(X==X \%>\% autosub('a',S) \%>\% autosub('a',inverse(S)))
+all(X==X \%>\% autosub('a',S) \%>\% autosub('a',-S))
 ## should be TRUE
 
 

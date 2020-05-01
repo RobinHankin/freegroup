@@ -2,7 +2,7 @@ library("freegroup")
 library("permutations")
 
 `autosub_checker`  <- function(X,S){ 
-    if(all(X == X %>% autosub('a',S) %>% autosub('a',inverse(S)))){
+    if(all(X == X %>% autosub('a',S) %>% autosub('a',-S))){
         return(TRUE)
     } else {
         dput(X)
@@ -12,7 +12,7 @@ library("permutations")
 }
 
 `permsymb_checker` <- function(X,p){
-    if(all(X== X %>% permsymb(as.function(p)) %>% permsymb(as.function(inverse(p))))){
+    if(all(X== X %>% permsymb(as.function(p)) %>% permsymb(as.function(-p)))){
         return(TRUE)
     } else {
         dput(X)
