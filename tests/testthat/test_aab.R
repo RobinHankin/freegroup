@@ -23,4 +23,7 @@ for(i in 1:10){
     permsymb_checker(X=rfree(8,4), p=rperm(1,8))
 }
 
+expect_warning(autosub(abc(1:6),"c",as.free("xxxyzc")))
+expect_silent(autosub(abc(1:6),"c",as.free("")))
 })
+
