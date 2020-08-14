@@ -4,3 +4,4 @@
 inst/dehn.R
 ^README\.Rmd$
 ^\.travis\.yml$
+codecov.yml
