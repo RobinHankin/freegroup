@@ -21,11 +21,12 @@ knitr::opts_chunk$set(
 [![Build Status](https://travis-ci.org/RobinHankin/freegroup.svg?branch=master)](https://travis-ci.org/RobinHankin/freegroup)
 [![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/freegroup)](https://cran.r-project.org/package=freegroup)
 [![Rdoc](http://www.rdocumentation.org/badges/version/freegroup)](http://www.rdocumentation.org/packages/freegroup)
+[![Codecov test coverage](https://codecov.io/gh/RobinHankin/freegroup/branch/master/graph/badge.svg)](https://codecov.io/gh/RobinHankin/freegroup/branch/master)
 <!-- badges: end -->
 
 # Overview
 
-The ```freegroup``` package provides functionality for working with
+The `freegroup` package provides functionality for working with
 the free group in R.  A detailed vignette is provided in the package.
 Informally, the _free group_ is the set $X$ of _words_ that are
 objects like $W=c^{-4}bb^2aa^{-1}ca$, with a group operation of string
@@ -38,10 +39,6 @@ The group operation of juxtaposition is formally indicated by $\circ$,
 but this is often omitted in algebraic notation; thus, for example
 $a^2b^{-3}c^2\circ c^{-2}ba =a^2b^{-3}c^2c{^-2}ba =a^2b^{-2}ba$.
 
-
-
-
-
 # Installation
 
 You can install the released version of freegroup from [CRAN](https://CRAN.R-project.org) with:
@@ -51,9 +48,9 @@ You can install the released version of freegroup from [CRAN](https://CRAN.R-pro
 library("freegroup")
 ```
 
-# The ```freegroup``` package in use
+# The `freegroup` package in use
 
-Function ```rfree()``` generates a vector of random free group
+Function `rfree()` generates a vector of random free group
 elements, giving quick "get you going" examples:
 
 ```{r, echo=FALSE}
@@ -73,7 +70,6 @@ a+b
 a-b
 a^b
 ```
-
 
 There are a number of package functions that work in a vectorized way:
 
@@ -106,4 +102,4 @@ abc(1:5)
 
 For more detail, see the package vignette
 
-```vignette("freegroup")```
+`vignette("freegroup")`

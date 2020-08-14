@@ -9,6 +9,8 @@ The free group in R
 Status](https://travis-ci.org/RobinHankin/freegroup.svg?branch=master)](https://travis-ci.org/RobinHankin/freegroup)
 [![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/freegroup)](https://cran.r-project.org/package=freegroup)
 [![Rdoc](http://www.rdocumentation.org/badges/version/freegroup)](http://www.rdocumentation.org/packages/freegroup)
+[![Codecov test
+coverage](https://codecov.io/gh/RobinHankin/freegroup/branch/master/graph/badge.svg)](https://codecov.io/gh/RobinHankin/freegroup/branch/master)
 <!-- badges: end -->
 
 # Overview
@@ -69,11 +71,10 @@ a+b
 #>  [7] d^-5.e^-1.d^-5.e^3.x  c.b^-7.c^4.b^-5.x     c^6.e^2.x            
 #> [10] e^-3.d^5.a^-5.x
 a-b
-#>  [1] a.d^5.a^-4.b^5.e^-3.x^-1 a.e^2.b^2.x^-1          
-#>  [3] a^3.e^-7.b^-3.x^-1       b^7.d^4.x^-1            
-#>  [5] a^2.b^-4.c^-4.x^-1       a^-5.d^3.c^3.x^-1       
-#>  [7] d^-5.e^-1.d^-5.e^3.x^-1  c.b^-7.c^4.b^-5.x^-1    
-#>  [9] c^6.e^2.x^-1             e^-3.d^5.a^-5.x^-1
+#>  [1] a.d^5.a^-4.b^5.e^-3.x^-1 a.e^2.b^2.x^-1           a^3.e^-7.b^-3.x^-1      
+#>  [4] b^7.d^4.x^-1             a^2.b^-4.c^-4.x^-1       a^-5.d^3.c^3.x^-1       
+#>  [7] d^-5.e^-1.d^-5.e^3.x^-1  c.b^-7.c^4.b^-5.x^-1     c^6.e^2.x^-1            
+#> [10] e^-3.d^5.a^-5.x^-1
 a^b
 #>  [1] x^-1.a.d^5.a^-4.b^5.e^-3.x x^-1.a.e^2.b^2.x          
 #>  [3] x^-1.a^3.e^-7.b^-3.x       x^-1.b^7.d^4.x            
