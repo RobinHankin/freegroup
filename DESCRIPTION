@@ -8,7 +8,7 @@ Authors@R: c(person(c("Robin", "K. S. "), "Hankin",
 		comment = c(ORCID = "0000-0001-5982-0415")))
 Maintainer: Robin K. S. Hankin <hankin.robin@gmail.com>
 Depends: magrittr,methods,magic (>= 1.5-9), plyr
-Suggests: knitr, rmarkdown, permutations
+Suggests: knitr, rmarkdown, permutations,testthat
 VignetteBuilder: knitr
 Description: The free group in R; juxtaposition is represented by a plus.  Includes inversion, multiplication by a scalar, group-theoretic power operation, and Tietze forms.  
 License: GPL-2
