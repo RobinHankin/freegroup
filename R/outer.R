@@ -1,7 +1,7 @@
 `permsymb_single_X` <- function(X,f){
     stopifnot(length(X) == 1)
-    M <- rbind(f(X[[1]][1,]))
-    p <-  X[[1]][2,]
+    M <- rbind(f(X[[1]][1,,drop=FALSE]))
+    p <-  X[[1]][2,,drop=FALSE]
     free(sapply(seq_len(nrow(M)),function(i){rbind(M[i,],p)},simplify=FALSE))
 }
 
@@ -19,7 +19,7 @@
     stopifnot(nrow(M) == length(X))
 
     for(i in seq_along(X)){
-      X[[i]][1,] <- M[i,X[[i]][1,]]
+      X[[i]][1,] <- M[i,X[[i]][1,,drop=FALSE],drop=FALSE]
     }
     return(X)
 }
