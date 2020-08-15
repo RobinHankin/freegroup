@@ -12,6 +12,9 @@ library("magrittr")
 test_that("Test suite aaa.R",{
 
 checker1 <- function(x){
+
+  expect_true(is.free(as.free(x)))
+
   expect_true(all(x==x))
 
   expect_true(all((x == x + as.free(0))))
@@ -81,7 +84,11 @@ checker1 <- function(x){
     expect_true(all(o %~% allconj(o)))
     expect_true(all(all(is.id(allconj(o) + allconj(-o)[shift(rev(1:total(o)))]))))
   }
-  
+
+
+  expect_output(print(x))
+  expect_true(is.character(as.character(x)))
+    
   return(TRUE)
 }
 
@@ -147,6 +154,14 @@ stopifnot(checker1(id()))
 stopifnot(checker1(as.free('a')))
 stopifnot(checker1(as.free('ab')))
 
+expect_true(is.free(as.free(rbind(c(1,2,1),c(2,1,-1)))))
+expect_true(all(as.free(list("a","ab","abc")) == abc(1:3)))
+expect_true(all(list_to_free(sapply(1:5,seq_len))==abc(1:5)))
+expect_error(list_to_free(list(c,c)))
 
+expect_true(is.free(as.free(unclass(rfree(4,4)))))
+expect_error(as.free(function(...){}))
+expect_output(print(as.free(0)))
+expect_output(print(as.character_free(matrix(1:6,2,3),latex=TRUE)))
 
 })
