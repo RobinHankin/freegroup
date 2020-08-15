@@ -16,7 +16,12 @@ checker1 <- function(x){
   expect_true(is.free(as.free(x)))
 
   expect_true(all(x==x))
-
+  expect_false(any(x!=x))
+  expect_error(!x)
+  expect_error(x*x)
+  expect_error(1+x)
+  expect_error(x+1)
+    
   expect_true(all((x == x + as.free(0))))
   expect_true(all((x == -(-x))))
   expect_true(all((x == +(+x))))
@@ -87,6 +92,7 @@ checker1 <- function(x){
 
 
   expect_output(print(x))
+  expect_output(print(x[FALSE]))
   expect_true(is.character(as.character(x)))
     
   return(TRUE)
@@ -94,6 +100,9 @@ checker1 <- function(x){
 
 
 checker2 <- function(x,y){
+
+    expect_error(x*y)
+
     expect_true(all(x^y == -y+x+y))
     expect_true(all(x+y == x-(-y)))
 
@@ -163,5 +172,6 @@ expect_true(is.free(as.free(unclass(rfree(4,4)))))
 expect_error(as.free(function(...){}))
 expect_output(print(as.free(0)))
 expect_output(print(as.character_free(matrix(1:6,2,3),latex=TRUE)))
+expect_error(c(rfree(4,4),rfree(4,4),1))
 
 })
