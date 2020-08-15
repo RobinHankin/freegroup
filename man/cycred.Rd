@@ -10,6 +10,7 @@
 \alias{is.cyclically_reduced}
 \alias{cyclically_reduce_tietze}
 \alias{is.conjugate_single}
+\alias{conjugate}
 \alias{is.conjugate}
 \alias{is.conjugate.free}
 \alias{\%~\%}
