@@ -20,7 +20,7 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 [![Build Status](https://travis-ci.org/RobinHankin/freegroup.svg?branch=master)](https://travis-ci.org/RobinHankin/freegroup)
 [![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/freegroup)](https://cran.r-project.org/package=freegroup)
-[![Rdoc](http://www.rdocumentation.org/badges/version/freegroup)](http://www.rdocumentation.org/packages/freegroup)
+[![Rdoc](https://www.rdocumentation.org/badges/version/freegroup)](https://www.rdocumentation.org/packages/freegroup)
 [![Codecov test coverage](https://codecov.io/gh/RobinHankin/freegroup/branch/master/graph/badge.svg)](https://codecov.io/gh/RobinHankin/freegroup/branch/master)
 <!-- badges: end -->
 
