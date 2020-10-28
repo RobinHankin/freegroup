@@ -173,7 +173,7 @@ setGeneric("tietze",function(x){standardGeneric("tietze")})
     return(free(out))
 }
 
-`rfree` <- function(n,size,number=size,powers=seq(from=-size,to=size)){
+`rfree` <- function(n=7,size=4,number=size,powers=seq(from=-size,to=size)){
   out <- list()
   for(i in seq_len(n)){
     out[[i]] <- 
