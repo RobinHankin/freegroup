@@ -5,7 +5,7 @@
 \alias{tietze.free}
 \alias{vec_to_matrix}
 \title{Tietze form for free group objects}
-\description{Translate an object of class free to and from Tietze form}
+\description{Translate an object of class \code{free} to and from Tietze form}
 \usage{
 \method{tietze}{free}(x)
 \method{tietze}{matrix}(x)
