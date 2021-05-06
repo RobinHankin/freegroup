@@ -79,7 +79,7 @@ to the third power and the $a$ term in the middle has vanished.
 
 The group operation of juxtaposition is formally indicated by $\circ$,
 but this is often omitted in algebraic notation; thus, for example
-$a^2b^{-3}c^2\circ c^{-2}ba =a^2b^{-3}c^2c{^-2}ba =a^2b^{-2}ba$.
+$a^2b^{-3}c^2\circ c^{-2}ba =a^2b^{-3}c^2c^{-2}ba =a^2b^{-2}ba$.
 
 \subsection{Existing work}
 
@@ -130,7 +130,7 @@ the plus symbol:
 x+y
 @
 
-(see how the $a$ ``cancels out" in the juxtaposition).  One motivation
+(see how the $a$ ``cancels out'' in the juxtaposition).  One motivation
 for the use of ``\code{+}'' rather than ``\code{*}'' is that
 \proglang{Python} uses ``\code{+}'' for appending strings:
 
