@@ -12,8 +12,7 @@
   }
 }
 
-plot(NA,xlim=c(-1,1),ylim=c(-1,1),asp=1)
-grid()
+plot(NA,xlim=c(-1.5,1.5),ylim=c(-1.5,1.5),asp=1,axes=FALSE,xlab="",ylab="")
 sixway(c(0,0),1,dopoints=TRUE)
 
 for(i in 1:6){
@@ -21,7 +20,9 @@ for(i in 1:6){
   sixway(a,1/3,col="red")
   aa <- a 
   for(j in 1:6){
-    sixway(aa +  sixway(c(0,0),1/3,FALSE)[j,],1/9,col="blue")
+    if(abs(i-j) != 3){
+      sixway(aa +  sixway(c(0,0),1/3,FALSE)[j,],1/9,col="blue")
+    }
   }
 }
    
