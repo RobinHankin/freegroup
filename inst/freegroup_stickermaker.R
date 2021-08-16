@@ -20,7 +20,7 @@ if(debug){
   }
 }
 
-png(file="freegroup_icon.png",width=1000,height=1000)
+png(file="freegroup_icon.png",width=1000,height=1000,bg="transparent")
 
 plot(NA,xlim=c(-1.5,1.5),ylim=c(-1.5,1.5),asp=1,axes=FALSE,xlab="",ylab="")
 sixway(c(0,0),1,dopoints=TRUE,col=colors[1])
@@ -44,3 +44,9 @@ for(i in 1:6){
    
 dev.off()
 
+library("hexSticker")
+
+
+sticker("freegroup_icon.png", package="freegroup", p_size=8, s_x=0.975, s_y=0.98,
+s_width=1.1,asp=0.85, white_around_sticker=TRUE, h_fill="#7733FF",
+h_color="#000000", filename="freegroup.png")
