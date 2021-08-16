@@ -1,3 +1,4 @@
+library("hexSticker")
 debug <- FALSE
 if(debug){
   colors <- c("black","red","blue","green")
@@ -12,14 +13,14 @@ if(debug){
       segments(x0=p[1],
                y0=p[2],
                x1=p[1] + l*cos(theta),
-               y1=p[2] + l*sin(theta), ...)
+               y1=p[2] + l*sin(theta), lwd=5, ...)
     }
   } else {
     return(cbind(p[1] + l*cos(a),p[2] + l*sin(a)))
   }
 }
 
-png(file="freegroup_icon.png")
+png(file="freegroup_icon.png",width=1000,height=1000)
 
 plot(NA,xlim=c(-1.5,1.5),ylim=c(-1.5,1.5),asp=1,axes=FALSE,xlab="",ylab="")
 sixway(c(0,0),1,dopoints=TRUE,col=colors[1])
@@ -42,3 +43,4 @@ for(i in 1:6){
 }
    
 dev.off()
+

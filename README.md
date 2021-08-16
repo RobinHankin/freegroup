@@ -3,6 +3,8 @@ The free group in R
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
+<img src="man/figures/freegroup.png" width = "150" align="right" />
+
 <!-- badges: start -->
 
 [![Build
@@ -17,25 +19,23 @@ coverage](https://codecov.io/gh/RobinHankin/freegroup/branch/master/graph/badge.
 
 The `freegroup` package provides functionality for working with the free
 group in R. A detailed vignette is provided in the package. Informally,
-the *free group* is the set ![X](https://latex.codecogs.com/png.latex?X
-"X") of *words* that are objects like
-![W=c^{-4}bb^2aa^{-1}ca](https://latex.codecogs.com/png.latex?W%3Dc%5E%7B-4%7Dbb%5E2aa%5E%7B-1%7Dca
-"W=c^{-4}bb^2aa^{-1}ca"), with a group operation of string
-juxtaposition. Usually one works only with words that are in \`\`reduced
-form’’, which has successive powers of the same symbol combined, so
+the *free group* is the set
+![X](https://latex.codecogs.com/png.latex?X "X") of *words* that are
+objects like
+![W=c^{-4}bb^2aa^{-1}ca](https://latex.codecogs.com/png.latex?W%3Dc%5E%7B-4%7Dbb%5E2aa%5E%7B-1%7Dca "W=c^{-4}bb^2aa^{-1}ca"),
+with a group operation of string juxtaposition. Usually one works only
+with words that are in \`\`reduced form’’, which has successive powers
+of the same symbol combined, so
 ![W](https://latex.codecogs.com/png.latex?W "W") would be equal to
-![c^{-4}b^3ca](https://latex.codecogs.com/png.latex?c%5E%7B-4%7Db%5E3ca
-"c^{-4}b^3ca"); see how ![b](https://latex.codecogs.com/png.latex?b "b")
-appears to the third power and the
-![a](https://latex.codecogs.com/png.latex?a "a") term in the middle has
-vanished.
+![c^{-4}b^3ca](https://latex.codecogs.com/png.latex?c%5E%7B-4%7Db%5E3ca "c^{-4}b^3ca");
+see how ![b](https://latex.codecogs.com/png.latex?b "b") appears to the
+third power and the ![a](https://latex.codecogs.com/png.latex?a "a")
+term in the middle has vanished.
 
 The group operation of juxtaposition is formally indicated by
-![\\circ](https://latex.codecogs.com/png.latex?%5Ccirc "\\circ"), but
+![\\circ](https://latex.codecogs.com/png.latex?%5Ccirc "\circ"), but
 this is often omitted in algebraic notation; thus, for example
-![a^2b^{-3}c^2\\circ c^{-2}ba =a^2b^{-3}c^2c{^-2}ba
-=a^2b^{-2}ba](https://latex.codecogs.com/png.latex?a%5E2b%5E%7B-3%7Dc%5E2%5Ccirc%20c%5E%7B-2%7Dba%20%3Da%5E2b%5E%7B-3%7Dc%5E2c%7B%5E-2%7Dba%20%3Da%5E2b%5E%7B-2%7Dba
-"a^2b^{-3}c^2\\circ c^{-2}ba =a^2b^{-3}c^2c{^-2}ba =a^2b^{-2}ba").
+![a^2b^{-3}c^2\\circ c^{-2}ba =a^2b^{-3}c^2c{^-2}ba =a^2b^{-2}ba](https://latex.codecogs.com/png.latex?a%5E2b%5E%7B-3%7Dc%5E2%5Ccirc%20c%5E%7B-2%7Dba%20%3Da%5E2b%5E%7B-3%7Dc%5E2c%7B%5E-2%7Dba%20%3Da%5E2b%5E%7B-2%7Dba "a^2b^{-3}c^2\circ c^{-2}ba =a^2b^{-3}c^2c{^-2}ba =a^2b^{-2}ba").
 
 # Installation
 
@@ -112,7 +112,7 @@ abc(1:5)
 
 # References
 
-  - Wikipedia contributors, “Free group,” *Wikipedia, the free
+-   Wikipedia contributors, “Free group,” *Wikipedia, the free
     encyclopedia*, 4 June 2019.
     \[<https://en.wikipedia.org/w/index.php?title=Free_group&oldid=900295259>\]
 

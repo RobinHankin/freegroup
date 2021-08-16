@@ -1,0 +1,11 @@
+run hexicon.R to create freegroup_icon.png, then process with gimp to
+change the background colour to #7733FF.  In gimp, create a duplicate
+layer then edit -> fill with FG color should work [make sure that the
+color is et correctly].  Then use "export as" to save as
+"freegroup_icon_blue.png".
+
+NB the natural method, that is, png(...,bg="#7733FF") stuffs up the
+colours in the sticker for some reason, which is why I use gimp.
+
+Then freegroup_stickermaker.R creates freegroup.png, which lives in
+the man/figures directory.

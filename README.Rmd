@@ -16,6 +16,8 @@ knitr::opts_chunk$set(
 )
 ```
 
+<img src="man/figures/freegroup.png" width = "150" align="right" />
+
 
 <!-- badges: start -->
 [![Build Status](https://travis-ci.org/RobinHankin/freegroup.svg?branch=master)](https://travis-ci.org/RobinHankin/freegroup)
