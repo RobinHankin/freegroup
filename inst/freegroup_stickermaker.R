@@ -47,6 +47,6 @@ dev.off()
 library("hexSticker")
 
 
-sticker("freegroup_icon.png", package="freegroup", p_size=8, s_x=0.975, s_y=0.98,
-s_width=1.1,asp=0.85, white_around_sticker=TRUE, h_fill="#7733FF",
+sticker("freegroup_icon.png", package="freegroup", p_size=60, s_x=0.975, s_y=0.98,
+s_width=1.1,asp=0.85, white_around_sticker=TRUE, h_fill="#7733FF", dpi=1000,
 h_color="#000000", filename="freegroup.png")
