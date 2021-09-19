@@ -2,6 +2,8 @@
 ^\.Rproj\.user$     # used for temporary files. 
 ^README\.Rmd$       # An Rmarkdown file used to generate README.md
 inst/dehn.R
+inst/freegroup_stickermaker.R
+inst/read.me
 ^README\.Rmd$
 ^\.travis\.yml$
 codecov.yml
