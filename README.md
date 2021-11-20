@@ -7,10 +7,7 @@ The free group in R
 
 <!-- badges: start -->
 
-[![Build
-Status](https://travis-ci.org/RobinHankin/freegroup.svg?branch=master)](https://travis-ci.org/RobinHankin/freegroup)
-[![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/freegroup)](https://cran.r-project.org/package=freegroup)
-[![Rdoc](https://www.rdocumentation.org/badges/version/freegroup)](https://www.rdocumentation.org/packages/freegroup)
+[![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/freegroup)](https://cran.r-project.org/package=freegroup)
 [![Codecov test
 coverage](https://codecov.io/gh/RobinHankin/freegroup/branch/master/graph/badge.svg)](https://codecov.io/gh/RobinHankin/freegroup/branch/master)
 <!-- badges: end -->
