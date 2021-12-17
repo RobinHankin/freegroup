@@ -24,11 +24,6 @@
   includes functionality for working with Tietze forms.  The package
   uses a numerical representation for free algebra objects but the
   print method is configurable.  
-  Here I present the \pkg{freegroup} package for working with the free
-  group on a finite set of symbols.  The package is vectorised and
-  includes functionality for working with Tietze forms.  The package
-  uses a numerical representation for free algebra objects but the
-  print method is configurable.
 }
 
 \Keywords{Free group, Tietze form}
