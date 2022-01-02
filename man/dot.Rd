@@ -43,9 +43,9 @@ z <- rfree()
 
 
 ## Jacobi identity not satisfied with this definition:
-.[x,.[y,z]] + .[y,.[z,x]] + .[z,.[x,y]]
+is.id(.[x,.[y,z]] + .[y,.[z,x]] + .[z,.[x,y]])
 
-
-
+## But the Hall-Witt identity is:
+all(is.id(.[.[x,-y],z]^y + .[.[y,-z],x]^z + .[.[z,-x],y]^x))
 
 }
