@@ -396,3 +396,10 @@ setGeneric("tietze",function(x){standardGeneric("tietze")})
   }
 
 
+setOldClass("free")
+setMethod("[", signature(x="dot",i="free",j="ANY"),
+          function(x,i,j,drop){
+              j <- as.free(j)
+              return(-i-j+i+j)
+          })
+
