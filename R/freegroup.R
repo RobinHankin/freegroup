@@ -28,9 +28,13 @@
 
 `char_to_matrix` <- function(x){
   if(nchar(x)>0){
-    return(rbind(as.numeric(charToRaw(x))-96,1))
+      jj <- as.numeric(charToRaw(x))-96
+      s <- rep(1,length(jj))
+      s[jj<0] <- -1
+      jj[jj<0] <- jj[jj<0] + 32
+      return(rbind(jj,s))
   } else {   # x=''
-    return(matrix(0,2,0))
+      return(matrix(0,2,0))
   }
 }
 

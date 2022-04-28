@@ -53,4 +53,5 @@ x * (0:3)
 
 as.free(c(4,3,2,2,2))
 as.free("aaaabccccaaaaa")
+as.free(c("a","A","abAAA"))
 }

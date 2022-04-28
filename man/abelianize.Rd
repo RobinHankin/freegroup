@@ -15,6 +15,10 @@ past one another.  Abelianization is vectorized.
 \author{Robin K. S. Hankin}
 \examples{
 
+x <- as.free("aabAA")
+x
+abelianize(x)
+
 x <- rfree(10,20,20)
 abelianize(x)
 
