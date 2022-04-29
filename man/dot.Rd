@@ -39,7 +39,7 @@ x <- rfree()
 y <- rfree()
 z <- rfree()
 
-.[x,y] == -x-y+y+z   # should be TRUE
+.[x,y] == -x-y+x+y   # should be TRUE
 
 
 ## Jacobi identity not satisfied with this definition:
