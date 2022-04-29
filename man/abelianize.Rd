@@ -19,9 +19,11 @@ x <- as.free("aabAA")
 x
 abelianize(x)
 
-x <- rfree(10,20,20)
+x <- rfree(10,10,2)
+x
 abelianize(x)
 
 p <- free(rbind(rep(1:5,4),rep(1:4,5)))
+p
 abelianize(p)
 }

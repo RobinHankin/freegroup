@@ -33,7 +33,9 @@
 \author{Robin K. S. Hankin}
 \examples{
 
-.[alpha(1:8),"z"]
+.[as.free("x"), as.free("y")]
+
+.[abc(1:6),"z"]
 
 x <- rfree()
 y <- rfree()
@@ -42,7 +44,7 @@ z <- rfree()
 .[x,y] == -x-y+x+y   # should be TRUE
 
 
-## Jacobi identity not satisfied with this definition:
+## Jacobi identity _not_ satisfied with this definition:
 is.id(.[x,.[y,z]] + .[y,.[z,x]] + .[z,.[x,y]])
 
 ## But the Hall-Witt identity is:

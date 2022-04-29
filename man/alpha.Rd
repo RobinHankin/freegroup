@@ -13,7 +13,6 @@ alpha(v)
 \examples{
 alpha(1)  # just the letter 'a'
 
-
 alpha(1:26)  # the whole alphabet; compare abc(1:26)
 
 all(alpha(1:26) == as.free(letters))  # should be TRUE
