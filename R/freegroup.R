@@ -39,7 +39,9 @@
 }
 
 `char_to_free` <- function(x){
-  free(sapply(x,char_to_matrix,simplify=FALSE))
+    jj <- sapply(x,char_to_matrix,simplify=FALSE)
+    names(jj) <- names(x)
+    return(free(jj))
 }
 
 `list_to_free` <- function(x){
