@@ -64,7 +64,6 @@ group}. In \emph{Wikipedia, The Free Encyclopedia}. Retrieved 19:58, January 10,
 \author{Robin K. S. Hankin}
 \seealso{\code{\link{flip}}}
 \examples{
-library("permutations")
 
 x <- abc(7)
 x
