@@ -14,6 +14,7 @@
 \alias{[,dot,missing,ANY-method}
 \alias{[,dot,missing,missing-method}
 \alias{[,dot,free,ANY-method}
+\alias{[,dot,free,ANY,ANY-method}
 \alias{[,dot,matrix,matrix-method}
 \title{Class \dQuote{dot}}
 \description{
