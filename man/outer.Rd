@@ -66,8 +66,10 @@ group}. In \emph{Wikipedia, The Free Encyclopedia}. Retrieved 19:58, January 10,
 \examples{
 library("permutations")
 
-X <- rfree(10,9)
-permsymb(X, as.function(cyc_len(9)))
+x <- abc(7)
+x
+permsymb(x, as.function(cyc_len(7)))
+
 
 f <- as.function(rperm(10,9))
 permsymb(as.free('abbccc'),f)
@@ -77,6 +79,8 @@ autosub(abc(1:6),'c',as.free('xxxyz'))
 
 S <- free(rbind(23+sample(1:3,10,TRUE),sample(c(-1,1,3),10,TRUE)))
 
+
+X <- rfree(10,9)
 all(X==X \%>\% autosub('a',S) \%>\% autosub('a',-S))
 ## should be TRUE
 

@@ -16,7 +16,7 @@ getlet(x)
 }
 \examples{
 
-x <- rfree(30,4,11)
+(x <- rfree(30,4,11))
 
 getlet(x)
 
