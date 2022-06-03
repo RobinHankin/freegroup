@@ -63,29 +63,12 @@ group}. In \emph{Wikipedia, The Free Encyclopedia}. Retrieved 19:58, January 10,
   }
 \author{Robin K. S. Hankin}
 \seealso{\code{\link{flip}}}
+\note{
+  Works nicely with the \pkg{permutations} package; see
+  \code{inst/outer.Rmd} for some illustrations.
+}
 \examples{
 
-x <- abc(7)
-x
-permsymb(x, as.function(cyc_len(7)))
-
-
-f <- as.function(rperm(10,9))
-permsymb(as.free('abbccc'),f)
-permsymb(abc(1)+abc(8),f)
 
 autosub(abc(1:6),'c',as.free('xxxyz'))
-
-S <- free(rbind(23+sample(1:3,10,TRUE),sample(c(-1,1,3),10,TRUE)))
-
-
-X <- rfree(10,9)
-all(X==X \%>\% autosub('a',S) \%>\% autosub('a',-S))
-## should be TRUE
-
-
-## Possible to use slightly slicker idiom:
-g <- function(x){permsymb(x,f)}
-g(X)
-
 }

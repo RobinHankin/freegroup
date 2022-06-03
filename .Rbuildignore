@@ -4,6 +4,7 @@
 inst/dehn.R
 inst/freegroup_stickermaker.R
 inst/read.me
+inst/outer.Rmd
 ^README\.Rmd$
 ^\.travis\.yml$
 codecov.yml
