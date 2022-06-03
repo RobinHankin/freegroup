@@ -191,8 +191,8 @@ setGeneric("tietze",function(x){standardGeneric("tietze")})
   return(free(out))
 }
 
-`abc` <- function(n){
-    free(sapply(n,
+`abc` <- function(v){
+    free(sapply(v,
                 function(o){
                     if(o>0){
                         return(rbind(seq_len(o),1))
