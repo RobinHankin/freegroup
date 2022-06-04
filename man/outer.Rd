@@ -56,19 +56,27 @@ functions that are not really suited for the end user; use
 
 }
 \references{
-Wikipedia contributors. (2018, October 29).  \dQuote{Automorphism group of a free
-group}. In \emph{Wikipedia, The Free Encyclopedia}. Retrieved 19:58, January 10,
-2019, from
+  Wikipedia contributors. (2018, October 29).  \dQuote{Automorphism
+group of a free group}. In \emph{Wikipedia, The Free
+Encyclopedia}. Retrieved 19:58, January 10, 2019, from
 \url{https://en.wikipedia.org/w/index.php?title=Automorphism_group_of_a_free_group&oldid=866270661}
-  }
+}
 \author{Robin K. S. Hankin}
 \seealso{\code{\link{flip}}}
 \note{
-  Works nicely with the \pkg{permutations} package; see
-  \code{inst/outer.Rmd} for some illustrations.
-}
+
+  Function \code{permsymb()} is intended to work nicely with the
+  \pkg{permutations} package; see \code{inst/outer.Rmd} for some
+  illustrations.  The function is not perfect. }
+
 \examples{
 
+P <- as.free(c("abc","aba","cc","ca"))
+autosub(P,"c",as.free("xyz"))
 
-autosub(abc(1:6),'c',as.free('xxxyz'))
+flip(P,"c")
+flip(P,"ac")
+
+
+
 }
