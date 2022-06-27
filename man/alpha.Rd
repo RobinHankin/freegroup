@@ -13,8 +13,20 @@ abc(v)
   \item{v}{Vector of integers}
 }
 \details{
-  Function \code{alpha()} returns a vector of single-letter elements.
-  Function \code{abc()} returns a vector of multiple elements.
+
+  Function \code{alpha()} takes an integer \code{i} and returns the
+  letter \code{i} of the alphabet.  Thus \code{alpha(3)} returns
+  \code{c}.  The function is vectorised: \code{alpha(1:3)} returns
+  \code{a b c}.
+
+  Function \code{abc()} takes an integer \code{i} and returns letters
+  1 to \code{i} of the alphabet.  Thus \code{abc(4)} returns
+  \code{a.b.c.d}.  The function is vectorised.
+
+  Remember that \dQuote{letters of the alphabet} is just a phrase:
+  above it refers to the default print method which can be changed,
+  see the examples.
+
 }
 \author{Robin K. S. Hankin}
 \examples{
