@@ -44,11 +44,11 @@ The package uses \code{setOldClass("free")} for the \code{dot} methods.
 \examples{
 free(rbind(1:5,5:1))
 
-x <- rfree(10,4)
+x <- rfree(10,3)
 x
 x+x
 x-x
-x * (0:3)
+x[1:5]*(1:5)
 
 
 as.free(c(4,3,2,2,2))
