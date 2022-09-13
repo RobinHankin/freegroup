@@ -44,6 +44,7 @@ z <- rfree()
 
 .[x,y] == -x-y+x+y   # should be TRUE
 
+abelianize(.[x,y])
 
 ## Jacobi identity _not_ satisfied with this definition:
 is.id(.[x,.[y,z]] + .[y,.[z,x]] + .[z,.[x,y]])
