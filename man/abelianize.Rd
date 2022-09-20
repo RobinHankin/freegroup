@@ -23,6 +23,9 @@ x <- rfree(10,10,2)
 x
 abelianize(x)
 
+abelianize(.[rfree(),rfree()])
+
+
 p <- free(rbind(rep(1:5,4),rep(1:4,5)))
 p
 abelianize(p)
