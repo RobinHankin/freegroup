@@ -11,7 +11,7 @@ rfree(n=7, size=4, number = size, powers = seq(from = -size, to = size))
   \item{size}{Maximum length of each element}
   \item{number}{How many distinct letters to sample from}
   \item{powers}{Powers in resulting polynomial.  An integer \code{n} is
-    interpreted (via \code{sample()}) as \code{seq_len(n)}.
+    interpreted (via \code{sample()}) as \code{seq_len(n)}}
 }
 \details{
 The auxiliary arguments specify the general complexity of the returned
