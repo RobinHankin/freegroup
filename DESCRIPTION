@@ -1,7 +1,7 @@
 Package: freegroup
 Type: Package
 Title: The Free Group
-Version: 1.1-5
+Version: 1.1-6
 Authors@R: c(person(c("Robin", "K. S. "), "Hankin", 
     role=c("aut","cre"),
     email="hankin.robin@gmail.com",
@@ -10,8 +10,8 @@ Maintainer: Robin K. S. Hankin <hankin.robin@gmail.com>
 Description: The free group in R; juxtaposition is represented by a
   plus.  Includes inversion, multiplication by a scalar,
   group-theoretic power operation, and Tietze forms.
-Depends: magrittr,methods,magic (>= 1.5-9), plyr, R (>= 3.5.0)
-Suggests: knitr, rmarkdown, permutations,testthat
+Depends: magrittr, methods, magic (>= 1.5-9), plyr, R (>= 3.5.0)
+Suggests: knitr, rmarkdown, permutations, testthat
 LazyData: yes
 Imports: freealg (>= 1.0-4)
 VignetteBuilder: knitr
