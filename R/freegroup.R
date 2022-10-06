@@ -316,6 +316,8 @@ setGeneric("tietze",function(x){standardGeneric("tietze")})
          }))
 }
 
+`is.abelian` <- function(x){x==abelianize(x)}
+
 `sum.free` <- function(..., na.rm=FALSE){
   free(do.call("cbind",lapply(unclass(list(...)),function(x){do.call("cbind",x)})))
 }
