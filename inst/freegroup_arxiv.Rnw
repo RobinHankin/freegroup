@@ -1,0 +1,266 @@
+% -*- mode: noweb; noweb-default-code-mode: R-mode; -*-
+
+
+\documentclass{article}
+
+\usepackage{arxiv}
+
+\usepackage[utf8]{inputenc} % allow utf-8 input
+\usepackage[T1]{fontenc}    % use 8-bit T1 fonts
+\usepackage{hyperref}       % hyperlinks
+\usepackage{url}            % simple URL typesetting
+\usepackage{booktabs}       % professional-quality tables
+\usepackage{amsfonts}       % blackboard math symbols
+\usepackage{amssymb}        % needed for \leqslant
+\usepackage{amsmath}        % needed for cases
+\usepackage{nicefrac}       % compact symbols for 1/2, etc.
+\usepackage{microtype}      % microtypography
+\usepackage{lipsum}		% Can be removed after putting your text content
+\usepackage{graphicx}
+\usepackage[numbers]{natbib}
+\usepackage{doi}
+\usepackage{wrapfig}
+\usepackage{tikz-cd}
+
+
+\title{The free group in R}
+
+%\date{September 9, 1985}	% Here you can change the date presented in the paper title
+%\date{} 					% Or removing it
+
+\author{ \href{https://orcid.org/0000-0001-5982-0415}{\includegraphics[width=0.03\textwidth]{orcid.pdf}\hspace{1mm}Robin K. S.~Hankin}\thanks{\href{https://academics.aut.ac.nz/robin.hankin}{work};  
+\href{https://www.youtube.com/watch?v=JzCX3FqDIOc&list=PL9_n3Tqzq9iWtgD8POJFdnVUCZ_zw6OiB&ab_channel=TrinTragulaGeneralRelativity}{play}} \\
+ Auckland University of Technology\\
+	\texttt{hankin.robin@gmail.com} \\
+}
+
+% Uncomment to remove the date
+%\date{}
+
+% Uncomment to override  the `A preprint' in the header
+%\renewcommand{\headeright}{Technical Report}
+%\renewcommand{\undertitle}{Technical Report}
+\renewcommand{\shorttitle}{The free group in R}
+
+%%% Add PDF metadata to help others organize their library
+%%% Once the PDF is generated, you can check the metadata with
+%%% $ pdfinfo template.pdf
+\hypersetup{
+pdftitle={The free group in R},
+pdfsubject={q-bio.NC, q-bio.QM},
+pdfauthor={Robin K. S.~Hankin},
+pdfkeywords={the free group}
+}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+  Here I present the {\tt freegroup} package for working with the free
+  group on a finite set of symbols.  The package is vectorised and
+  includes functionality for working with Tietze forms.  The package
+  uses a numerical representation for free algebra objects but the
+  print method is configurable.  It is available on CRAN
+  at\\ \url{https://CRAN.R-project.org/package=freegroup}.
+\end{abstract}
+
+\SweaveOpts{}
+
+
+\section{Introduction}
+
+\setlength{\intextsep}{0pt}
+\begin{wrapfigure}{r}{0.2\textwidth}
+  \begin{center}
+\includegraphics[width=1in]{freegroup.png}
+  \end{center}
+\end{wrapfigure}
+The free group is an interesting and
+instructive mathematical object with a rich structure that illustrates
+many concepts of elementary group theory.  The {\tt freegroup} package
+provides some functionality for manipulating the free group on a
+finite list of symbols.  Informally, the {\em free group}
+$\left(X,\circ\right)$ on a set $S=\{a,b,c,\ldots,z\}$ is the set $X$
+of {\em words} that are objects like $W=c^{-4}bb^2aa^{-1}ca$, with a
+group operation of string juxtaposition.  Usually one works only with
+words that are in ``reduced form'', which has successive powers of the
+same symbol combined, so $W$ would be equal to $c^{-4}b^3ca$; see how
+$b$ appears to the third power and the $a$ term in the middle has
+vanished.  The group operation of juxtaposition is formally indicated
+by $\circ$, but this is often omitted in algebraic notation; thus, for
+example $a^2b^{-3}c^2\circ c^{-2}ba =a^2b^{-3}c^2c^{-2}ba
+=a^2b^{-2}ba$.
+
+\subsection{Formal definition}
+
+If $X$ is a set, then a group $F$ is called {\em the free group on
+$X$} if there is a set map $\Psi\colon X\longrightarrow F$, and for
+any group $G$ and set map $\Phi\colon X\longrightarrow G$, there is a
+unique homomorphism $\alpha\colon F\longrightarrow G$ such that
+$\alpha\circ\Psi=\Phi$, that is, the diagram below commutes:
+
+\begin{tikzcd}
+X \arrow[r,"\Psi"] \arrow[dr,"\Phi"]
+& F \arrow[d,"\alpha"]\\
+& G
+\end{tikzcd}
+
+It can be shown that $F$ is unique up to group isomorphism; every
+group is a quotient of a free group.
+
+\subsection{Existing work}
+
+Computational support for working with the free group is provided as
+part of a number of algebra systems including \cite{GAP4},
+Sage~\citep{sagemath2019}, and {\tt sympy}~\citep{sympy2017}
+although in those systems the emphasis is on finitely presented
+groups, not in scope for the {\tt freegroup} package.  There are also
+a number of closed-source proprietary systems which are of no value
+here.
+
+\section{The package in use}
+
+In the {\tt freegroup} package, a word is represented by a two-row
+integer matrix; the top row is the integer representation of the
+symbol and the second row is the corresponding power.  For example, to
+represent $a^2b^{-3}ac^2a^{-2}$ we would identify $a$ as 1, $b$ as 2,
+etc and write
+
+<<>>=
+(M <- rbind(c(1,2,3,3,1),c(2,-3,2,3,-2)))
+@
+
+(see how negative entries in the second row correspond to negative
+powers).  Then to convert to a more useful form we would have
+
+<<>>=
+library("freegroup")
+(x <- free(M))
+@
+
+The representation for {\tt R} object {\tt x} is still a two-row
+matrix, but the print method is active and uses a more visually
+appealing scheme.  The default alphabet used is {\tt letters}.  We
+can coerce strings to free objects:
+
+
+<<>>=
+(y <- as.free("aabbbcccc"))
+@
+
+The free group operation is simply juxtaposition, represented here by
+the plus symbol:
+
+
+<<>>=
+x+y
+@
+
+(see how the $a$ ``cancels out'' in the juxtaposition).  One motivation
+for the use of ``{\tt +}'' rather than ``{\tt *}'' is that
+{\tt Python} uses ``{\tt +}'' for appending strings:
+
+\begin{verbatim}
+>>> "a" + "abc"
+'aabc'
+>>> 
+\end{verbatim}
+
+However, note that the ``{\tt +}'' symbol is usually reserved for
+commutative and associative operations; string juxtaposition is
+associative.  Multiplication by integers---denoted in {\tt freegroup}
+idiom by ``{\tt *}''---is also defined.  Suppose we want to
+concatenate 5 copies of {\tt x}:
+
+<<>>=
+x*5
+@
+
+The package is vectorized:
+
+<<>>=
+x*(0:3)
+@
+
+There are a few methods for creating free objects, for example:
+
+<<>>=
+abc(1:9)
+@
+
+And we can also generate random free objects:
+
+<<>>=
+rfree(10,4)
+@
+
+Inverses are calculated using unary or binary minus:
+
+<<>>=
+(u <- rfree(10,4))
+-u
+u-u
+@
+
+We can take the ``sum'' of a vector of free objects simply by
+juxtaposing the elements:
+
+<<>>=
+sum(u)
+@
+
+Powers are defined as per group conjugation: {\tt x\string^y ==
+y\string^\string{-1\string}xy} (or, written in additive notation,
+{\tt -y+x+y}):
+
+<<>>=
+u
+z <- alpha(26)
+u^z
+@
+
+
+Thus:
+
+<<>>=
+sum(u^z) == sum(u^z)
+@
+
+There is also a commutator bracket, defined as $[x,y]=x^{-1}y^{-1}xy$
+or in package idiom {\tt .[x,y]=-x-y+x+y}:
+
+<<>>=
+.[u,z]
+@ 
+
+If we have more than 26 symbols the print method runs out of letters:
+
+<<>>=
+alpha(1:30)
+@
+
+If this is a problem (it might not be: the print method might not be
+important) it is possible to override the default symbol set:
+
+<<>>=
+options(symbols = state.abb)
+alpha(1:30)
+@
+
+\section{Conclusions and further work}
+
+The {\tt freegroup} package furnishes a consistent and documented
+suite of reasonably efficient {\tt R}-centric functionality.
+Further work might include the finitely presented groups but it is not
+clear whether this would be consistent with the precepts of
+{\tt R}.
+
+<<echo=FALSE,print=FALSE>>=
+options(symbols=letters)
+@ 
+
+
+\bibliographystyle{apalike}
+\bibliography{freegroup}
+
+\end{document}
