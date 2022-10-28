@@ -75,35 +75,41 @@ pdfkeywords={the free group}
 \includegraphics[width=1in]{freegroup.png}
   \end{center}
 \end{wrapfigure}
-The free group is an interesting and
-instructive mathematical object with a rich structure that illustrates
-many concepts of elementary group theory.  The {\tt freegroup} package
-provides some functionality for manipulating the free group on a
-finite list of symbols.  Informally, the {\em free group}
-$\left(X,\circ\right)$ on a set $S=\{a,b,c,\ldots,z\}$ is the set $X$
-of {\em words} that are objects like $W=c^{-4}bb^2aa^{-1}ca$, with a
-group operation of string juxtaposition.  Usually one works only with
-words that are in ``reduced form'', which has successive powers of the
-same symbol combined, so $W$ would be equal to $c^{-4}b^3ca$; see how
-$b$ appears to the third power and the $a$ term in the middle has
-vanished.  The group operation of juxtaposition is formally indicated
-by $\circ$, but this is often omitted in algebraic notation; thus, for
-example $a^2b^{-3}c^2\circ c^{-2}ba =a^2b^{-3}c^2c^{-2}ba
+
+The free group is an interesting and instructive mathematical object
+with a rich structure that illustrates many concepts of elementary
+group theory.  The {\tt freegroup} package provides some functionality
+for manipulating the free group on a finite list of symbols.  It is
+written in the R programming language~\cite{rcore2022} and is
+available on CRAN at
+\url{https://CRAN.R-project.org/package=freegroup}.
+
+Informally, the {\em free group} $\left(X,\circ\right)$ on a set
+$S=\{a,b,c,\ldots,z\}$ is the set $X$ of {\em words} that are objects
+like $W=c^{-4}bb^2aa^{-1}ca$, with a group operation of string
+juxtaposition.  Usually one works only with words that are in
+``reduced form'', which has successive powers of the same symbol
+combined, so $W$ would be equal to $c^{-4}b^3ca$; see how $b$ appears
+to the third power and the $a$ term in the middle has vanished through
+cancellation.  The group operation of juxtaposition is formally
+indicated by $\circ$, but this is often omitted in algebraic notation;
+thus, for example $a^2b^{-3}c^2\circ c^{-2}ba =a^2b^{-3}c^2c^{-2}ba
 =a^2b^{-2}ba$.
 
-\subsection{Formal definition}
-
+\paragraph{Formal definition}
 If $X$ is a set, then a group $F$ is called {\em the free group on
 $X$} if there is a set map $\Psi\colon X\longrightarrow F$, and for
 any group $G$ and set map $\Phi\colon X\longrightarrow G$, there is a
 unique homomorphism $\alpha\colon F\longrightarrow G$ such that
 $\alpha\circ\Psi=\Phi$, that is, the diagram below commutes:
 
+\begin{center}
 \begin{tikzcd}
 X \arrow[r,"\Psi"] \arrow[dr,"\Phi"]
 & F \arrow[d,"\alpha"]\\
 & G
 \end{tikzcd}
+\end{center}
 
 It can be shown that $F$ is unique up to group isomorphism; every
 group is a quotient of a free group.
@@ -292,6 +298,6 @@ options(symbols=letters)
 
 
 \bibliographystyle{apalike}
-\bibliography{freegroup}
+\bibliography{freegroup_arxiv}
 
 \end{document}
