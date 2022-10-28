@@ -111,12 +111,11 @@ group is a quotient of a free group.
 \subsection{Existing work}
 
 Computational support for working with the free group is provided as
-part of a number of algebra systems including \cite{GAP4},
-Sage~\citep{sagemath2019}, and {\tt sympy}~\citep{sympy2017}
-although in those systems the emphasis is on finitely presented
-groups, not in scope for the {\tt freegroup} package.  There are also
-a number of closed-source proprietary systems which are of no value
-here.
+part of a number of algebra systems including GAP~\cite{GAP4},
+Sage~\citep{sagemath2019}, and {\tt sympy}~\citep{sympy2017} although
+in those systems the emphasis is on finitely presented groups, not in
+scope for the {\tt freegroup} package.  There are also a number of
+closed-source proprietary systems.
 
 \section{The package in use}
 
@@ -140,9 +139,8 @@ library("freegroup")
 
 The representation for {\tt R} object {\tt x} is still a two-row
 matrix, but the print method is active and uses a more visually
-appealing scheme.  The default alphabet used is {\tt letters}.  We
-can coerce strings to free objects:
-
+appealing scheme.  The default alphabet used is {\tt letters}.  On
+this understanding, we can coerce strings to free objects:
 
 <<>>=
 (y <- as.free("aabbbcccc"))
@@ -166,14 +164,15 @@ for the use of ``{\tt +}'' rather than ``{\tt *}'' is that
 >>> 
 \end{verbatim}
 
-However, note that the ``{\tt +}'' symbol is usually reserved for
-commutative and associative operations; string juxtaposition is
-associative.  Multiplication by integers---denoted in {\tt freegroup}
-idiom by ``{\tt *}''---is also defined.  Suppose we want to
-concatenate 5 copies of {\tt x}:
+However, note that in mathematics the ``{\tt +}'' symbol is usually
+reserved for commutative and associative operations; string
+juxtaposition is associative but not commutative.  Multiplication by
+integers---denoted in {\tt freegroup} idiom by ``{\tt *}''---is also
+defined.  Suppose we want to concatenate 3 copies of {\tt x}:
 
 <<>>=
-x*5
+x
+x*3
 @
 
 The package is vectorized:
@@ -202,36 +201,68 @@ Inverses are calculated using unary or binary minus:
 u-u
 @
 
-We can take the ``sum'' of a vector of free objects simply by
-juxtaposing the elements:
+Above, we see the print method has special dispensation for the
+identity element, displaying it as {\tt 0}.  We can take the ``sum''
+of a vector of free objects simply by juxtaposing the elements:
 
 <<>>=
 sum(u)
 @
 
-Powers are defined as per group conjugation: {\tt x\string^y ==
-y\string^\string{-1\string}xy} (or, written in additive notation,
-{\tt -y+x+y}):
+Powers are defined as per group conjugation: (or, written in additive
+notation, {\tt -y+x+y}).  The nomenclature is motivated by the
+identities $x^{yz} = \left(x^y\right)^z$ and $(xy)^z=x^zy^z$.  In
+multiplicative notation this would translate to {\tt
+x\string^(yz)==(x\string^y)\string^z} and {\tt
+(xy)\string^z=(x\string^z)*(y\string^z)}.  In additive notation it is
+somewhat less appealing and appears as {\tt
+x\string^(y+z)==(x\string^y)\string^z} and {\tt
+(x+y)\string^z=(x\string^z)+(y\string^z)}.  Numerical verification follows:
 
 <<>>=
 u
+y <- alpha(25)
 z <- alpha(26)
-u^z
+all(c(u^(y+z) == (u^y)^z, (u+y)^z == u^z + y^z))
 @
 
 
-Thus:
+We may generalize thie second identity to arbitrary concatenation; thus:
 
 <<>>=
-sum(u^z) == sum(u^z)
+sum(u^z) == sum(u)^z
 @
 
-There is also a commutator bracket, defined as $[x,y]=x^{-1}y^{-1}xy$
-or in package idiom {\tt .[x,y]=-x-y+x+y}:
+\section{Commutator brackets and the Hall-Witt identity}
 
+
+The package also includes a commutator bracket, defined as
+$[x,y]=x^{-1}y^{-1}xy$ or in package idiom {\tt .[x,y]=-x-y+x+y}:
+ 
 <<>>=
-.[u,z]
+.[y,z]
 @ 
+
+
+
+It is worth observing that the commutator bracket as defined does not
+obey the Jacobi relation$ [x,[y,z]] + [y,[z,x]] +[z,[x,y]]= 0$:
+
+<<>>=
+x <- rfree()
+y <- rfree()
+z <- rfree()
+is.id(.[x,.[y,z]] + .[y,.[z,x]] + .[z,.[x,y]])
+@
+
+However, the Hall-Witt identity $[[x,-y],z]^y + [[y,-z],x]^z
++[[z,-x],y]^x$ is satisfied:
+
+<<>>=
+is.id(.[.[x,-y],z]^y + .[.[y,-z],x]^z + .[.[z,-x],y]^x)
+@
+
+\section{Print method}
 
 If we have more than 26 symbols the print method runs out of letters:
 
