@@ -215,15 +215,16 @@ of a vector of free objects simply by juxtaposing the elements:
 sum(u)
 @
 
-Powers are defined as per group conjugation: (or, written in additive
-notation, {\tt -y+x+y}).  The nomenclature is motivated by the
-identities $x^{yz} = \left(x^y\right)^z$ and $(xy)^z=x^zy^z$.  In
-multiplicative notation this would translate to {\tt
-x\string^(yz)==(x\string^y)\string^z} and {\tt
-(xy)\string^z=(x\string^z)*(y\string^z)}.  In additive notation it is
-somewhat less appealing and appears as {\tt
+Powers are defined as per group conjugation: $x^y=y^{-1}xy$, {\tt
+x\string^y=y\string^{-1}xy} (or, written in additive notation, {\tt
+-y+x+y}).  The nomenclature is motivated by the identities $x^{yz} =
+\left(x^y\right)^z$ and $(xy)^z=x^zy^z$.  In multiplicative notation
+this would translate to {\tt x\string^(yz)==(x\string^y)\string^z} and
+{\tt (xy)\string^z=(x\string^z)*(y\string^z)}.  Additive notation is
+somewhat less appealing and the identities appear as {\tt
 x\string^(y+z)==(x\string^y)\string^z} and {\tt
-(x+y)\string^z=(x\string^z)+(y\string^z)}.  Numerical verification follows:
+(x+y)\string^z=(x\string^z)+(y\string^z)}.  Numerical verification
+follows:
 
 <<>>=
 u
