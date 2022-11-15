@@ -56,12 +56,12 @@ pdfkeywords={the free group}
 \maketitle
 
 \begin{abstract}
-  Here I present the {\tt freegroup} package for working with the free
-  group on a finite set of symbols.  The package is vectorised and
-  includes functionality for working with Tietze forms.  The package
-  uses a numerical representation for free algebra objects but the
-  print method is configurable.  It is available on CRAN
-  at\\ \url{https://CRAN.R-project.org/package=freegroup}.
+Here I present the {\tt freegroup} package for working with the free
+group on a finite set of symbols.  The package is vectorised;
+internally it uses an efficient matrix-based representation for free
+group objects but uses a configurable print method.  A range of
+R-centric functionality is provided.  It is available on CRAN at
+\url{https://CRAN.R-project.org/package=freegroup}.
 \end{abstract}
 
 \SweaveOpts{}
@@ -182,9 +182,7 @@ x*3
 @
 
 However, with these definitions the distributive law is broken: in
-general {\tt n*(a + b)} is not equal to {\tt n*a + n*b}.  However, the
-abelianizations are equal:
-
+general {\tt n*(a + b)} is not equal to {\tt n*a + n*b}.  
 <<>>=
 (a <- as.free("aab"))
 (b <- abc(1:4))
@@ -192,8 +190,14 @@ abelianizations are equal:
 2*a + 2*b
 @
 
+However, the abelianizations are equal:
 
-The package is vectorized:
+<<>>=
+abelianize(2*(a+b)) == abelianize(2*a + 2*b)
+@
+
+The package is vectorized and is generally consistent with R indexing
+mechanisms:
 
 <<>>=
 x*(0:3)
