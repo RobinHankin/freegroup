@@ -24,7 +24,8 @@ group on a finite set of symbols.  The package is vectorised;
 internally it uses an efficient matrix-based representation for free
 group objects but uses a configurable print method.  A range of
 R-centric functionality is provided.  It is available on CRAN at
-\url{https://CRAN.R-project.org/package=freegroup}.
+\url{https://CRAN.R-project.org/package=freegroup}.  To cite the
+\pkg{freegroup} package, use \citet{hankin2022_freegroup}.
 }
 
 \Keywords{Free group, Tietze form}
