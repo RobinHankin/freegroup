@@ -18,6 +18,7 @@ set.seed(0)
 
 <p style="text-align: right;">
 ![](`r system.file("help/figures/freegroup.png", package = "freegroup")`){width=10%}
+![](`r system.file("help/figures/permutations.png", package = "permutations")`){width=10%}
 </p>
 
 
