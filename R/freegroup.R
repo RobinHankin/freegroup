@@ -404,6 +404,8 @@ setGeneric("tietze",function(x){standardGeneric("tietze")})
   }
 
 
+`shift` <- function(x,i=1){magic::shift(x,i)}
+
 setOldClass("free")
 setMethod("[", signature(x="dot",i="free",j="ANY"),
           function(x,i,j,drop){
