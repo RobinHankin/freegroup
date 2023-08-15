@@ -153,6 +153,6 @@ If this is a problem (it might not be: the print method might not be
 important) it is possible to override the default symbol set:
 
 ```{r}
-options(symbols = state.abb)
+options(freegroup_symbols = state.abb)
 free(rbind(1:50,1))
 ```

@@ -71,7 +71,7 @@ R-centric functionality is provided.  It is available on CRAN at
 
 <<echo=FALSE,print=FALSE>>=
 library("freegroup")
-options(symbols=letters) # should not be necessary
+options(freegroup_symbols=letters) # should not be necessary
 @ 
 
 \section{Introduction}
@@ -251,7 +251,7 @@ If this is a problem (it might not be: the print method might not be
 important) it is possible to override the default symbol set:
 
 <<>>=
-options(symbols = state.abb)
+options(freegroup_symbols = state.abb)
 alpha(1:30)
 @
 
@@ -264,7 +264,7 @@ clear whether this would be consistent with the precepts of
 \proglang{R}.
 
 <<echo=FALSE,print=FALSE>>=
-options(symbols=letters)
+options(freegroup_symbols=letters)
 @ 
 
 \bibliography{freegroup}

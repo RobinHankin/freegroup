@@ -88,7 +88,7 @@ setGeneric("tietze",function(x){standardGeneric("tietze")})
 
 `as.character_free` <- function(m,latex=getOption("latex")){ # takes a matrix
 
-    symbols <- getOption("symbols")
+    symbols <- getOption("freegroup_symbols")
     if(is.null(symbols)){symbols <- letters}
     if(ncol(m)==0){return("0")}
     if(isTRUE(latex)){

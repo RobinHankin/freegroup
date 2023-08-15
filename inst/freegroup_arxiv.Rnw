@@ -298,7 +298,7 @@ If this is a problem (it might not be: the print method might not be
 important) it is possible to override the default symbol set:
 
 <<>>=
-options(symbols = state.abb)
+options(freegroup_symbols = state.abb)
 alpha(1:30)
 @
 
@@ -310,7 +310,7 @@ work might include the efficient detection and generation of
 square-free words.
 
 <<echo=FALSE,print=FALSE>>=
-options(symbols=letters)
+options(freegroup_symbols=letters)
 @ 
 
 
