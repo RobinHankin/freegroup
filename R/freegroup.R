@@ -358,7 +358,17 @@ setGeneric("tietze",function(x){standardGeneric("tietze")})
     free(lapply(x,function(o){o[,rev(seq_len(ncol(o))),drop=FALSE]}))
   }
 
-`subs` <- function(a,from,to){
+`subs` <- function(X,...){
+    sb <- list(...)
+    v <- names(sb)
+    out <- X
+    for (i in seq_along(sb)) {
+        out <- subsu(out, v[i],sb[[i]])
+    }
+    return(out)
+}
+
+`subsu` <- function(X,from,to){
   from <- getlet(as.free(from))
   to <- getlet(as.free(to))
   stopifnot(length(to) == 1)
@@ -369,10 +379,11 @@ setGeneric("tietze",function(x){standardGeneric("tietze")})
   }
     
 #  a %<>% unclass %>% lapply(s,from=from,to=to) %>% free
-  free(lapply(unclass(a),s,from=from,to=to))
+  free(lapply(unclass(X),s,from=from,to=to))
 }
 
-`flip` <- function(a,turn){
+
+`flip` <- function(X,turn){
   turn <- getlet(as.free(turn))
   
   s <- function(M,turn){
@@ -380,8 +391,8 @@ setGeneric("tietze",function(x){standardGeneric("tietze")})
     return(M)
   }
 
-  a %<>% unclass %>% lapply(s,turn=turn) %>% free
-  return(a)  
+  X %<>% unclass %>% lapply(s,turn=turn) %>% free
+  return(X)  
 }
 
 `abs.free` <- function(x){
