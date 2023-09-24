@@ -48,7 +48,7 @@ rfree(10,3) + as.free('xxxxxxxxxxxx')
 
 as.free(letters)*7
 
-ll(is.id(as.free(letters) + as.free(LETTERS)))
+all(is.id(as.free(letters) + as.free(LETTERS)))
 
 
 as.free('')  # identity element
