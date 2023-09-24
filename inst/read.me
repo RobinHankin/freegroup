@@ -1,3 +1,17 @@
 Batch file freegroup_stickermaker.R creates freegroup.png, which lives
 in the man/figures directory.
 
+File freegroup_arxiv.Rnw is basically the same as the vignette
+(vignettes/freegroup.Rnw) but modified for arxiv.  There is a Makefile
+in the inst/ directory.  But for it to work you will need a couple of
+auxiliary files:
+
+* arxiv.sty from https://github.com/kourgeorge/arxiv-style
+* orcid.png, from https://orcid.org/signin
+* freegroup.png, the hexsticker, copied from man/figures
+* Sweave.sty, copied from the R distribution
+
+NOTE: the tex file, freegroup_arxiv.tex, is NOT under version control
+(it is an artefact).  There is something wrong with some versions of
+the style file that return an error from the shorttitle command.
+
