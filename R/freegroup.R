@@ -111,25 +111,15 @@ setGeneric("tietze",function(x){standardGeneric("tietze")})
 `remove_zero_powers` <- function(a){a[,a[2,,drop=FALSE]!=0,drop=FALSE]}
 
 `is_proper` <- function(a){
-    if(is.list(a)){
-        return(lapply(a,is_proper))
-        } else {
-            return(
-                is.matrix(a)     &&
-                nrow(a) == 2     &&
-                all(a==round(a)) &&
-                all(a[1,] > 0)
-            )
-        }
+  return(
+      is.matrix(a)     &&
+      nrow(a) == 2     &&
+      all(a==round(a)) &&
+      all(a[1,] > 0)
+  )
 }
 
-`is_reduced` <- function(a){
-    if(is.list(a)){
-        return(lapply(a,is_reduced))  # Recall() does not work here
-    } else {
-        return(all(a[2,]!=0) && all(diff(a[1,]) != 0))
-    }
-}
+`is_reduced` <- function(a){ all(a[2,]!=0) && all(diff(a[1,]) != 0) }
    
 `.gsr` <- function(a){  # gsr == Get Start Repeats
     cumsum(rle(a)$lengths)
