@@ -11,7 +11,7 @@ as.character_free(m,latex=getOption("latex"))
 \arguments{
   \item{x}{Object of class \code{free} in the print method}
   \item{m}{A two-row matrix in function \code{as.character_free()}}
-  \item{latex}{Boolean, with code{TRUE} meaning to print latex-friendly
+  \item{latex}{Boolean, with \code{TRUE} meaning to print latex-friendly
     output including curly braces, and default \code{NULL} option
     meaning to give a nicer-looking output that latex would typeset
     incorrectly}
