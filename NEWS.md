@@ -1,3 +1,8 @@
+# freegroup 1.1-9
+
+- bugfixes
+- proper checking of subs() functionality
+
 # freegroup 1.1-5
 
 - improvements to the vignette
