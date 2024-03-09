@@ -315,6 +315,6 @@ options(freegroup_symbols=letters)
 
 
 \bibliographystyle{apalike}
-\bibliography{freegroup_arxiv}
+\bibliography{freegroup}
 
 \end{document}
