@@ -48,6 +48,13 @@ juxtapose(e1,e2)
   Multiplication between a free object \code{a} and an integer \code{n}
   is defined as juxtaposing \code{n} copies of \code{a} and reducing.
   Zero and negative values of \code{n} work as expected.
+
+  Comparing a \code{free} object with a numeric does not make sense and
+  idiom such as \code{rfree() > 4} will return an error.  Comparing a
+  \code{free} object with another \code{free} object might be desirable
+  [specifically, lexicographic ordering], but is not currently
+  implemented.
+
 }
 \author{Robin K. S. Hankin}
 \note{
