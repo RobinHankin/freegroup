@@ -162,6 +162,9 @@ for(i in 1:10){
     checker3(x,y,z)
 }
 
+checker1(rfreee())
+checker1(rfreeee())
+
 stopifnot(checker1(id()))
 stopifnot(checker1(as.free('a')))
 stopifnot(checker1(as.free('ab')))

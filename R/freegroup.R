@@ -181,6 +181,14 @@ setGeneric("tietze",function(x){standardGeneric("tietze")})
   return(free(out))
 }
 
+`rfreee` <- function(n=30, size=8, number=size, powers=seq(from=-size, to=size)){
+    rfree(n=n, size=size, number=size, powers=seq(from=-size, to=size))
+}
+
+`rfreeee` <- function(n=40,size=25, number=size,powers=seq(from=-size, to=size)){
+    rfree(n=n, size=size, number=size, powers=seq(from=-size, to=size))
+}
+
 `abc` <- function(v){
     free(sapply(v,
                 function(o){

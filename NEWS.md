@@ -2,6 +2,7 @@
 
 - bugfixes
 - proper checking of subs() functionality
+- rfreee()
 
 # freegroup 1.1-5
 
