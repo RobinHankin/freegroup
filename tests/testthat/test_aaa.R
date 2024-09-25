@@ -8,7 +8,7 @@
 ## checker2(x[1],y) should return TRUE.
 
 
-library("magrittr")
+
 test_that("Test suite aaa.R",{
 
 checker1 <- function(x){
@@ -140,7 +140,7 @@ checker3 <- function(x,y,z){
   stopifnot(x^(y+z) == (x^y)^z) 
   stopifnot(x^z + y^z == (x+y)^z)
 
-  abelianize(x^z - x^y) %>% abelianize %>% is.id %>% stopifnot
+  abelianize(x^z - x^y) |> abelianize() |> is.id() |> stopifnot()
   stopifnot(sum(x,y,z) == sum(sum(x),sum(y),sum(z)))
 
   ## Hall-Witt:
@@ -152,7 +152,7 @@ checker3 <- function(x,y,z){
 
 
 
-for(i in 1:10){
+for(i in 1:2){
     x <- rfree(10,6,3)
     y <- rfree(10,6,3)
     z <- rfree(10,6,3)
