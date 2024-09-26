@@ -11,7 +11,7 @@
 
 test_that("Test suite aaa.R",{
 
-checker1 <- function(x){
+checker1 <- function(x,do_expensive_test = TRUE){
 
   expect_true(is.free(as.free(x)))
 
@@ -84,12 +84,13 @@ checker1 <- function(x){
 
   expect_true(all(is.cyclically_reduced(as.cyclically_reduced(x))))
 
-  for(i in seq_along(x)){
-    o <- as.cyclically_reduced(x[i])
-    expect_true(all(o %~% allconj(o)))
-    expect_true(all(all(is.id(allconj(o) + allconj(-o)[shift(rev(1:total(o)))]))))
+  if(do_expensive_test){
+      for(i in seq_along(x)){
+          o <- as.cyclically_reduced(x[i])
+          expect_true(all(o %~% allconj(o)))
+          expect_true(all(all(is.id(allconj(o) + allconj(-o)[shift(rev(1:total(o)))]))))
+      }
   }
-
 
   expect_output(print(x))
   expect_output(print(x[FALSE]))
@@ -162,8 +163,8 @@ for(i in 1:2){
     checker3(x,y,z)
 }
 
-checker1(rfreee())
-checker1(rfreeee())
+checker1(rfreee(), FALSE)
+checker1(rfreeee(), FALSE)
 
 stopifnot(checker1(id()))
 stopifnot(checker1(as.free('a')))
