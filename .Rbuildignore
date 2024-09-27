@@ -24,3 +24,7 @@ inst/orcid.pdf
 codecov.yml
 ^.github$
 ^.devcontainer$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$
+^\.github$
