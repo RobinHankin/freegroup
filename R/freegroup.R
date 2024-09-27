@@ -422,3 +422,22 @@ setMethod("[", signature(x="dot",i="free",j="ANY"),
               return(-i-j+i+j)
           })
 
+
+`is.power` <- function(d, n){nrow(unique(data.frame(matrix(d, nrow=n, byrow=TRUE)))) == 1}
+
+`is.primitive` <- function(x){
+    if(is.free(x)){x <- tietze(x)}
+
+    facs  <- x |> lapply(length) |> lapply(function(n){seq_len(n)[n %% seq_len(n) == 0] |> tail(-1)})
+    out <- rep(TRUE,length(x))
+    for(i in seq_along(x)){
+        a <- facs[[i]]
+        for(j in a){
+            if(is.power(x[[i]],j)){
+                out[i] <- FALSE  # the meat
+                break()
+            }
+        }
+    }
+    return(out)
+}
