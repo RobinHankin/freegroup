@@ -97,42 +97,43 @@ crazy fool).</p>
 <span class="r-in"><span><span class="fu"><a href="alpha.html">abc</a></span><span class="op">(</span><span class="fl">26</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] a.b.c.d.e.f.g.h.i.j.k.l.m.n.o.p.q.r.s.t.u.v.w.x.y.z</span>
 <span class="r-in"><span><span class="fu"><a href="rfree.html">rfree</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">10</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] c^-10.a^-2.d^2.f^9.i^4.a^-8.d^-1.a^-10</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] i^7.g^6.i^9.h^4.b^2.c^-8.g^10.j^7.e^6.j^9</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># if we need more than 26:</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span>freegroup_symbols<span class="op">=</span><span class="va">state.name</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="rfree.html">rfree</a></span><span class="op">(</span><span class="fl">10</span>,<span class="fl">4</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] Alaska^6.Arizona^3                        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [2] Arizona.Alaska^2.Arkansas^-5              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [3] Arkansas^-4.Alabama.Alaska.Arizona^-1     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [4] Arkansas^-2.Alaska^-3.Arkansas^3.Arizona^2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [5] Alaska^-3.Alabama^2.Arkansas              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [6] Alabama^2.Arkansas^2.Arizona^-4           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [7] Alabama^-4.Alaska^4.Arizona.Arkansas^4    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [8] Alabama^3.Arkansas^4.Arizona^4            </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [9] Alaska^8.Alabama^4.Arizona                </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [10] Arkansas^-2.Arizona                       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] Alabama.Alaska^4.Arkansas^-2.Arizona       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [2] Alabama^3.Arkansas^2                       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [3] Arkansas^-4.Arizona^-2                     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [4] Arizona^-4                                 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [5] Arkansas^-2.Arizona^2.Alabama^-1           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [6] Alabama^2.Alaska^2.Arkansas^3              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [7] Alabama^-4.Arizona^4.Alabama^-2.Alaska^-3  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [8] Arizona^2.Alaska^-3.Arkansas               </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [9] Arkansas^4.Alaska^-3.Arizona^-4.Arkansas^-1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [10] Arizona^4.Alabama^-2                       </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># or even:</span></span></span>
 <span class="r-in"><span><span class="va">jj</span> <span class="op">&lt;-</span> <span class="va">letters</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span><span class="op">]</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span>freegroup_symbols<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/apply.html" class="external-link">apply</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/expand.grid.html" class="external-link">expand.grid</a></span><span class="op">(</span><span class="va">jj</span>,<span class="va">jj</span><span class="op">)</span>,<span class="fl">1</span>,<span class="va">paste</span>,collapse<span class="op">=</span><span class="st">""</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="rfree.html">rfree</a></span><span class="op">(</span><span class="fl">10</span>,<span class="fl">10</span>,<span class="fl">100</span>,<span class="fl">4</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] fa^2.ad^3.fc^3.ac.gg^3.fg^2.ej^4.gc.ad^4         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [2] ib.he^3.ba.ca^3.dd.bb^4.hd^2.gc^2.ec.ag^2        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [3] eb^3.dh.ih^3.gh^2.ge^4.db^2.gd.df^2.ag^3.ib^4    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [4] ed^2.jd.id^3.aj.hi^3.fg^4.ha^3.ef^3.bb^4.be^4    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [5] eb.ef^4.de^4.gh^2.dc^4.je.dj^2.he.ca^2.df^3      </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [6] ib.cf^4.ih^2.fb^4.df^4.cb^3.hb^3.bi^2.db.ib^4    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [7] db.hg^2.gd^2.ie.gh.bg^3.ba^4.dg^3.hi^3.jf^3      </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [8] bd^3.gi^3.gg^2.cg^4.dh^3.jc.ib^2.ge^3.cf^2.ee    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [9] jg^3.hd^4.df^2.ge.ga.fb^3.ei^2.bi^3.ia^3.id^2    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [10] gf^4.ij^4.dj^3.hd^2.eh^4.bd^4.fb^2.cb^4.cd^3.ji^3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] ji^2.bd.dj.ge^2.dc^4.jb^4.bc^4.bg^4.eh^3.hi^3  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [2] jd^4.cg^2.hj^3.ca.ag^2.ji^4.ai^2.fa^3.ie^4.jb^4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [3] fi^5.cj^3.fj^2.ha^2.dg^4.de^3.cb^4.jc^4.ei^4   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [4] cg.gc^3.fi^4.if.ed.eg^3.bg^3.gg.ii^2.bb        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [5] cc^2.cf.dg^3.cj.fd^2.ga^3.jj.bh.dg^3.dc        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [6] jc^3.hg^3.db^3.aj^3.ed^4.jc^3.gf.bi^4.ag^4.ib  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [7] eb^4.ba.ha^4.ab^2.gj.bb^2.fi^2.ah^2.ia^2.cg^3  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [8] bg^4.hi^2.ig^2.cb^2.hh^4.ah^3.jd.gg^2.ef^5     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [9] eh^2.hc^2.hj^3.jf.fd^3.de.ih^3.ii^4.df.ec      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [10] je^4.ji.hc^4.eb.ia^4.ee^4.fh^3.hb^3.hh^2.jg^4  </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span>freegroup_symbols<span class="op">=</span><span class="cn">NULL</span><span class="op">)</span>  <span class="co">#  NULL is interpreted as letters a-z</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="rfree.html">rfree</a></span><span class="op">(</span><span class="fl">10</span>,<span class="fl">4</span><span class="op">)</span>            <span class="co">#  back to normal</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] a^2.b.d.c^-1   d^4.b.d        c^-1.d^3.a^-1  b^-1.a^-2.c    a^-2.d^-2     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [6] c^4.b          b^-4.d^-7.c^-3 a^-2.d^4       d^3.b^3.a^-2   c^-3.a^-1.d^2 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] b^-4.a^4.c^4.a^3 b^-4.c^4         c.d^-3.c^-1      d^-2.b^2        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [5] b.a^-1           d^2.b^-4         d^3.c^-1.d       d^-1.c^-1.d     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [9] c^9.b^2          c^-4.b^4.c^-1   </span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
