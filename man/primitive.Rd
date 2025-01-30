@@ -50,10 +50,18 @@ R. C. Lyndon and M. P. Schutzenberger 1962.  \dQuote{The equation
 }
 \examples{
 
-
 is.primitive(as.free(c("a","aaaa", "aaaab", "aabaab", "aabcaabcaabcaabc")))
 
 is.power(c(7,8,4,7,8,4,7,8,4,7,8,4),4)
 
-table(is.free(rfree(100)))
+
+table(is.primitive(rfree(100)))
+
+
+## primitive with >1 symbols is rare:
+x <- rfree(1000)
+x[!is.primitive(x) & number(x)>1]
+##  try x <- rfree(10000) [but this takes a long time]
+
+
 }
