@@ -9,7 +9,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">freegroup</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.1-9</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.2-0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -79,8 +79,13 @@
 <p>All operations return a reduced word.</p>
 <p>The caret, as in <code>a^b</code>, denotes group-theoretic exponentiation
   (<code>-b+a+b</code>); the notation is motivated by the identities
-  <code>x^(yz)=(x^y)^z</code> and <code>(xy)^z=x^z*y^z</code>, as in the
+  <code>x^(yz) == (x^y)^z</code> and <code>(xy)^z == x^z * y^z</code>, as in the
   <code>permutations</code> package.</p>
+<p><strong>As an experimental feature</strong> the package now accepts
+  multiplicative notation, so these identities manifest in package idiom
+  as written.  However, this renders distributivity incorrect so that
+  <code>x*(y + z)</code> and <code>x*y + x*z</code> are not equal, in general
+  [distributivity manifests as <code>x*c(y, z) == c(x*y, x*z)</code>].</p>
 <p>Multiplication between a free object <code>a</code> and an integer <code>n</code>
   (as in <code>a*n</code> or <code>n*a</code>) is defined as juxtaposing <code>n</code>
   copies of <code>a</code> and reducing.  Zero and negative values of <code>n</code>
