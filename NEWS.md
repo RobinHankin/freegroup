@@ -1,3 +1,7 @@
+# freegroup 1.2-1
+
+- typos
+
 # freegroup 1.2-0
 
 - multiplicative notation now implemented

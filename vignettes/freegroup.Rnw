@@ -251,8 +251,8 @@ equivalent of $(xy)^z = x^zy^z$ and $x^{(yz)}=(x^y)^z$:
 x <- rfree()
 y <- rfree()
 z <- rfree()
-(x*y)^z == x^z * y^z
-x^(y*z) == (x^y)^z
+all((x*y)^z == x^z * y^z)
+all(x^(y*z) == (x^y)^z)
 @ 
 
 In additive notation these manifest, somewhat unappealingly, as
@@ -263,8 +263,8 @@ distributive law $x*(y+z)=x*y+x*z$ is now incorrect [we have, again
 resurrected if we reinterpret addition as (vector) juxtaposition:
 
 <<>>=
-x * c(y, z) == c(x*y, x*z)
-c(x, y) * z == c(x*z, y*z)
+all(x * c(y, z) == c(x*y, x*z))
+all(c(x, y) * z == c(x*z, y*z))
 @ 
 
 
