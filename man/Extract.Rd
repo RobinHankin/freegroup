@@ -13,6 +13,9 @@
 These methods (should) work as expected: an object of class
 \code{free} is a list but standard extraction techniques should work.
 }
+\note{
+  Extraction by \code{NA} is not implemented.
+}
 \examples{
 
 (x <- rfree(20,8,8))
