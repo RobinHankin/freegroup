@@ -16,8 +16,9 @@ Concatenates its arguments to give a single free object
     (currently ignored)}    
 }
 \details{
-  Concatenates its arguments and gives a single element of the free
-  group.  It works nicely with \code{rev()}, see the examples.
+  Function \code{sum()} concatenates its arguments and gives a single
+  element of the free group.  It works nicely with \code{rev()}, see the
+  examples.  Note that \code{sum(x,y)} is not the same as \code{x+y}.
 }
 \author{Robin K. S. Hankin}
 \note{
