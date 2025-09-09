@@ -1,3 +1,13 @@
+#' @importFrom magrittr "%>%"
+#' @importFrom magrittr "%<>%"
+#' @importFrom utils tail
+#' @importFrom magic shift
+#' @importFrom plyr alply
+#' @importFrom methods setOldClass
+#' @importClassesFrom freealg dot
+#' @importMethodsFrom freealg "["
+
+#' @export
 `as.free` <- function(x){  # x is a list
     if(is.free(x)){
       return(x)
@@ -16,8 +26,10 @@
     }
 }
 
+#' @export
 `is.free` <- function(x){inherits(x,"free")}
 
+#' @export
 `free` <- function(x){ # x is a list, each element is a two-row matrix
     if(is.matrix(x)){x <- list(x)}
     stopifnot(all(unlist(lapply(x,is_proper))))
@@ -26,6 +38,7 @@
     return(x)
 }
 
+#' @export
 `char_to_matrix` <- function(x){
   if(nchar(x)>0){
       jj <- as.numeric(charToRaw(x))-96
@@ -38,12 +51,14 @@
   }
 }
 
+#' @export
 `char_to_free` <- function(x){
     jj <- sapply(x,char_to_matrix,simplify=FALSE)
     names(jj) <- names(x)
     return(free(jj))
 }
 
+#' @export
 `list_to_free` <- function(x){
   stopifnot(is.list(x))
   if(all(unlist(lapply(x,is.matrix)))){
@@ -57,6 +72,7 @@
   }
 }
 
+#' @export
 `vec_to_matrix` <- function(x){  # takes a *vector* like c(1,2,-1,-1,2); returns a matrix
     if(all(x==0)){
         return(matrix(NA,2,0))
@@ -67,16 +83,21 @@
 }
 
 setGeneric("tietze",function(x){standardGeneric("tietze")})
+
+#' @export
 `tietze` <- function(x){UseMethod("tietze")}
 
+#' @export
 `tietze.matrix` <- function(x){
     c(apply(x,2,function(r){rep(sign(r[2])*r[1],abs(r[2]))}),recursive=TRUE)
 }
 
+#' @export
 `tietze.free` <- function(x){
   lapply(x,tietze.matrix)
 }
 
+#' @export
 `print.free` <- function(x, ...){
     if(length(x)==0){
       print(NULL)
@@ -86,6 +107,7 @@ setGeneric("tietze",function(x){standardGeneric("tietze")})
     return(invisible(x))
 }
 
+#' @export
 `as.character_free` <- function(m,latex=getOption("latex")){ # takes a matrix
 
     symbols <- getOption("freegroup_symbols")
@@ -108,8 +130,10 @@ setGeneric("tietze",function(x){standardGeneric("tietze")})
     paste(apply(m,2,f),collapse=".")
 }
 
+#' @export
 `remove_zero_powers` <- function(a){a[,a[2,,drop=FALSE]!=0,drop=FALSE]}
 
+#' @export
 `is_proper` <- function(a){
   return(
       is.matrix(a)     &&
@@ -119,6 +143,7 @@ setGeneric("tietze",function(x){standardGeneric("tietze")})
   )
 }
 
+#' @export
 `is_reduced` <- function(a){ all(a[2,]!=0) && all(diff(a[1,]) != 0) }
    
 `.gsr` <- function(a){  # gsr == Get Start Repeats
@@ -132,6 +157,7 @@ setGeneric("tietze",function(x){standardGeneric("tietze")})
     )
 }
 
+#' @export
 `consolidate` <- function(a){
     jj <- .gse(a[1,])
     f <- function(i){sum(a[2,seq(from=jj[i,1],to=jj[i,2])])}
@@ -141,6 +167,7 @@ setGeneric("tietze",function(x){standardGeneric("tietze")})
     )
 }
 
+#' @export
 `reduce` <- function(a){
     if(is.list(a)){
         return(lapply(a,reduce))
@@ -153,6 +180,7 @@ setGeneric("tietze",function(x){standardGeneric("tietze")})
     }
 }
 
+#' @export
 `c.free` <- function(...){
     if(!all(unlist(lapply(list(...),is.free)))){
         stop("all arguments must be the same class")
@@ -161,14 +189,17 @@ setGeneric("tietze",function(x){standardGeneric("tietze")})
     }
 }
 
+#' @export
 `[.free` <- function(x,...){ free(unclass(x)[...])}
 
+#' @export
 `[<-.free` <- function(x, index, value){
     out <- unclass(x)
     out[index] <- value
     return(free(out))
 }
 
+#' @export
 `rfree` <- function(n=7,size=4,number=size,powers=seq(from=-size,to=size)){
   out <- list()
   for(i in seq_len(n)){
@@ -181,14 +212,17 @@ setGeneric("tietze",function(x){standardGeneric("tietze")})
   return(free(out))
 }
 
+#' @export
 `rfreee` <- function(n=30, size=8, number=size, powers=seq(from=-size, to=size)){
     rfree(n=n, size=size, number=size, powers=seq(from=-size, to=size))
 }
 
+#' @export
 `rfreeee` <- function(n=40,size=25, number=size,powers=seq(from=-size, to=size)){
     rfree(n=n, size=size, number=size, powers=seq(from=-size, to=size))
 }
 
+#' @export
 `abc` <- function(v){
     free(sapply(v,
                 function(o){
@@ -203,6 +237,7 @@ setGeneric("tietze",function(x){standardGeneric("tietze")})
                 simplify=FALSE))
 }
 
+#' @export
 `alpha` <- function(v){
     free(sapply(v,
                 function(x){
@@ -215,9 +250,13 @@ setGeneric("tietze",function(x){standardGeneric("tietze")})
                 simplify=FALSE))
 }
 
+#' @export
 `is.id` <- function(x){ UseMethod("is.id",x) }
+
+#' @export
 `is.id.free` <- function(x){x==as.free(0)}
 
+#' @export
 `id` <- function(n){free(rep(list(matrix(1,2,0)),n))}
 
 `.is_cyc_reduced` <- function(a){  # low-level, works with matrices
@@ -233,9 +272,11 @@ setGeneric("tietze",function(x){standardGeneric("tietze")})
   }
 }
 
+#' @export
 `is.cyclically_reduced` <- function(a){unlist(lapply(unclass(a), .is_cyc_reduced))}
 #  a %>% unclass %>% lapply(.is_cyc_reduced) %>% unlist
 
+#' @export
 `cyclically_reduce_tietze` <- function(p){  # p is in reduced tietze form
   if(length(unique(p))<2){  # either empty, or only one distinct symbol
     return(p)  
@@ -258,14 +299,16 @@ setGeneric("tietze",function(x){standardGeneric("tietze")})
   return(out)
 }
 
+#' @export
 `as.cyclically_reduced` <- function(a){
   f <- function(p){ vec_to_matrix(cyclically_reduce_tietze(p))}
   return(free(lapply(tietze(a), f)))
 }
 
+#' @export
 `cyclically_reduce` <- as.cyclically_reduced
 
-
+#' @export
 `is.conjugate_single` <- function(u,v){
 
   ## this is a low-level helper function, takes two integer vectors
@@ -282,8 +325,10 @@ setGeneric("tietze",function(x){standardGeneric("tietze")})
   return(any(out))
 }
 
+#' @export
 "is.conjugate" <- function(x,y){UseMethod("is.conjugate")}
 
+#' @export
 `is.conjugate.free` <- function(x,y){  # this is the user-friendly function
   jj <-  cbind(seq_along(x),seq_along(y))
   f <- function(v){
@@ -294,9 +339,13 @@ setGeneric("tietze",function(x){standardGeneric("tietze")})
   apply(jj,1,f)
 }
 
+#' @export
 "%~%" <- function(x,y){UseMethod("%~%")}
+
+#' @export
 "%~%.free" <- function(x,y){is.conjugate(x,y)}
 
+#' @export
 `allconj` <- function(x){
   stopifnot(length(x)==1)
   x <- as.cyclically_reduced(x)
@@ -306,6 +355,7 @@ setGeneric("tietze",function(x){standardGeneric("tietze")})
   return(out)
 }
 
+#' @export
 `abelianize` <- function(x){
   free(lapply(x,
          function(o){  # takes a 2-row matrix
@@ -314,17 +364,21 @@ setGeneric("tietze",function(x){standardGeneric("tietze")})
          }))
 }
 
+#' @export
 `is.abelian` <- function(x){x==abelianize(x)}
 
+#' @export
 `sum.free` <- function(..., na.rm=FALSE){
   free(do.call("cbind",lapply(unclass(list(...)),function(x){do.call("cbind",x)})))
 }
 
+#' @export
 `rep.free` <- function(x, ...){
     u <- seq(length.out = length(x))
     return(x[rep(u, ...)])
 }
 
+#' @export
 `cumsum.free` <- function(x){
     u <- as.free(0)
     out <- rep(u,length(x))
@@ -334,28 +388,33 @@ setGeneric("tietze",function(x){standardGeneric("tietze")})
     return(out)
 }
 
+#' @export
 `getlet` <- function(x){
   out <- lapply(x,function(m){sort(unique(m[1,]))})
   if(length(out)==1){out <- out[[1]]}
   return(out)
 }
 
+#' @export
 `keep` <- function(a,yes){
     yes <- getlet(as.free(yes))
 #    a %<>% unclass %>% lapply(function(m){m[,(m[1,] %in% yes),drop=FALSE]}) %>% free
     free(lapply(unclass(a),function(m){m[,(m[1,] %in% yes),drop=FALSE]}))
 }
 
+#' @export
 `discard` <- function(a,no){
     no <- getlet(as.free(no))
     jj <- unique(c(getlet(a),recursive=TRUE))
     keep(a, jj[!jj %in% no])
 }
 
+#' @export
 `backwards` <- function(x){
     free(lapply(x,function(o){o[,rev(seq_len(ncol(o))),drop=FALSE]}))
   }
 
+#' @export
 `subs` <- function(X,...){
     sb <- list(...)
     v <- names(sb)
@@ -366,6 +425,7 @@ setGeneric("tietze",function(x){standardGeneric("tietze")})
     return(out)
 }
 
+#' @export
 `subsu` <- function(X,from,to){
   from <- getlet(as.free(from))
   to <- getlet(as.free(to))
@@ -381,6 +441,7 @@ setGeneric("tietze",function(x){standardGeneric("tietze")})
 }
 
 
+#' @export
 `flip` <- function(X,turn){
   turn <- getlet(as.free(turn))
   
@@ -393,6 +454,7 @@ setGeneric("tietze",function(x){standardGeneric("tietze")})
   return(X)  
 }
 
+#' @export
 `abs.free` <- function(x){
   s <- function(M){
     M[2,] %<>% abs
@@ -402,10 +464,16 @@ setGeneric("tietze",function(x){standardGeneric("tietze")})
   return(x)
 }
 
+#' @export
 `size` <- function(a){unlist(lapply(a,ncol))}
+
+#' @export
 `total` <- function(a){unlist(lapply(a,function(M){sum(abs(M[2,]))}))}
+
+#' @export
 `number` <- function(a){unlist(lapply(a,function(M){length(table(abs(M[1,])))}))}
 
+#' @export
 `bigness` <- function(a){
   out <- cbind(size=size(a),total=total(a),number=number(a))
   rownames(out) <- as.character(lapply(a,function(x){as.character_free(x)}))
@@ -413,6 +481,7 @@ setGeneric("tietze",function(x){standardGeneric("tietze")})
   }
 
 
+#' @export
 `shift` <- function(x,i=1){magic::shift(x,i)}
 
 setOldClass("free")
@@ -423,8 +492,10 @@ setMethod("[", signature(x="dot",i="free",j="ANY"),
           })
 
 
+#' @export
 `is.power` <- function(d, n){nrow(unique(data.frame(matrix(d, nrow=n, byrow=TRUE)))) == 1}
 
+#' @export
 `is.primitive` <- function(x){
     if(is.free(x)){x <- tietze(x)}
 

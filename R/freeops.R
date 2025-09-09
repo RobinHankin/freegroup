@@ -1,3 +1,4 @@
+#' @export
 "Ops.free" <-
   function (e1, e2 = NULL) 
 {
@@ -49,10 +50,16 @@
     }
 }
 
+#' @export
 `inverse` <- function(e1){ UseMethod("inverse",e1) }
+
+#' @export
 `inverse.matrix` <- function(e1){ rbind(rev(e1[1,]), -rev(e1[2,])) }
+
+#' @export
 `inverse.free` <- function(e1){ free(lapply(e1,inverse)) }
 
+#' @export
 `juxtapose`  <- function(e1,e2){  #  vectorized 
     jj <- cbind(seq_along(e1),seq_along(e2))
     out <- list()
@@ -62,6 +69,7 @@
     donames(free(out),e1,e2)
 }
 
+#' @export
 `free_power` <- function(e1,e2){
     jj <- cbind(seq_along(e1),seq_along(e2))
     out <- list()
@@ -75,6 +83,7 @@
     donames(free(out),e1,e2)
 }
 
+#' @export
 `free_equal` <- function(e1,e2){
     stopifnot(is.free(e1),is.free(e2))
     jj <- cbind(seq_along(e1),seq_along(e2))
@@ -88,6 +97,7 @@
     donames(out,e1,e2)
 }
 
+#' @export
 `free_repeat` <- function(e1,n){ # e1 is free, n an integer; makes vectorized "e1*n" work
     if(identical(as.integer(n),0L)){return(id(length(e1)))}
     jj <- cbind(seq_along(e1),seq_along(n))
@@ -107,6 +117,7 @@
     return(donames(free(out),e1,n))
 }   
 
+#' @export
 `donames` <- function(f,e1,e2){
   jj1 <- seq_along(e1)
   jj2 <- seq_along(e2)

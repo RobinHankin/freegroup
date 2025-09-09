@@ -1,3 +1,4 @@
+#' @export
 `permsymb_single_X` <- function(X,f){
     stopifnot(length(X) == 1)
     M <- rbind(f(X[[1]][1,,drop=FALSE]))
@@ -5,6 +6,7 @@
     free(sapply(seq_len(nrow(M)),function(i){rbind(M[i,],p)},simplify=FALSE))
 }
 
+#' @export
 `permsymb_single_f` <- function(X,f){
     stopifnot(nrow(with(environment(f),x))==1)
     X <- unclass(X)
@@ -14,6 +16,7 @@
     return(free(X))
 }
 
+#' @export
 `permsymb_vec` <- function(X,f){
     M <- with(environment(f),x)
     stopifnot(nrow(M) == length(X))
@@ -24,6 +27,7 @@
     return(X)
 }
 
+#' @export
 `permsymb` <- function(X,f){
     if(length(X)==1){
         return(permsymb_single_X(X,f))
@@ -34,6 +38,7 @@
     }
 }
 
+#' @export
 `autosub_lowlevel` <- function(M,e,S){  # M is a matrix, e the
                                         # symbol to substitute, S the
                                         # substitutee
@@ -66,6 +71,7 @@
     return(out)
 }
 
+#' @export
 `autosub` <- function(X,e,S,automorphism_warning=TRUE){
     stopifnot(length(S)==1)
     S <- S[[1]]
