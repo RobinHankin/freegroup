@@ -19,7 +19,7 @@
 
 %% an abstract and keywords
 \Abstract{
-Here I present the {\tt freegroup} package for working with the free
+Here I present the \pkg{freegroup} package for working with the free
 group on a finite set of symbols.  The package is vectorised;
 internally it uses an efficient matrix-based representation for free
 group objects but uses a configurable print method.  A range of
