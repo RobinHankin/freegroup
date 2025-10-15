@@ -8,7 +8,7 @@
 
 
 %% just as usual
-\author{Robin K. S. Hankin\\University of Stirling}
+\author{Robin K. S. Hankin}
 \title{The free group in \proglang{R}: introducing the \pkg{freegroup} package}
 %\VignetteIndexEntry{The freegroup package}
 
@@ -45,7 +45,7 @@ R-centric functionality is provided.  It is available on CRAN at
 %% The address of (at least) one author should be given
 %% in the following format:
 \Address{
-  Robin K. S. Hankin\\%\orcid{https://orcid.org/0000-0001-5982-0415}\\
+  Robin K. S. Hankin\\
   University of Stirling\\
   E-mail: \email{hankin.robin@gmail.com}
 }
