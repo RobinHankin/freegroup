@@ -1,0 +1,252 @@
+# The free group in R
+
+![](reference/figures/freegroup.png)
+
+# Overview
+
+The `freegroup` package provides functionality for working with the free
+group in R. A detailed vignette is provided in the package. Informally,
+the *free group* is the set of *words* that are objects like , with a
+group operation of string juxtaposition. Usually one works only with
+words that are in \`\`reduced form’’, which has successive powers of the
+same symbol combined, so would be equal to ; see how appears to the
+third power and the term in the middle has vanished.
+
+The group operation of juxtaposition is formally indicated by , but this
+is often omitted in algebraic notation; thus, for example .
+
+# Installation
+
+You can install the released version of freegroup from
+[CRAN](https://CRAN.R-project.org) with:
+
+``` r
+# install.packages("freegroup")  # uncomment this to install the package
+library("freegroup")
+```
+
+# The `freegroup` package in use
+
+Function
+[`rfree()`](https://robinhankin.github.io/freegroup/reference/rfree.md)
+generates a vector of random free group elements, giving quick “get you
+going” examples:
+
+``` r
+a <- rfree(10,5)
+a
+#>  [1] a.d^5.a^-4.b^5.e^-3 a.e^2.b^2           a^3.e^-7.b^-3      
+#>  [4] b^7.d^4             a^2.b^-4.c^-4       a^-5.d^3.c^3       
+#>  [7] d^-5.e^-1.d^-5.e^3  c.b^-7.c^4.b^-5     c^6.e^2            
+#> [10] e^-3.d^5.a^-5
+b <- as.free('x')
+```
+
+Then we can perform various operations on these vectors:
+
+``` r
+a+b
+#>  [1] a.d^5.a^-4.b^5.e^-3.x a.e^2.b^2.x           a^3.e^-7.b^-3.x      
+#>  [4] b^7.d^4.x             a^2.b^-4.c^-4.x       a^-5.d^3.c^3.x       
+#>  [7] d^-5.e^-1.d^-5.e^3.x  c.b^-7.c^4.b^-5.x     c^6.e^2.x            
+#> [10] e^-3.d^5.a^-5.x
+a-b
+#>  [1] a.d^5.a^-4.b^5.e^-3.x^-1 a.e^2.b^2.x^-1           a^3.e^-7.b^-3.x^-1      
+#>  [4] b^7.d^4.x^-1             a^2.b^-4.c^-4.x^-1       a^-5.d^3.c^3.x^-1       
+#>  [7] d^-5.e^-1.d^-5.e^3.x^-1  c.b^-7.c^4.b^-5.x^-1     c^6.e^2.x^-1            
+#> [10] e^-3.d^5.a^-5.x^-1
+a^b
+#>  [1] x^-1.a.d^5.a^-4.b^5.e^-3.x x^-1.a.e^2.b^2.x          
+#>  [3] x^-1.a^3.e^-7.b^-3.x       x^-1.b^7.d^4.x            
+#>  [5] x^-1.a^2.b^-4.c^-4.x       x^-1.a^-5.d^3.c^3.x       
+#>  [7] x^-1.d^-5.e^-1.d^-5.e^3.x  x^-1.c.b^-7.c^4.b^-5.x    
+#>  [9] x^-1.c^6.e^2.x             x^-1.e^-3.d^5.a^-5.x
+```
+
+There are a number of package functions that work in a vectorized way:
+
+``` r
+sum(a)
+#> [1] a.d^5.a^-4.b^5.e^-3.a.e^2.b^2.a^3.e^-7.b^4.d^4.a^2.b^-4.c^-4.a^-5.d^3.c^3.d^-5.e^-1.d^-5.e^3.c.b^-7.c^4.b^-5.c^6.e^-1.d^5.a^-5
+```
+
+The package also supports extraction and replacement:
+
+``` r
+a[3:9] <- as.free('xy')
+a
+#>  [1] a.d^5.a^-4.b^5.e^-3 a.e^2.b^2           x.y                
+#>  [4] x.y                 x.y                 x.y                
+#>  [7] x.y                 x.y                 x.y                
+#> [10] e^-3.d^5.a^-5
+```
+
+Various simple elements can be created:
+
+``` r
+alpha(1:10)
+#>  [1] a b c d e f g h i j
+abc(1:5)
+#> [1] a         a.b       a.b.c     a.b.c.d   a.b.c.d.e
+```
+
+# References
+
+- Wikipedia contributors, “Free group,” *Wikipedia, the free
+  encyclopedia*, 4 June 2019.
+  \[<https://en.wikipedia.org/w/index.php?title=Free_group&oldid=900295259>\]
+
+# Further information
+
+For more detail, see the package vignette
+
+`vignette("freegroup")`
+
+# Package index
+
+## All functions
+
+- [`Extract.free`](https://robinhankin.github.io/freegroup/reference/Extract.md)
+  [`[.free`](https://robinhankin.github.io/freegroup/reference/Extract.md)
+  [`[<-.free`](https://robinhankin.github.io/freegroup/reference/Extract.md)
+  : Extract or replace parts of a free group object
+
+- [`Ops(`*`<free>`*`)`](https://robinhankin.github.io/freegroup/reference/Ops.free.md)
+  [`free_equal()`](https://robinhankin.github.io/freegroup/reference/Ops.free.md)
+  [`free_power()`](https://robinhankin.github.io/freegroup/reference/Ops.free.md)
+  [`free_repeat()`](https://robinhankin.github.io/freegroup/reference/Ops.free.md)
+  [`juxtapose()`](https://robinhankin.github.io/freegroup/reference/Ops.free.md)
+  [`inverse(`*`<free>`*`)`](https://robinhankin.github.io/freegroup/reference/Ops.free.md)
+  [`inverse(`*`<matrix>`*`)`](https://robinhankin.github.io/freegroup/reference/Ops.free.md)
+  : Arithmetic Ops methods for the free group
+
+- [`abelianize()`](https://robinhankin.github.io/freegroup/reference/abelianize.md)
+  [`is.abelian()`](https://robinhankin.github.io/freegroup/reference/abelianize.md)
+  : Abelianization of free group elements
+
+- [`abs(`*`<free>`*`)`](https://robinhankin.github.io/freegroup/reference/abs.md)
+  :
+
+  Absolute value of a `free` object
+
+- [`alpha()`](https://robinhankin.github.io/freegroup/reference/alpha.md)
+  [`abc()`](https://robinhankin.github.io/freegroup/reference/alpha.md)
+  : Alphabetical free group elements
+
+- [`backwards()`](https://robinhankin.github.io/freegroup/reference/backwards.md)
+  : Write free objects backwards
+
+- [`c(`*`<free>`*`)`](https://robinhankin.github.io/freegroup/reference/c.md)
+  [`rep(`*`<free>`*`)`](https://robinhankin.github.io/freegroup/reference/c.md)
+  : Concatenation of free objects
+
+- [`char_to_matrix()`](https://robinhankin.github.io/freegroup/reference/char_to_free.md)
+  : Convert character vectors to free objects
+
+- [`cumsum(`*`<free>`*`)`](https://robinhankin.github.io/freegroup/reference/cumsum.md)
+  : Cumulative sum
+
+- [`is.cyclically_reduced()`](https://robinhankin.github.io/freegroup/reference/cycred.md)
+  [`as.cyclically_reduced()`](https://robinhankin.github.io/freegroup/reference/cycred.md)
+  [`cyclically_reduce()`](https://robinhankin.github.io/freegroup/reference/cycred.md)
+  [`cyclically_reduce_tietze()`](https://robinhankin.github.io/freegroup/reference/cycred.md)
+  [`is.conjugate_single()`](https://robinhankin.github.io/freegroup/reference/cycred.md)
+  [`` `%~%` ``](https://robinhankin.github.io/freegroup/reference/cycred.md)
+  [`is.conjugate(`*`<free>`*`)`](https://robinhankin.github.io/freegroup/reference/cycred.md)
+  [`allconj()`](https://robinhankin.github.io/freegroup/reference/cycred.md)
+  : Cyclic reductions of a word
+
+- [`donames()`](https://robinhankin.github.io/freegroup/reference/donames.md)
+  : Names attributes of free group elements
+
+- [`dot`](https://robinhankin.github.io/freegroup/reference/dot.md)
+  [`.`](https://robinhankin.github.io/freegroup/reference/dot.md)
+  [`dot-class`](https://robinhankin.github.io/freegroup/reference/dot.md)
+  [`extract`](https://robinhankin.github.io/freegroup/reference/dot.md)
+  [`commutator`](https://robinhankin.github.io/freegroup/reference/dot.md)
+  [`jacobi`](https://robinhankin.github.io/freegroup/reference/dot.md)
+  [`dot_error`](https://robinhankin.github.io/freegroup/reference/dot.md)
+  [`[.dot`](https://robinhankin.github.io/freegroup/reference/dot.md)
+  [`[,dot-method`](https://robinhankin.github.io/freegroup/reference/dot.md)
+  [`[,dot,ANY,ANY-method`](https://robinhankin.github.io/freegroup/reference/dot.md)
+  [`[,dot,ANY,missing-method`](https://robinhankin.github.io/freegroup/reference/dot.md)
+  [`[,dot,missing,ANY-method`](https://robinhankin.github.io/freegroup/reference/dot.md)
+  [`[,dot,missing,missing-method`](https://robinhankin.github.io/freegroup/reference/dot.md)
+  [`[,dot,free,ANY-method`](https://robinhankin.github.io/freegroup/reference/dot.md)
+  [`[,dot,free,ANY,ANY-method`](https://robinhankin.github.io/freegroup/reference/dot.md)
+  [`[,dot,matrix,matrix-method`](https://robinhankin.github.io/freegroup/reference/dot.md)
+  : Class “dot”
+
+- [`free()`](https://robinhankin.github.io/freegroup/reference/free.md)
+  [`as.free()`](https://robinhankin.github.io/freegroup/reference/free.md)
+  [`is.free()`](https://robinhankin.github.io/freegroup/reference/free.md)
+  [`list_to_free()`](https://robinhankin.github.io/freegroup/reference/free.md)
+  :
+
+  Objects of class `free`
+
+- [`freegroup-package`](https://robinhankin.github.io/freegroup/reference/freegroup-package.md)
+  [`freegroup`](https://robinhankin.github.io/freegroup/reference/freegroup-package.md)
+  : The Free Group
+
+- [`getlet()`](https://robinhankin.github.io/freegroup/reference/getlet.md)
+  : Get letters of a freegroup object
+
+- [`is.id()`](https://robinhankin.github.io/freegroup/reference/identity.md)
+  [`id()`](https://robinhankin.github.io/freegroup/reference/identity.md)
+  : The identity element
+
+- [`keep()`](https://robinhankin.github.io/freegroup/reference/keep.md)
+  [`discard()`](https://robinhankin.github.io/freegroup/reference/keep.md)
+  : Keep or drop symbols
+
+- [`permsymb_single_X()`](https://robinhankin.github.io/freegroup/reference/outer.md)
+  [`permsymb_single_f()`](https://robinhankin.github.io/freegroup/reference/outer.md)
+  [`permsymb_vec()`](https://robinhankin.github.io/freegroup/reference/outer.md)
+  [`permsymb()`](https://robinhankin.github.io/freegroup/reference/outer.md)
+  [`autosub_lowlevel()`](https://robinhankin.github.io/freegroup/reference/outer.md)
+  [`autosub()`](https://robinhankin.github.io/freegroup/reference/outer.md)
+  : Outer automorphisms of the free group
+
+- [`is.primitive()`](https://robinhankin.github.io/freegroup/reference/primitive.md)
+  [`is.power()`](https://robinhankin.github.io/freegroup/reference/primitive.md)
+  : Primitive elements of the free algebra
+
+- [`print(`*`<free>`*`)`](https://robinhankin.github.io/freegroup/reference/print.md)
+  [`as.character_free()`](https://robinhankin.github.io/freegroup/reference/print.md)
+  : Print free objects
+
+- [`reduce()`](https://robinhankin.github.io/freegroup/reference/reduce.md)
+  [`is_reduced()`](https://robinhankin.github.io/freegroup/reference/reduce.md)
+  [`remove_zero_powers()`](https://robinhankin.github.io/freegroup/reference/reduce.md)
+  [`consolidate()`](https://robinhankin.github.io/freegroup/reference/reduce.md)
+  [`is_proper()`](https://robinhankin.github.io/freegroup/reference/reduce.md)
+  : Reduction of a word to reduced form
+
+- [`rfree()`](https://robinhankin.github.io/freegroup/reference/rfree.md)
+  [`rfreee()`](https://robinhankin.github.io/freegroup/reference/rfree.md)
+  [`rfreeee()`](https://robinhankin.github.io/freegroup/reference/rfree.md)
+  : Random free objects
+
+- [`shift()`](https://robinhankin.github.io/freegroup/reference/shift.md)
+  : Permute elements of a vector in a cycle
+
+- [`size()`](https://robinhankin.github.io/freegroup/reference/size.md)
+  [`total()`](https://robinhankin.github.io/freegroup/reference/size.md)
+  [`number()`](https://robinhankin.github.io/freegroup/reference/size.md)
+  [`bigness()`](https://robinhankin.github.io/freegroup/reference/size.md)
+  : Bignesses of a free object
+
+- [`subsu()`](https://robinhankin.github.io/freegroup/reference/subs.md)
+  [`subs()`](https://robinhankin.github.io/freegroup/reference/subs.md)
+  [`flip()`](https://robinhankin.github.io/freegroup/reference/subs.md)
+  : Substitute and invert symbols
+
+- [`sum(`*`<free>`*`)`](https://robinhankin.github.io/freegroup/reference/sum.md)
+  : Repeated summation by concatenation
+
+- [`tietze(`*`<free>`*`)`](https://robinhankin.github.io/freegroup/reference/tietze.md)
+  [`tietze(`*`<matrix>`*`)`](https://robinhankin.github.io/freegroup/reference/tietze.md)
+  [`vec_to_matrix()`](https://robinhankin.github.io/freegroup/reference/tietze.md)
+  : Tietze form for free group objects
+
