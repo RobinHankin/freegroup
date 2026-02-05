@@ -273,7 +273,7 @@ all(c(x, y) * z == c(x*z, y*z))
 
 
 There is also a commutator bracket, defined as $[x,y]=x^{-1}y^{-1}xy$
-or in package idiom \code{.[x,y]=-x-y+x+y}:
+or in package idiom \code{.[x,y] = -x-y+x+y}:
 
 <<>>=
 .[p,a]
