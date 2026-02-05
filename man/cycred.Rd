@@ -52,7 +52,7 @@ allconj(x)
   TRUE.  Also, it is clear that the identity should be conjugate to
   itself.
 
-  Two words \eqn{a,b} are \dfn{conjugate} if there exists a \eqn{x} such
+  Two words \eqn{a,b} are \dfn{conjugate} if there exists \eqn{x} such
   that \eqn{ax=xb} (or equivalently \eqn{a=x^{-1}bx}{a=x^-1 b x}).  This
   is detected by function \code{is.conjugate()}.  Functions
   \code{is_conjugate_single()} and \code{cyclically_reduce_tietze()} are
