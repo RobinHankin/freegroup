@@ -66,41 +66,41 @@ actually do it, you crazy fool).
 abc(26)
 #> [1] a.b.c.d.e.f.g.h.i.j.k.l.m.n.o.p.q.r.s.t.u.v.w.x.y.z
 rfree(1,10)
-#> [1] j^10.b.a^4.d^-5.c^4.g^8.e^-5.b^-7.a^5.d^10
+#> [1] i^7.g^6.i^9.h^4.b^2.c^-8.g^10.j^7.e^6.j^9
 
 
 # if we need more than 26:
 options(freegroup_symbols=state.name)
 rfree(10,4)
-#>  [1] Alabama^-2.Arkansas^-4                     
-#>  [2] Arkansas                                   
-#>  [3] Alabama^-4.Arkansas^-2.Arizona^2           
-#>  [4] Arizona^-4.Alaska^-1.Alabama^2.Alaska^2    
-#>  [5] Alabama.Arkansas^-4.Alabama^4.Arizona^-2   
-#>  [6] Alaska^4.Arizona^-5.Alaska                 
-#>  [7] Arkansas^4.Alaska^-3.Arizona^-4.Arkansas^-1
-#>  [8] Arizona^4.Alabama^-2                       
-#>  [9] Arkansas^2.Alaska                          
-#> [10] Alaska^2.Arizona^3.Arkansas^-3.Alaska^-2   
+#>  [1] Alabama.Alaska^4.Arkansas^-2.Arizona       
+#>  [2] Alabama^3.Arkansas^2                       
+#>  [3] Arkansas^-4.Arizona^-2                     
+#>  [4] Arizona^-4                                 
+#>  [5] Arkansas^-2.Arizona^2.Alabama^-1           
+#>  [6] Alabama^2.Alaska^2.Arkansas^3              
+#>  [7] Alabama^-4.Arizona^4.Alabama^-2.Alaska^-3  
+#>  [8] Arizona^2.Alaska^-3.Arkansas               
+#>  [9] Arkansas^4.Alaska^-3.Arizona^-4.Arkansas^-1
+#> [10] Arizona^4.Alabama^-2                       
 
 # or even:
 jj <- letters[1:10]
 options(freegroup_symbols=apply(expand.grid(jj,jj),1,paste,collapse=""))
 rfree(10,10,100,4)
-#>  [1] ag^4.ji^2.ai^3.fa^4.ie^4.jb^2.dd^3.aj.ai^2.hj^2  
-#>  [2] cj^3.fj^2.ha^2.dg^4.de^3.cb^4.jc^4.ei^4.hd^3.ef^3
-#>  [3] fi^4.if.ed.eg^3.bg^3.gg.ii^2.bb.ee^3.ed          
-#>  [4] dg.cj^2.fd^3.ga.jj.bh^3.dg.dc^2.hj.if^3          
-#>  [5] hg^4.db^3.aj.ed^4.jc^4.gf.bi^3.ag^2.ib^7         
-#>  [6] gj.bb^2.fi^2.ah^2.ia^2.cg^3.dc^2.ie^4.jj.jc      
-#>  [7] hh^4.ah^3.jd.gg^2.ef^5.hc^3.fg^4.ba^2.fa^2       
-#>  [8] jf^3.fd.de^3.ih^4.ii.df.ec^2.fc^2.ad^4.ii^3      
-#>  [9] ia^4.ee^4.fh^3.hb^3.hh^2.jg^4.hc^2.ie.ha^3.gj    
-#> [10] bb^2.gj^2.fb.ia.ch.jd^3.hj^4.ab^3.ii^3.aa^2      
+#>  [1] ji^2.bd.dj.ge^2.dc^4.jb^4.bc^4.bg^4.eh^3.hi^3  
+#>  [2] jd^4.cg^2.hj^3.ca.ag^2.ji^4.ai^2.fa^3.ie^4.jb^4
+#>  [3] fi^5.cj^3.fj^2.ha^2.dg^4.de^3.cb^4.jc^4.ei^4   
+#>  [4] cg.gc^3.fi^4.if.ed.eg^3.bg^3.gg.ii^2.bb        
+#>  [5] cc^2.cf.dg^3.cj.fd^2.ga^3.jj.bh.dg^3.dc        
+#>  [6] jc^3.hg^3.db^3.aj^3.ed^4.jc^3.gf.bi^4.ag^4.ib  
+#>  [7] eb^4.ba.ha^4.ab^2.gj.bb^2.fi^2.ah^2.ia^2.cg^3  
+#>  [8] bg^4.hi^2.ig^2.cb^2.hh^4.ah^3.jd.gg^2.ef^5     
+#>  [9] eh^2.hc^2.hj^3.jf.fd^3.de.ih^3.ii^4.df.ec      
+#> [10] je^4.ji.hc^4.eb.ia^4.ee^4.fh^3.hb^3.hh^2.jg^4  
 
 options(freegroup_symbols=NULL)  #  NULL is interpreted as letters a-z
 rfree(10,4)            #  back to normal
-#>  [1] b^-3.a^3.b^4     b^2.c            a^-1.d.c^3.a^2   d               
-#>  [5] d.c^3.d^-2       d^-1.b^3.c^2     b^4.d^2.c^3.b^-2 b^4.c^-1.a^-3   
-#>  [9] c^-3.d^7.b^-4    d^-4.a.c        
+#>  [1] b^-4.a^4.c^4.a^3 b^-4.c^4         c.d^-3.c^-1      d^-2.b^2        
+#>  [5] b.a^-1           d^2.b^-4         d^3.c^-1.d       d^-1.c^-1.d     
+#>  [9] c^9.b^2          c^-4.b^4.c^-1   
 ```
