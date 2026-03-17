@@ -13,15 +13,15 @@
 \description{Vectorized functionality to implement outer automorphisms
   of the free group}
 \usage{
-permsymb_single_X(X,f)
-permsymb_single_f(X,f)
-permsymb_vec(X,f)
-permsymb(X,f)
-autosub_lowlevel(M,e,S)
-autosub(X,e,S,automorphism_warning=TRUE)
+permsymb_single_X(X, f)
+permsymb_single_f(X, f)
+permsymb_vec(X, f)
+permsymb(X, f)
+autosub_lowlevel(M, e, S)
+autosub(X, e, S, automorphism_warning=TRUE)
 }
 \arguments{
-  \item{X,S}{Object of class \code{free}}
+  \item{X, S}{Object of class \code{free}}
   \item{f}{Permutation function}
   \item{M}{Single free group element, in two-row matrix form}
   \item{e}{Single element to substitute}
@@ -71,12 +71,10 @@ Encyclopedia}. Retrieved 19:58, January 10, 2019, from
 
 \examples{
 
-P <- as.free(c("abc","aba","cc","ca"))
-autosub(P,"c",as.free("xyz"))
+P <- as.free(c("abc", "aba", "cc", "ca"))
+autosub(P, "c", as.free("xyz"))
 
-flip(P,"c")
-flip(P,"ac")
-
-
+flip(P, "c")
+flip(P, "ac")
 
 }
