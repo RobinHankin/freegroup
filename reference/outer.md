@@ -6,17 +6,17 @@ group
 ## Usage
 
 ``` r
-permsymb_single_X(X,f)
-permsymb_single_f(X,f)
-permsymb_vec(X,f)
-permsymb(X,f)
-autosub_lowlevel(M,e,S)
-autosub(X,e,S,automorphism_warning=TRUE)
+permsymb_single_X(X, f)
+permsymb_single_f(X, f)
+permsymb_vec(X, f)
+permsymb(X, f)
+autosub_lowlevel(M, e, S)
+autosub(X, e, S, automorphism_warning=TRUE)
 ```
 
 ## Arguments
 
-- X,S:
+- X, S:
 
   Object of class `free`
 
@@ -92,14 +92,12 @@ perfect.
 ## Examples
 
 ``` r
-P <- as.free(c("abc","aba","cc","ca"))
-autosub(P,"c",as.free("xyz"))
+P <- as.free(c("abc", "aba", "cc", "ca"))
+autosub(P, "c", as.free("xyz"))
 #> [1] a.b.c.x.y.z     a.b.a           c.x.y.z.c.x.y.z c.x.y.z.a      
 
-flip(P,"c")
+flip(P, "c")
 #> [1] a.b.c^-1 a.b.a    c^-2     c^-1.a  
-flip(P,"ac")
+flip(P, "ac")
 #> [1] a^-1.b.c^-1 a^-1.b.a^-1 c^-2        c^-1.a^-1  
-
-
 ```
