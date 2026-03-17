@@ -51,7 +51,7 @@ inspired this functionality.
 ## Examples
 
 ``` r
-(a <- rfree(20,6,4))
+(a <- rfree(20, 6, 4))
 #>  [1] b^-3.d.b^-5.a^-5.c^3.d      d^2.b^-8                   
 #>  [3] a^-3.b^4                    c^-3.b^-3.d^-3             
 #>  [5] b^8.a^4.c^-1.b^5.d^-5       a^-2.b^2.a^6.c^-6.a^-3.c^-5
@@ -69,8 +69,8 @@ total(a)
 number(a)
 #>  [1] 4 2 2 3 4 3 3 2 4 3 2 2 2 4 3 3 3 3 4 3
 
-a <- rfree(20,6,4)
-b <- rfree(20,6,4)
+a <- rfree(20, 6, 4)
+b <- rfree(20, 6, 4)
 
 ## Following should all be TRUE
 size(a+b)   <= size(a)  + size(b)
@@ -83,7 +83,7 @@ number(a+b) <= number(a)+ number(b)
 #>  [1] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
 #> [16] TRUE TRUE TRUE TRUE TRUE
 
-bigness(rfree(10,3,3))
+bigness(rfree(10, 3, 3))
 #>                size total number
 #> a^-1.c^-1.b^-3    3     5      3
 #> a^-1              1     1      1
@@ -95,7 +95,7 @@ bigness(rfree(10,3,3))
 #> a^-1.c^-2         2     3      2
 #> c^-2              1     2      1
 #> c^-3.b^3.a        3     7      3
-bigness(allconj(rfree(1,6,1)))
+bigness(allconj(rfree(1, 6, 1)))
 #>       size total number
 #> a^-14    1    14      1
 #> a^-14    1    14      1
