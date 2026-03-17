@@ -35,13 +35,13 @@ Robin K. S. Hankin
 (y <- alpha(22:25))
 #> [1] v w x y
 
-c(x,y,x,x)
+c(x, y, x, x)
 #>  [1] a     a.b   a.b.c v     w     x     y     a     a.b   a.b.c a     a.b  
 #> [13] a.b.c
 
 
 ## NB: compare
-rep(x,2)  
+rep(x, 2)  
 #> [1] a     a.b   a.b.c a     a.b   a.b.c
 x*2  
 #> [1] a^2         a.b.a.b     a.b.c.a.b.c
