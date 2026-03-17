@@ -21,7 +21,6 @@ inst/freegroup_arxiv.tex
 inst/orcid.pdf
 inst/Makefile
 ^README\.Rmd$
-^\.travis\.yml$
 codecov.yml
 ^.github$
 ^.devcontainer$
