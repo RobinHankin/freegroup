@@ -30,6 +30,7 @@ Robin K. S. Hankin
 ## Examples
 
 ``` r
+
 .[as.free("x"), as.free("y")]
 #> [1] x^-1.y^-1.x.y
 

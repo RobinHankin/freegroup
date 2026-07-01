@@ -54,6 +54,7 @@ Robin K. S. Hankin. The code for finding the factors of an integer was
 ## Examples
 
 ``` r
+
 is.primitive(as.free(c("a","aaaa", "aaaab", "aabaab", "aabcaabcaabcaabc")))
 #> [1]  TRUE FALSE  TRUE FALSE FALSE
 

@@ -21,6 +21,7 @@ You can install the released version of freegroup from
 [CRAN](https://CRAN.R-project.org) with:
 
 ``` r
+
 # install.packages("freegroup")  # uncomment this to install the package
 library("freegroup")
 ```
@@ -33,6 +34,7 @@ generates a vector of random free group elements, giving quick “get you
 going” examples:
 
 ``` r
+
 a <- rfree(10,5)
 a
 #>  [1] a.d^5.a^-4.b^5.e^-3 a.e^2.b^2           a^3.e^-7.b^-3      
@@ -45,6 +47,7 @@ b <- as.free('x')
 Then we can perform various operations on these vectors:
 
 ``` r
+
 a+b
 #>  [1] a.d^5.a^-4.b^5.e^-3.x a.e^2.b^2.x           a^3.e^-7.b^-3.x      
 #>  [4] b^7.d^4.x             a^2.b^-4.c^-4.x       a^-5.d^3.c^3.x       
@@ -66,6 +69,7 @@ a^b
 There are a number of package functions that work in a vectorized way:
 
 ``` r
+
 sum(a)
 #> [1] a.d^5.a^-4.b^5.e^-3.a.e^2.b^2.a^3.e^-7.b^4.d^4.a^2.b^-4.c^-4.a^-5.d^3.c^3.d^-5.e^-1.d^-5.e^3.c.b^-7.c^4.b^-5.c^6.e^-1.d^5.a^-5
 ```
@@ -73,6 +77,7 @@ sum(a)
 The package also supports extraction and replacement:
 
 ``` r
+
 a[3:9] <- as.free('xy')
 a
 #>  [1] a.d^5.a^-4.b^5.e^-3 a.e^2.b^2           x.y                
@@ -84,6 +89,7 @@ a
 Various simple elements can be created:
 
 ``` r
+
 alpha(1:10)
 #>  [1] a b c d e f g h i j
 abc(1:5)

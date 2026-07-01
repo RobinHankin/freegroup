@@ -61,6 +61,7 @@ actually do it, you crazy fool).
 ## Examples
 
 ``` r
+
 ## default symbols:
 
 abc(26)

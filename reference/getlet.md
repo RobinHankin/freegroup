@@ -27,6 +27,7 @@ is sorted for convenience.
 ## Examples
 
 ``` r
+
 (x <- rfree(6,7,3))
 #> [1] b^-2.a^-1.c^-5.b^-5     a^14.c^-3.b^7.a^-2      a^-2.c^3.b^7.c^5       
 #> [4] c^-3.b.c^-2.a^-7        b.a^7.b^2.a.b^4.c^-5    c^-7.a^7.b^-7.c^-2.b^-5

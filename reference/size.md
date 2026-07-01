@@ -51,6 +51,7 @@ inspired this functionality.
 ## Examples
 
 ``` r
+
 (a <- rfree(20, 6, 4))
 #>  [1] b^-3.d.b^-5.a^-5.c^3.d      d^2.b^-8                   
 #>  [3] a^-3.b^4                    c^-3.b^-3.d^-3             

@@ -72,6 +72,7 @@ have been better.
 
 ``` r
 
+
 x <- as.free(c("a","ab","aaab","abacc"))
 y <- as.free(c("aa","BA","Bab","aaaaa"))
 x

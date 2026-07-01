@@ -61,6 +61,7 @@ same as substituting for `X`. This behaviour might change in the future.
 ## Examples
 
 ``` r
+
 subsu(abc(1:10),abc(5),'z')
 #>  [1] z             z^2           z^3           z^4           z^5          
 #>  [6] z^5.f         z^5.f.g       z^5.f.g.h     z^5.f.g.h.i   z^5.f.g.h.i.j

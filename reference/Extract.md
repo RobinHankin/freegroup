@@ -28,6 +28,7 @@ Extraction by `NA` is not implemented.
 ## Examples
 
 ``` r
+
 (x <- rfree(20,8,8))
 #>  [1] e^-5.g^-7.e^-4.f^6.g^-3              f^-7.g^-3.c^-5.f^7.c^-7.e^-4.d^-2   
 #>  [3] h^-7.e^8.f^-8.a^-3.f^-7.g^5.b^-8.h^6 b^7.e^2.h^-6.a^-7.h.d^-6.c^-3.d^-5  

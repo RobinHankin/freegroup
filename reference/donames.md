@@ -36,6 +36,7 @@ Robin K. S. Hankin
 ## Examples
 
 ``` r
+
 x <- rfree(9,4)
 x
 #> [1] a^-1.b^4        c^-4            b^4.c^4.b^4     a^3.b^-3.a^-1.b

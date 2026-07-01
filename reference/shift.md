@@ -36,6 +36,7 @@ Robin K. S. Hankin
 ## Examples
 
 ``` r
+
 shift(1:9)
 #> [1] 9 1 2 3 4 5 6 7 8
 shift(1:9,-1)

@@ -92,6 +92,7 @@ perfect.
 ## Examples
 
 ``` r
+
 P <- as.free(c("abc", "aba", "cc", "ca"))
 autosub(P, "c", as.free("xyz"))
 #> [1] a.b.c.x.y.z     a.b.a           c.x.y.z.c.x.y.z c.x.y.z.a      

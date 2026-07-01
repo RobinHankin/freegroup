@@ -25,6 +25,7 @@ The basic structure of an element of the free group is a two-row matrix.
 The top row is the symbols (1=a, 2=b, 3=c, etc) and the bottom row is
 the corresponding power. Thus \\a^2ba^{-1}c^9\\ would be
 
+
     > rbind(c(1,2,1,3),c(2,1,-1,9))
          [,1] [,2] [,3] [,4]
     [1,]    1    2    1    3

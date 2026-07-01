@@ -35,6 +35,7 @@ section.
 ## Examples
 
 ``` r
+
 abs(abc(-5:5))
 #>  [1] e.d.c.b.a d.c.b.a   c.b.a     b.a       a         0         a        
 #>  [8] a.b       a.b.c     a.b.c.d   a.b.c.d.e

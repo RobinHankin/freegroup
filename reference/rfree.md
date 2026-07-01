@@ -49,6 +49,7 @@ Robin K. S. Hankin
 ## Examples
 
 ``` r
+
 rfree()
 #> [1] c^3.d^-3.c^3.d^4  a^-4.d^2          a^-1.b^2.c^2.b^-4 b^2.d^-1         
 #> [5] c^-2.a^-3.b^2     d.c^2.d^2         a^2.b^-4.d.a^-1  

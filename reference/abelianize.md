@@ -39,6 +39,7 @@ Robin K. S. Hankin
 ## Examples
 
 ``` r
+
 x <- as.free("aabAA")
 x
 #> [1] a^2.b.a^-2

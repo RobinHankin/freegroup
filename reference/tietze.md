@@ -36,6 +36,7 @@ Robin K. S. Hankin
 ## Examples
 
 ``` r
+
 (x <- rfree(10,3))
 #>  [1] a^-2.b^-1    c^-2.a^-1    c^3.b^3.c^-1 b^-1         c^2.b^-2    
 #>  [6] c^-2.a^-1    a^3.c^3      a^-1.b^2     a^2.c^-1     c.a^-1      
