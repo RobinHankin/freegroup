@@ -2,9 +2,8 @@
 
 ## All functions
 
-- [`Extract.free`](https://robinhankin.github.io/freegroup/reference/Extract.md)
-  [`[.free`](https://robinhankin.github.io/freegroup/reference/Extract.md)
-  [`[<-.free`](https://robinhankin.github.io/freegroup/reference/Extract.md)
+- [`` `[`( ``*`<free>`*`)`](https://robinhankin.github.io/freegroup/reference/Extract.md)
+  [`` `[<-`( ``*`<free>`*`)`](https://robinhankin.github.io/freegroup/reference/Extract.md)
   : Extract or replace parts of a free group object
 
 - [`Ops(`*`<free>`*`)`](https://robinhankin.github.io/freegroup/reference/Ops.free.md)
@@ -55,21 +54,8 @@
 - [`donames()`](https://robinhankin.github.io/freegroup/reference/donames.md)
   : Names attributes of free group elements
 
-- [`dot`](https://robinhankin.github.io/freegroup/reference/dot.md)
-  [`.`](https://robinhankin.github.io/freegroup/reference/dot.md)
-  [`dot-class`](https://robinhankin.github.io/freegroup/reference/dot.md)
-  [`extract`](https://robinhankin.github.io/freegroup/reference/dot.md)
-  [`commutator`](https://robinhankin.github.io/freegroup/reference/dot.md)
-  [`jacobi`](https://robinhankin.github.io/freegroup/reference/dot.md)
-  [`dot_error`](https://robinhankin.github.io/freegroup/reference/dot.md)
-  [`[.dot`](https://robinhankin.github.io/freegroup/reference/dot.md)
-  [`[,dot-method`](https://robinhankin.github.io/freegroup/reference/dot.md)
-  [`[,dot,ANY,ANY-method`](https://robinhankin.github.io/freegroup/reference/dot.md)
-  [`[,dot,ANY,missing-method`](https://robinhankin.github.io/freegroup/reference/dot.md)
-  [`[,dot,missing,ANY-method`](https://robinhankin.github.io/freegroup/reference/dot.md)
-  [`[,dot,missing,missing-method`](https://robinhankin.github.io/freegroup/reference/dot.md)
-  [`[,dot,matrix,matrix-method`](https://robinhankin.github.io/freegroup/reference/dot.md)
-  [`[,dot,free,ANY,ANY-method`](https://robinhankin.github.io/freegroup/reference/dot.md)
+- [`` `[`( ``*`<dot>`*`,`*`<ANY>`*`,`*`<ANY>`*`)`](https://robinhankin.github.io/freegroup/reference/dot.md)
+  [`` `[`( ``*`<dot>`*`,`*`<free>`*`,`*`<ANY>`*`,`*`<ANY>`*`)`](https://robinhankin.github.io/freegroup/reference/dot.md)
   : Class “dot”
 
 - [`free()`](https://robinhankin.github.io/freegroup/reference/free.md)

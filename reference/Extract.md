@@ -2,6 +2,15 @@
 
 Extract or replace subsets of free objects
 
+## Usage
+
+``` r
+# S3 method for class 'free'
+x[...]
+# S3 method for class 'free'
+x[index] <- value
+```
+
 ## Arguments
 
 - x:
@@ -15,6 +24,10 @@ Extract or replace subsets of free objects
 - value:
 
   replacement value
+
+- ...:
+
+  Elements to extract
 
 ## Details
 
