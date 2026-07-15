@@ -1,0 +1,74 @@
+---
+title: "The dot: commutators and the Jacobi identity in the freegroup package"
+output: bookdown::html_document2
+---
+
+```{r setup,include=FALSE}
+set.seed(0)
+knitr::opts_chunk$set(echo = TRUE)
+library("freegroup")
+```
+
+<p style="text-align: right;">
+![](`r system.file("help/figures/freegroup.png", package = "freegroup")`){width=10%}
+</p>
+
+This short document introduces the dot object and shows how it can be
+used to work with commutators and verify the Jacobi identity.  The
+prototypical `dot.Rmd` is that of the `freealg` package.  The dot
+object is a (trivial) `S4` object of class `dot`:
+
+```{r}
+`.` <- new("dot")
+```
+
+The point of the dot (!) is that it allows one to calculate the Lie
+bracket $[x,y]=x^{-1}y^{-1}xy$ using R idiom `.[x,y]`.  Thus:
+
+```{r}
+x <- as.free("x")
+y <- as.free("y")
+.[x, y]
+```
+
+We see that `x` and `y` do not commute (if they did, `.[x,y]` would be
+the identity).  It is possible to apply the dot construction `.[x,y]`
+to more complicated examples.  Here I show that the Lie bracket is
+nonassociative:
+
+```{r checknonassociative}
+set.seed(0)
+z <- as.free("z")
+(LHS <- .[x, .[y, z]])
+(RHS <- .[.[x, y], z])
+LHS == RHS
+``` 
+
+We can have some fun verifying elementary properties.  First, observe
+that the abelianization of the commutator is the identity:
+
+```{r checkabelianize}
+abelianize(.[x, y])
+```
+
+With this definition, the Jacobi identity does not hold:
+
+```{r verifyjacobi}
+is.id(.[x, .[y, z]] + .[y, .[z, x]] + .[z, .[x, y]])
+```
+ 
+[the Jacobi identity _does_ hold for $[x,y] = xy-yx$, but here we have
+$[x,y]=x^{-1}y^{-1}xy$].  However, the Hall-Witt identity does hold:
+ 
+```{r verifyhallwitt}
+all(is.id(.[.[x, -y], z]^y + .[.[y, -z], x]^z + .[.[z, -x], y]^x))
+``` 
+
+### Package dataset {-}
+
+Following lines create `dot.rda`, residing in the `data/` directory
+of the package.
+
+```{r,label=saverowingingdataset}
+save(`.`,file="dot.rda")
+```

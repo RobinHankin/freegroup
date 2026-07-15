@@ -1,5 +1,6 @@
 # freegroup 1.2-1
 
+- consistentification of the dot object
 - typos
 
 # freegroup 1.2-0
