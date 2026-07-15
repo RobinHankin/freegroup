@@ -68,9 +68,8 @@
   [`[,dot,ANY,missing-method`](https://robinhankin.github.io/freegroup/reference/dot.md)
   [`[,dot,missing,ANY-method`](https://robinhankin.github.io/freegroup/reference/dot.md)
   [`[,dot,missing,missing-method`](https://robinhankin.github.io/freegroup/reference/dot.md)
-  [`[,dot,free,ANY-method`](https://robinhankin.github.io/freegroup/reference/dot.md)
-  [`[,dot,free,ANY,ANY-method`](https://robinhankin.github.io/freegroup/reference/dot.md)
   [`[,dot,matrix,matrix-method`](https://robinhankin.github.io/freegroup/reference/dot.md)
+  [`[,dot,free,ANY,ANY-method`](https://robinhankin.github.io/freegroup/reference/dot.md)
   : Class “dot”
 
 - [`free()`](https://robinhankin.github.io/freegroup/reference/free.md)
