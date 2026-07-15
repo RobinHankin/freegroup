@@ -4,10 +4,15 @@
 \alias{[<-.free}
 \title{Extract or replace parts of a free group object}
 \description{Extract or replace subsets of free objects}
+\usage{
+\method{[}{free}(x, ...)
+\method{[}{free}(x, index) <-  value
+}
 \arguments{
   \item{x}{Object of class \code{free}}
   \item{index}{elements to extract or replace}
   \item{value}{replacement value}
+  \item{...}{Elements to extract}
 }
 \details{
 These methods (should) work as expected: an object of class

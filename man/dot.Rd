@@ -10,10 +10,6 @@
 \alias{[.dot}
 \alias{[,dot-method}
 \alias{[,dot,ANY,ANY-method}
-\alias{[,dot,ANY,missing-method}
-\alias{[,dot,missing,ANY-method}
-\alias{[,dot,missing,missing-method}
-\alias{[,dot,matrix,matrix-method}
 \alias{[,dot,free,ANY,ANY-method}
 \title{Class \dQuote{dot}}
 \description{
@@ -28,10 +24,14 @@
   directory.
 
 }
+\usage{
+\S4method{[}{dot,ANY,ANY}(x, i, j, drop)
+\S4method{[}{dot,free,ANY,ANY}(x, i, j, drop)
+}
 \arguments{
   \item{x}{Object of any class}
   \item{i, j}{elements to commute}
-  \item{...}{Further arguments to \code{dot_error()}, currently ignored}
+  \item{drop}{Boolean, indicates whether to drop attributes}
 }
 \value{
   Always returns an object of the same class as \code{xy}.
