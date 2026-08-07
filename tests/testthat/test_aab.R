@@ -4,6 +4,12 @@ test_that("Test suite aab.R",{
     expect_true(all(X == X |> autosub('a',S) |> autosub('a',-S)))
 }
 
+## The problem with autosub_checker() is that Nielsen's transformation
+## number 4, viz x1 -> x1x2, is a homomorphism but not an isomorphism.
+
+## A discussion is given at https://github.com/RobinHankin/freegroup/issues/42
+
+
 `permsymb_checker` <- function(X,p){
     expect_true(all(X == X |>
                     permsymb(permutations::as.function.permutation(p)) |>
