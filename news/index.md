@@ -2,6 +2,8 @@
 
 ## freegroup 1.2-1
 
+CRAN release: 2026-07-15
+
 - consistentification of the dot object
 - typos
 

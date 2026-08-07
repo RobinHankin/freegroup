@@ -64,8 +64,9 @@ and operation 4 by `subsymb()`.
 
 Functions `permsymb_single_X()`, `permsymb_single_f()`, `permsymb_vec()`
 and `subsymb_lowlevel()` are low-level helper functions that are not
-really suited for the end user; use `permsymb()`, `(flip)` and
-`subsymb()` instead.
+really suited for the end user; use `permsymb()`,
+[`flip()`](https://robinhankin.github.io/freegroup/reference/subs.md)
+and `subsymb()` instead.
 
 ## References
 
