@@ -52,7 +52,7 @@ automorphisms are effected by function \code{permsymb()}.  Operation
 Functions \code{permsymb_single_X()}, \code{permsymb_single_f()},
 \code{permsymb_vec()} and \code{subsymb_lowlevel()} are low-level helper
 functions that are not really suited for the end user; use
-\code{permsymb()}, \code{(flip)} and \code{subsymb()} instead.
+\code{permsymb()}, \code{flip()} and \code{subsymb()} instead.
 
 }
 \references{
