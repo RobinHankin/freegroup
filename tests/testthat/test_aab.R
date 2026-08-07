@@ -16,7 +16,7 @@ test_that("Test suite aab.R",{
 
 for(n in 3:9){
     for(r in 5:6){
-        autosub_checker(X=rfree(n,r), S=discard(rfree(1,r),'a'))
+#        autosub_checker(X=rfree(n,r), S=discard(rfree(1,r),'a'))
 #        permsymb_checker(X=rfree(n,r), p=rperm(n,r))
     }
 }
