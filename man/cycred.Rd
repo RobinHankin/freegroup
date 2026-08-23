@@ -37,7 +37,7 @@ allconj(x)
   permutation of the word is reduced.  A reduced word is cyclically
   reduced iff the first letter is not the inverse of the last one.  A
   reduced word is cyclically reduced if the first and last symbol differ
-  (irrespective of power) or, if identical, have powers of opposite
+  (irrespective of power) or, if identical, have powers of the same
   sign.  For example, \code{abac} and \code{abca} are cyclically reduced
   but \code{abca^{-1}} is not.  Function \code{is.cyclically_reduced()}
   tests for this.  
@@ -74,8 +74,6 @@ as.cyclically_reduced(x)
  all(total(as.cyclically_reduced(a)) <= total(a))
  all(number(as.cyclically_reduced(a)) <= number(a))
 
-
-
  x <- rfree(1000,2)
  y <- as.free('ab')
  table(conjugate = (x\%~\%y), equal = (x==y))  # note zero at top right
@@ -83,11 +81,7 @@ as.cyclically_reduced(x)
  allconj(as.free('aaaaab'))
  allconj(sum(abc(seq_len(3))))
 
-
-
  x <- rfree(1,10,8,8)
  all(is.id(allconj(x) + allconj(-x)[shift(rev(seq_len(total(x))))]))
-
-
 
 }
