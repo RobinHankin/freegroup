@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">freegroup</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.2-1-1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.2-2</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -68,7 +68,7 @@
   permutation of the word is reduced.  A reduced word is cyclically
   reduced iff the first letter is not the inverse of the last one.  A
   reduced word is cyclically reduced if the first and last symbol differ
-  (irrespective of power) or, if identical, have powers of opposite
+  (irrespective of power) or, if identical, have powers of the same
   sign.  For example, <code>abac</code> and <code>abca</code> are cyclically reduced
   but <code>abca^{-1}</code> is not.  Function <code>is.cyclically_reduced()</code>
   tests for this.</p>
@@ -129,8 +129,6 @@
 <span class="r-in"><span> <span class="fu"><a href="https://rdrr.io/r/base/all.html" class="external-link">all</a></span><span class="op">(</span><span class="fu"><a href="size.html">number</a></span><span class="op">(</span><span class="fu">as.cyclically_reduced</span><span class="op">(</span><span class="va">a</span><span class="op">)</span><span class="op">)</span> <span class="op">&lt;=</span> <span class="fu"><a href="size.html">number</a></span><span class="op">(</span><span class="va">a</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] TRUE</span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span></span></span>
 <span class="r-in"><span> <span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="rfree.html">rfree</a></span><span class="op">(</span><span class="fl">1000</span>,<span class="fl">2</span><span class="op">)</span></span></span>
 <span class="r-in"><span> <span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="free.html">as.free</a></span><span class="op">(</span><span class="st">'ab'</span><span class="op">)</span></span></span>
 <span class="r-in"><span> <span class="fu"><a href="https://rdrr.io/r/base/table.html" class="external-link">table</a></span><span class="op">(</span>conjugate <span class="op">=</span> <span class="op">(</span><span class="va">x</span><span class="op">%~%</span><span class="va">y</span><span class="op">)</span>, equal <span class="op">=</span> <span class="op">(</span><span class="va">x</span><span class="op">==</span><span class="va">y</span><span class="op">)</span><span class="op">)</span>  <span class="co"># note zero at top right</span></span></span>
@@ -144,13 +142,9 @@
 <span class="r-in"><span> <span class="fu">allconj</span><span class="op">(</span><span class="fu"><a href="sum.html">sum</a></span><span class="op">(</span><span class="fu"><a href="alpha.html">abc</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq_len</a></span><span class="op">(</span><span class="fl">3</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] a^2.b.a.b.c c.a^2.b.a.b b.c.a^2.b.a a.b.c.a^2.b b.a.b.c.a^2 a.b.a.b.c.a</span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span></span></span>
 <span class="r-in"><span> <span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="rfree.html">rfree</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">10</span>,<span class="fl">8</span>,<span class="fl">8</span><span class="op">)</span></span></span>
 <span class="r-in"><span> <span class="fu"><a href="https://rdrr.io/r/base/all.html" class="external-link">all</a></span><span class="op">(</span><span class="fu"><a href="identity.html">is.id</a></span><span class="op">(</span><span class="fu">allconj</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">+</span> <span class="fu">allconj</span><span class="op">(</span><span class="op">-</span><span class="va">x</span><span class="op">)</span><span class="op">[</span><span class="fu"><a href="shift.html">shift</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rev.html" class="external-link">rev</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq_len</a></span><span class="op">(</span><span class="fu"><a href="size.html">total</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">]</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] TRUE</span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span></span></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
